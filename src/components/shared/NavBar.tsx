@@ -1,33 +1,35 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React, { useState } from "react";
 import logo from "../../../public/images/logo-white.png";
 import Link from "next/link";
-import { FiMenu } from "react-icons/fi"; 
+import { FiMenu } from "react-icons/fi";
 import { navigation } from "@/utils/constants";
 import { usePathname } from "next/navigation";
 
 const NavBar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev); 
+    setIsMenuOpen((prev) => !prev);
   };
 
   return (
     <header className="sticky top-0 z-50 bg-primary text-white">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
         {/* Logo and Title */}
-        <div className="flex items-center space-x-2">
-          <Image
-            src={logo}
-            alt="Petite Elise PreSchool"
-            height={50}
-            width={50}
-          />
-          <span className="font-bold">Petite Elise Preschool</span>
-        </div>
+        <Link href="/">
+          <div className="flex items-center space-x-2">
+            <Image
+              src={logo}
+              alt="Petite Elise PreSchool"
+              height={50}
+              width={50}
+            />
+            <span className="font-bold">Petite Elise Preschool</span>
+          </div>
+        </Link>
 
         {/* Navigation Links on Larger Screens */}
         <ul className="hidden md:flex space-x-6">
@@ -36,7 +38,9 @@ const NavBar: React.FC = () => {
               key={nav?.title}
               href={nav?.href}
               className={`${
-                pathname === nav?.href ? "text-secondary" : "hover:text-secondary"
+                pathname === nav?.href
+                  ? "text-secondary"
+                  : "hover:text-secondary"
               } transition-colors`}
             >
               {nav?.title}
@@ -82,7 +86,9 @@ const NavBar: React.FC = () => {
                   <Link
                     href={nav?.href}
                     className={`${
-                      pathname === nav?.href ? "text-secondary" : "hover:text-secondary"
+                      pathname === nav?.href
+                        ? "text-secondary"
+                        : "hover:text-secondary"
                     } text-white transition-colors`}
                   >
                     {nav?.title}
