@@ -8,7 +8,7 @@ const AboutUs = () => {
         {/* Image Section */}
         <div className="relative">
           <Image
-            src="https://static.vecteezy.com/system/resources/thumbnails/043/993/044/small_2x/ai-generated-children-engaging-with-colorful-toys-free-photo.jpg"
+            src="https://images.squarespace-cdn.com/content/v1/5d84e6b80e37fa228b201806/1579206594469-OOCJYPYF18VDDJ0DJ44N/IMG_2963.jpg"
             alt="Students engaging in colorful activities"
             width={800}
             height={900}

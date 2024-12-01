@@ -72,7 +72,7 @@ const HeroSection = () => {
             <div className="absolute -bottom-4 -right-4 w-10 h-10 md:w-12 md:h-12 bg-[#E17E7C] rounded-full flex items-center justify-center animate-bounce shadow-lg">
               <span className="text-lg md:text-2xl">📚</span>
             </div>
-            <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 hidden lg:block">
+            {/* <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 hidden lg:block">
               <div className="bg-white shadow-lg rounded-lg p-2 transform -rotate-90 origin-top-left">
                 <ul className="flex space-x-2">
                   {["📏", "✏️", "🖍️", "🧩"].map((emoji, index) => (
@@ -82,7 +82,7 @@ const HeroSection = () => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

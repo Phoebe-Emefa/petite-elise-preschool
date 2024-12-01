@@ -2,15 +2,17 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import logo from "../../../public/images/logo-white.png";
-import { navigation } from "@/utils/constants";
 import Link from "next/link";
-import { FiMenu } from "react-icons/fi"; // Importing menu icon from react-icons
+import { FiMenu } from "react-icons/fi"; 
+import { navigation } from "@/utils/constants";
+import { usePathname } from "next/navigation";
 
 const NavBar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // To manage the drawer state
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const pathname = usePathname();
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev); // Toggle the drawer menu
+    setIsMenuOpen((prev) => !prev); 
   };
 
   return (
@@ -33,7 +35,9 @@ const NavBar: React.FC = () => {
             <Link
               key={nav?.title}
               href={nav?.href}
-              className="hover:text-secondary transition-colors"
+              className={`${
+                pathname === nav?.href ? "text-secondary" : "hover:text-secondary"
+              } transition-colors`}
             >
               {nav?.title}
             </Link>
@@ -77,7 +81,9 @@ const NavBar: React.FC = () => {
                 <li key={nav?.title}>
                   <Link
                     href={nav?.href}
-                    className="text-white hover:text-secondary transition-colors"
+                    className={`${
+                      pathname === nav?.href ? "text-secondary" : "hover:text-secondary"
+                    } text-white transition-colors`}
                   >
                     {nav?.title}
                   </Link>
@@ -87,7 +93,7 @@ const NavBar: React.FC = () => {
               <li>
                 <a
                   href="/contact"
-                  className=" border border-secondary text-secondary px-4 py-2 rounded hover:bg-secondary hover:text-white transition"
+                  className="border border-secondary text-secondary px-4 py-2 rounded hover:bg-secondary hover:text-white transition"
                 >
                   Admissions
                 </a>
