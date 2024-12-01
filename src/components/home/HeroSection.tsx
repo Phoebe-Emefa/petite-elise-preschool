@@ -20,7 +20,7 @@ const HeroSection = () => {
               </h1>
               <div className="w-full h-1 bg-gradient-to-r from-[#f9f871] to-[#aee87d] rounded-full transform -skew-x-12"></div>
               <p className="text-white/90 text-base md:text-lg max-w-lg leading-relaxed">
-              Nurturing young minds to become curious, resilient, and independent thinkers in a safe, loving environment
+              Nurtur young minds to become curious, resilient, and independent thinkers in a safe, loving environment
               </p>
             </div>
 

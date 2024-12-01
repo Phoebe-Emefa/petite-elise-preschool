@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['static.vecteezy.com'], // Add the external domain here
+    domains: ['static.vecteezy.com', 'citinewsroom.com'], // Add the external domain here
   },
 };
 
