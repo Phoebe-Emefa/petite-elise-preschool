@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
               <li className="text-muted-foreground">123 School Street</li>
               <li className="text-muted-foreground">Anytown, ST 12345</li>
               <li className="text-muted-foreground">Phone: (123) 456-7890</li>
-              <li className="text-muted-foreground">Email: info@littleschool.com</li>
+              <li className="text-muted-foreground">Email: info@petiteelisepreschool.com</li>
             </ul>
           </div>
           <div>

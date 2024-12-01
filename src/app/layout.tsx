@@ -7,8 +7,11 @@ import Footer from "@/components/shared/Footer";
 const quickSand = Quicksand({subsets: ["latin"], variable: "--font-quick-sand"});
 
 export const metadata: Metadata = {
-  title: "Petite Elise",
-  description: "A wonderful place for little ones to grow and learn in a safe, nurturing environment.",
+  title: "Petite Elise Preschool",
+  description: "Nurturing young minds to become curious, resilient, and independent thinkers in a safe, loving environment",
+  icons: {
+    icon: "/icons/logo.petite-elise.ico"
+  }
 }
 
 
