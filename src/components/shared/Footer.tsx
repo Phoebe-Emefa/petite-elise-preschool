@@ -5,14 +5,14 @@ import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer: React.FC = () => {
   return (
     <footer className="w-full border-t bg-[#ecf0f1]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between items-center lg:items-center py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-          <div className="space-y-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3  lg:justify-items-start">
+          <div className="space-y-4 text-left">
             <h3 className="text-lg font-bold">Petite Elise Preschool</h3>
             <p className="text-sm text-muted-foreground">
-            Nurturing young minds to become curious, resilient, and independent thinkers in a safe, loving environment
+              Nurturing young minds to become curious, resilient, and independent thinkers in a safe, loving environment
             </p>
-            <div className="flex space-x-4">
+            <div className="flex justify-start space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-primary">
                 <FaFacebookF className="h-5 w-5" />
               </Link>
@@ -24,27 +24,7 @@ const Footer: React.FC = () => {
               </Link>
             </div>
           </div>
-          <div>
-            <h3 className="mb-4 text-lg font-bold">Programs</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  Preschool
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  Summer Program
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  Extended Day
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
+          <div className="text-left">
             <h3 className="mb-4 text-lg font-bold">Contact Us</h3>
             <ul className="space-y-2 text-sm">
               <li className="text-muted-foreground">123 School Street</li>
@@ -53,12 +33,22 @@ const Footer: React.FC = () => {
               <li className="text-muted-foreground">Email: info@petiteelisepreschool.com</li>
             </ul>
           </div>
-          <div>
+          <div className="text-left">
             <h3 className="mb-4 text-lg font-bold">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Link href="/admissions" className="text-muted-foreground hover:text-primary">
                   Admissions
+                </Link>
+              </li>
+              <li>
+                <Link href="/programs" className="text-muted-foreground hover:text-primary">
+                  Programs
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-muted-foreground hover:text-primary">
+                  Contact Us
                 </Link>
               </li>
             </ul>

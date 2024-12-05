@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import logo from "../../../public/images/logo-white.png";
 import Link from "next/link";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi"; // Importing FiX for close icon
 import { navigation } from "@/utils/constants";
 import { usePathname } from "next/navigation";
 
@@ -13,6 +13,11 @@ const NavBar: React.FC = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
+  };
+
+  // Function to close menu after a link is clicked
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -27,7 +32,7 @@ const NavBar: React.FC = () => {
               height={50}
               width={50}
             />
-            <span className="font-bold">Petite Elise Preschool</span>
+            <span className="font-bold text-white">Petite Elise Preschool</span>
           </div>
         </Link>
 
@@ -52,7 +57,7 @@ const NavBar: React.FC = () => {
         <div className="hidden md:flex items-center space-x-4">
           {/* Admissions Button */}
           <a
-            href="/contact"
+            href="/admissions"
             className="border border-secondary text-secondary px-4 py-2 rounded hover:bg-secondary hover:text-white transition"
           >
             Admissions
@@ -71,40 +76,43 @@ const NavBar: React.FC = () => {
 
       {/* Drawer Menu for Mobile Screens */}
       {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40">
-          <div className="flex justify-end p-4">
-            <FiMenu
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 transition-all duration-300 ease-in-out">
+          <div className="flex justify-end p-6">
+            <FiX
               onClick={toggleMenu}
               size={30}
               className="cursor-pointer text-white"
             />
           </div>
-          <div className="bg-primary w-4/5 h-full p-6">
-            <ul className="space-y-6">
+          <div className="bg-primary w-full h-full p-6">
+            <ul className="space-y-8 flex flex-col items-start justify-start">
               {navigation?.map((nav) => (
                 <li key={nav?.title}>
                   <Link
                     href={nav?.href}
+                    onClick={closeMenu} // Close the menu on link click
                     className={`${
                       pathname === nav?.href
                         ? "text-secondary"
-                        : "hover:text-secondary"
-                    } text-white transition-colors`}
+                        : "text-white hover:text-secondary"
+                    } text-2xl font-medium transition-colors duration-300`}
                   >
                     {nav?.title}
                   </Link>
                 </li>
               ))}
-              {/* Admissions Button in Drawer */}
-              <li>
-                <a
-                  href="/contact"
-                  className="border border-secondary text-secondary px-4 py-2 rounded hover:bg-secondary hover:text-white transition"
+            </ul>
+            {/* Admissions Button with Full Width */}
+            <div className="mt-20 w-full">
+              <Link href="/admissions">
+              
+              <button
+                  onClick={closeMenu} 
+                  className="border border-secondary text-secondary px-8 py-4 w-full rounded-lg hover:bg-secondary hover:text-white transition"
                 >
                   Admissions
-                </a>
-              </li>
-            </ul>
+                </button></Link>
+            </div>
           </div>
         </div>
       )}

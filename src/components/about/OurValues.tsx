@@ -24,7 +24,7 @@ const OurValues = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
-                <Card className="group hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
+                <Card className="group hover:shadow-lg transition-all bg-white h-full duration-300 border-t-4 border-t-primary">
                   <CardContent className="p-6">
                     <div className="mb-4 text-primary group-hover:scale-110 transition-transform duration-300">
                       {value.icon}

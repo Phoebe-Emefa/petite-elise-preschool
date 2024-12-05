@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         "quick-sand": "var(--font-quick-sand)",
       },
+      
     },
   },
   plugins: [],

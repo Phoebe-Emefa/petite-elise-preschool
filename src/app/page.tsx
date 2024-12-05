@@ -2,8 +2,8 @@ import AboutUs from "@/components/home/AboutUs";
 import CardSlider from "@/components/home/CardSlider";
 import { FAQSection } from "@/components/home/FAQSection";
 import HeroSection from "@/components/home/HeroSection";
-// import Program from "@/components/home/Program";
 import TestimonialCard from "@/components/home/TestimonialCard";
+import CTA from "@/components/programs/CTA";
 
 export default function Home() {
   return (
@@ -16,6 +16,7 @@ export default function Home() {
         <TestimonialCard />
       </div>
       <FAQSection />
+      <CTA />
     </div>
   );
 }

@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ icon, title,time, description }) => {
   return (
     <div className="relative flex flex-col items-center bg-white p-6 rounded-lg max-w-sm text-center mt-16">
       {/* Icon Container */}
-      <div className="absolute -top-14 w-24 h-24">
+      <div className="absolute -top-10 w-20 h-20">
         {/* Hexagonal Icon Background */}
         <svg
           viewBox="0 0 100 100"

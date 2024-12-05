@@ -2,11 +2,11 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-10 ">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="max-w-7xl mx-auto px-4 pt-10 pb-16 lg:pb-1">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
         {/* Image Section */}
         <div className="relative flex justify-center items-center">
-          <div className="relative w-full max-w-[400px] sm:max-w-[500px] md:max-w-[600px] aspect-square">
+          <div className="relative w-full max-w-full sm:max-w-[500px] md:max-w-[600px] aspect-square">
             {/* Cloud Background */}
             <svg
               className="absolute inset-0 w-full h-full"
@@ -19,7 +19,7 @@ const AboutUs = () => {
 
             {/* Cloud Image */}
             <svg
-              className="absolute inset-4 w-[92%] h-[92%]"
+              className="absolute inset-4 w-full h-full"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
             >
@@ -40,12 +40,12 @@ const AboutUs = () => {
         </div>
 
         {/* Content Section */}
-        <div className="flex flex-col justify-center  gap-6 text-center lg:text-left">
+        <div className="flex flex-col justify-center gap-6 -mt-20 text-center lg:text-left">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary">
             Our Mission
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
-          Committed to providing the best early years foundation through a safe, nurturing home-like environment
+            Committed to providing the best early years foundation through a safe, nurturing home-like environment
           </p>
           <div>
             <button className="w-full sm:w-auto px-6 py-2 md:px-8 md:py-3 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/50">

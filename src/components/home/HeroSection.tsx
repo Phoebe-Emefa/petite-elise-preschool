@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaPlay } from "react-icons/fa";
 
@@ -20,15 +21,18 @@ const HeroSection = () => {
               </h1>
               <div className="w-full h-1 bg-gradient-to-r from-[#f9f871] to-[#aee87d] rounded-full transform -skew-x-12"></div>
               <p className="text-white/90 text-base md:text-lg max-w-lg leading-relaxed">
-                Nurtur young minds to become curious, resilient, and independent
-                thinkers in a safe, loving environment
+                Nurturing young minds to become curious, resilient, and
+                independent thinkers in a safe, loving environment
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4">
-              <button className="w-full sm:w-auto px-8 py-3 bg-secondary font-bold text-white rounded-full hover:from-[#aee87d] hover:to-[#f9f871] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E17E7C] focus:ring-offset-[#4B456F]">
-                Enroll your Kid
-              </button>
+            <div className="flex flex-wrap gap-4 w-full lg:w-auto">
+              <Link href="/admissions#enroll-child" className="w-full lg:w-auto">
+                <button className="w-full sm:w-full lg:w-auto px-8 py-3 bg-secondary font-bold text-white rounded-full hover:from-[#aee87d] hover:to-[#f9f871] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E17E7C] focus:ring-offset-[#4B456F]">
+                  Enroll your Kid
+                </button>
+              </Link>
+
               <button className="w-full sm:w-auto group px-8 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full hover:bg-white/20 transition-all duration-300 flex justify-center items-center gap-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#4B456F]">
                 <div className="bg-white rounded-full p-1 group-hover:bg-[#aee87d] transition-colors duration-300">
                   <FaPlay className="w-3 h-3 text-[#4B456F] group-hover:text-white transition-colors duration-300" />
@@ -36,8 +40,6 @@ const HeroSection = () => {
                 Watch video
               </button>
             </div>
-
-        
           </div>
 
           {/* Right Column - Image */}
@@ -92,7 +94,7 @@ const HeroSection = () => {
             </div>
 
             {/* Main Image */}
-            <div className="absolute z-40 bottom-16 md:-bottom-10 md:right-[10%]">
+            <div className="absolute z-40 bottom-0 md:-bottom-10 md:right-[10%]">
               <Image
                 src="/images/child-2.png"
                 alt="Excited student"

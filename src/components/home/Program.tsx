@@ -1,5 +1,6 @@
 import React from "react";
 import ProgramCard from "./ProgramCard";
+import Link from "next/link";
 
 const Program = () => {
   return (
@@ -43,9 +44,12 @@ const Program = () => {
         <p className="text-white mb-8">
           We welcome kids into our  program based on their age.
         </p>
+        <Link href="/admissions#enroll-child">
         <button className="bg-[#2D3142] text-white px-8 py-3 rounded-full font-medium hover:bg-[#2D3142]/90 transition-colors">
           Enroll your kid
         </button>
+        </Link>
+      
       </div>
     </section>
    </div>
