@@ -8,7 +8,7 @@ const TestimonialCard = () => {
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
         <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none">
           <Image
-            src="https://citinewsroom.com/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-03-at-11.32.27-PM-683x1024.jpeg"
+            src="/images/eno.jpg"
             alt="Founder with child"
             width={640}
             height={800}

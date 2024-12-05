@@ -7,7 +7,7 @@ const HeroSection = () => {
     <div className="bg-primary min-h-screen overflow-hidden relative">
       <div className="absolute inset-0"></div>
       <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Left Column */}
           <div className="space-y-8">
             <div className="space-y-4">
@@ -20,7 +20,8 @@ const HeroSection = () => {
               </h1>
               <div className="w-full h-1 bg-gradient-to-r from-[#f9f871] to-[#aee87d] rounded-full transform -skew-x-12"></div>
               <p className="text-white/90 text-base md:text-lg max-w-lg leading-relaxed">
-              Nurtur young minds to become curious, resilient, and independent thinkers in a safe, loving environment
+                Nurtur young minds to become curious, resilient, and independent
+                thinkers in a safe, loving environment
               </p>
             </div>
 
@@ -36,53 +37,70 @@ const HeroSection = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-8">
-              {[
-                { number: "50k+", label: "Happy Students" },
-                { number: "12k+", label: "Satisfied Parents" },
-                { number: "1k+", label: "Classes" },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
-                    {stat.number}
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
+        
           </div>
 
           {/* Right Column - Image */}
-          <div className="relative w-full max-w-lg mx-auto lg:mx-0">
-            <Image
-              src="https://static.vecteezy.com/system/resources/thumbnails/043/993/044/small_2x/ai-generated-children-engaging-with-colorful-toys-free-photo.jpg"
-              alt="Students engaging in colorful activities"
-              width={800}
-              height={600}
-              className="rounded-xl object-cover w-full h-auto lg:max-h-[600px]"
-              priority
-            />
+          <div className="relative w-full h-[500px] flex items-center justify-center">
+            {/* Yellow Blob (Background) */}
+            <div className="absolute z-10">
+              <svg
+                viewBox="0 0 900 600"
+                width="900"
+                height="600"
+                className="md:w-[900px] md:h-[600px] w-[600px] h-[400px]" // Adjust size for smaller screens
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+              >
+                <g transform="translate(445.8140565158052 237.96097466701565)">
+                  <path
+                    d="M224.4 -119.7C260.1 -67.8 237 27.8 189.8 117.6C142.6 207.3 71.3 291.2 -11.1 297.6C-93.5 304 -187.1 233 -219.5 151.8C-252 70.5 -223.4 -21 -176.7 -79.3C-129.9 -137.5 -65 -162.5 14.7 -171C94.4 -179.5 188.8 -171.5 224.4 -119.7"
+                    fill="#ffe9d0"
+                  ></path>
+                </g>
+              </svg>
+            </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-4 -left-4 w-10 h-10 md:w-12 md:h-12 bg-[#E9B171] rounded-full flex items-center justify-center animate-bounce shadow-lg">
-              <span className="text-lg md:text-2xl">🎨</span>
+            {/* Brown Blob (Foreground) */}
+            <div className="absolute z-20">
+              <svg
+                viewBox="0 0 900 600"
+                width="900"
+                height="600"
+                className="md:w-[900px] md:h-[600px] w-[600px] h-[400px]" // Adjust size for smaller screens
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+              >
+                <g transform="translate(410.44737905047515 274.0199148296143)">
+                  <path
+                    d="M223.4 -120.5C276.6 -37 297.6 73.5 255 160.6C212.5 247.7 106.2 311.3 13 303.8C-80.3 296.3 -160.5 217.7 -187.6 139.5C-214.6 61.4 -188.5 -16.2 -148.4 -92.2C-108.3 -168.2 -54.1 -242.6 15.5 -251.5C85.2 -260.5 170.3 -204 223.4 -120.5"
+                    fill="#95b0b7"
+                  ></path>
+                </g>
+              </svg>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-10 h-10 md:w-12 md:h-12 bg-[#E17E7C] rounded-full flex items-center justify-center animate-bounce shadow-lg">
-              <span className="text-lg md:text-2xl">📚</span>
+
+            {/* Sun Icon */}
+            <div className="absolute z-30 top-[15%] md:top[4%] lg:top-[10%] left-[2%] md:left-[15%] lg:left-[6%]">
+              <Image
+                src="/images/sun.png"
+                alt="Sun icon"
+                width={100}
+                height={100}
+                className="object-contain"
+              />
             </div>
-            {/* <div className="absolute -left-4 top-1/2 transform -translate-y-1/2 hidden lg:block">
-              <div className="bg-white shadow-lg rounded-lg p-2 transform -rotate-90 origin-top-left">
-                <ul className="flex space-x-2">
-                  {["📏", "✏️", "🖍️", "🧩"].map((emoji, index) => (
-                    <li key={index} className="text-lg md:text-2xl">
-                      {emoji}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div> */}
+
+            {/* Main Image */}
+            <div className="absolute z-40 bottom-16 md:-bottom-10 md:right-[10%]">
+              <Image
+                src="/images/child-2.png"
+                alt="Excited student"
+                width={500}
+                height={200}
+                className="object-contain "
+              />
+            </div>
           </div>
         </div>
       </div>
