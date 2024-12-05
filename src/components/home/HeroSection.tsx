@@ -5,7 +5,7 @@ import { FaPlay } from "react-icons/fa";
 
 const HeroSection = () => {
   return (
-    <div className="bg-primary min-h-screen overflow-hidden relative">
+    <div className="bg-primary min-h-screen lg:h-screen overflow-hidden relative">
       <div className="absolute inset-0"></div>
       <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
