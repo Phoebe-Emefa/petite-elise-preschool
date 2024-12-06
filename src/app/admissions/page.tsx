@@ -18,11 +18,6 @@ const AdmissionsPage = () => {
               Enroll your child today and give them the best start to their
               future with a comprehensive, hands-on learning experience.
             </p>
-            <div className="mt-6">
-              <button className="px-8 py-3 text-lg font-semibold text-[#007f94] bg-white rounded-full shadow-lg hover:bg-[#f9f871] hover:text-[#007f94] transition-all ease-in-out">
-                Explore Programs
-              </button>
-            </div>
           </div>
         </div>
       </section>

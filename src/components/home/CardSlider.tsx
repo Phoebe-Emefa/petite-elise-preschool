@@ -88,7 +88,7 @@ const CardSlider: React.FC = () => {
 
   return (
     <div className="bg-[#ffe9d0]">
-      <div className="relative w-full max-w-7xl mx-auto px-12 py-16 ">
+      <div className="relative w-full max-w-7xl mx-auto px-4 lg:px-12 py-16 ">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800">Our Program</h2>
           <div className="flex gap-4">
@@ -129,7 +129,7 @@ const CardSlider: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="lg:hidden flex justify-center gap-2 mt-8">
           {programs.map((_, index) => (
             <button
               key={index}
