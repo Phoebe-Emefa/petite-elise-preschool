@@ -82,8 +82,20 @@ const HeroSection = () => {
               </svg>
             </div>
 
-            {/* Sun Icon */}
-            <div className="absolute z-30 top-[2%] md:top[4%] lg:top-[10%] left-[1%] md:left-[15%] lg:left-[20%]">
+        
+
+            {/* Main Image */}
+          
+          <div className="relative  z-40">
+          <Image
+                src="/images/child-2.png"
+                alt="Excited student"
+                width={500}
+                height={200}
+                className="object-contain  z-40 "
+              />
+                {/* Sun Icon */}
+                <div className="absolute z-30 -top-[10%] md:top[4%] lg:top-[6%] left-[1%] md:left-[15%] lg:left-[6%]">
               <Image
                 src="/images/sun.png"
                 alt="Sun icon"
@@ -92,18 +104,8 @@ const HeroSection = () => {
                 className="object-contain"
               />
             </div>
-
-            {/* Main Image */}
-            {/* <div className="absolute z-40 bottom-0 md:-bottom-10 md:right-[10%]"> */}
-            {/* <div className="absolute z-40 bottom-0 md:-bottom-10 md:right-[10%]"> */}
-              <Image
-                src="/images/child-2.png"
-                alt="Excited student"
-                width={500}
-                height={200}
-                className="object-contain  z-40 "
-              />
-            {/* </div> */}
+         
+          </div>
           </div>
         </div>
       </div>
