@@ -86,7 +86,7 @@ const ProgramCards: React.FC = () => {
 </div>
 
 
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="lg:hidden flex justify-center gap-2 mt-8">
           {programs.map((_, index) => (
             <button
               key={index}

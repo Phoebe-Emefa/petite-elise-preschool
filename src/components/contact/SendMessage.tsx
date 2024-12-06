@@ -30,12 +30,12 @@ const SendMessage = () => {
           />
         </div>
 
-        <div className="flex items-center rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
-          <LuMessageCircle className=" shrink-0 text-gray-400" />
+        <div className="flex items-start p-3 sm:p-4 rounded-md bg-white pl-3 outline outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600">
+          <LuMessageCircle className="mt-1 shrink-0 text-gray-400" />
 
           <textarea
             placeholder="Your Message"
-            className="block min-w-0 grow p-3 sm:p-4  pl-1  text-base  placeholder:text-gray-400 focus:ring-blue-300 focus:outline-none "
+            className="block min-w-0 grow  pl-4 text-base  placeholder:text-gray-400 focus:ring-blue-300 focus:outline-none "
             rows={4}
             required
           ></textarea>

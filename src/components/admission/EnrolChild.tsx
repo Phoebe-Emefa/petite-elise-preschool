@@ -21,7 +21,7 @@ const EnrolChild = () => {
                 type="text"
                 id="childName"
                 placeholder="Enter child's name"
-                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400"
+                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
                 required
               />
             </div>
@@ -33,7 +33,7 @@ const EnrolChild = () => {
                 type="number"
                 id="age"
                 placeholder="Enter child's age"
-                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400"
+                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
                 required
               />
             </div>
@@ -47,7 +47,7 @@ const EnrolChild = () => {
                 type="text"
                 id="parentName"
                 placeholder="Enter parent's name"
-                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400"
+                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
                 required
               />
             </div>
@@ -59,7 +59,7 @@ const EnrolChild = () => {
                 type="tel"
                 id="phone"
                 placeholder="Enter phone number"
-                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400"
+                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
                 required
               />
             </div>
@@ -74,7 +74,7 @@ const EnrolChild = () => {
                 type="email"
                 id="email"
                 placeholder="Enter email address"
-                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400"
+                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
                 required
               />
             </div>
@@ -86,7 +86,7 @@ const EnrolChild = () => {
               </label>
               <select
                 id="program"
-                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400"
+                className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
                 required
               >
                 <option value="" disabled selected>
@@ -109,7 +109,7 @@ const EnrolChild = () => {
               id="comments"
               rows={4}
               placeholder="Anything else you'd like us to know?"
-              className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400"
+              className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
             ></textarea>
           </div>
 

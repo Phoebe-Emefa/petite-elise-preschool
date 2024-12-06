@@ -52,10 +52,10 @@ const ProgramCard: React.FC<ProgramCardProps> = ({
 
         {/* Badges */}
         <div className="flex flex-col items-center gap-2 mb-4">
-          <Badge className="bg-blue-100 text-blue-700 w-max text-center py-1 ">
+          <Badge className="bg-blue-100 text-blue-700 w-max text-center py-1 hover:bg-inherit ">
             {ageGroup}
           </Badge>
-          <Badge className="bg-green-100 text-green-700 w-max text-center py-1">
+          <Badge className="bg-green-100 text-green-700 w-max text-center py-1 hover:bg-inherit">
             {schedule}
           </Badge>
         </div>
