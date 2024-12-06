@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icons/logo.petite-elise.ico",
   },
+  openGraph: {
+    images: ["/images/logo.jpg"]
+  }
 };
 
 export default function RootLayout({
