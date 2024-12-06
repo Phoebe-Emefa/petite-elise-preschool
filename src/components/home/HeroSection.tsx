@@ -6,12 +6,12 @@ import { FaPlay } from "react-icons/fa";
 const HeroSection = () => {
   return (
     <div className="bg-primary min-h-screen lg:h-screen overflow-hidden relative">
-      <div className="absolute inset-0"></div>
-      <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+      {/* <div className="absolute inset-0"></div> */}
+      <div className="max-w-7xl mx-auto px-4 py-16 lg:py-0 flex flex-col h-full justify-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center h-full relative">
           {/* Left Column */}
-          <div className="space-y-8">
-            <div className="space-y-4">
+          <div className="space-y-8 text-center lg:text-left ">
+            <div className="space-y-4 flex flex-col items-center lg:items-start">
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
                 Welcome to
                 <br />
@@ -26,14 +26,14 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 w-full lg:w-auto">
-              <Link href="/admissions#enroll-child" className="w-full lg:w-auto">
+            <div className="flex flex-col md:flex-row items-center gap-4 w-full lg:w-auto">
+              <Link href="/admissions#enroll-child" className="w-full lg:w-auto ">
                 <button className="w-full sm:w-full lg:w-auto px-8 py-3 bg-secondary font-bold text-white rounded-full hover:from-[#aee87d] hover:to-[#f9f871] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E17E7C] focus:ring-offset-[#4B456F]">
                   Enroll your Kid
                 </button>
               </Link>
 
-              <button className="w-full sm:w-auto group px-8 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full hover:bg-white/20 transition-all duration-300 flex justify-center items-center gap-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#4B456F]">
+              <button className="w-full lg:w-auto  group lg:px-8 py-3  bg-white/10 backdrop-blur-sm text-white rounded-full hover:bg-white/20 transition-all duration-300 flex justify-center items-center gap-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#4B456F]">
                 <div className="bg-white rounded-full p-1 group-hover:bg-[#aee87d] transition-colors duration-300">
                   <FaPlay className="w-3 h-3 text-[#4B456F] group-hover:text-white transition-colors duration-300" />
                 </div>
@@ -43,7 +43,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Image */}
-          <div className="relative w-full h-[500px] flex items-center justify-center">
+          <div className="relative w-full h-full flex items-center justify-center">
             {/* Yellow Blob (Background) */}
             <div className="absolute z-10">
               <svg
@@ -83,7 +83,7 @@ const HeroSection = () => {
             </div>
 
             {/* Sun Icon */}
-            <div className="absolute z-30 top-[15%] md:top[4%] lg:top-[10%] left-[2%] md:left-[15%] lg:left-[6%]">
+            <div className="absolute z-30 top-[2%] md:top[4%] lg:top-[10%] left-[1%] md:left-[15%] lg:left-[20%]">
               <Image
                 src="/images/sun.png"
                 alt="Sun icon"
@@ -94,15 +94,16 @@ const HeroSection = () => {
             </div>
 
             {/* Main Image */}
-            <div className="absolute z-40 bottom-0 md:-bottom-10 md:right-[10%]">
+            {/* <div className="absolute z-40 bottom-0 md:-bottom-10 md:right-[10%]"> */}
+            {/* <div className="absolute z-40 bottom-0 md:-bottom-10 md:right-[10%]"> */}
               <Image
                 src="/images/child-2.png"
                 alt="Excited student"
                 width={500}
                 height={200}
-                className="object-contain "
+                className="object-contain  z-40 "
               />
-            </div>
+            {/* </div> */}
           </div>
         </div>
       </div>
