@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 
 const BlogCard = ({ blog }: { blog: any }) => {
   return (
@@ -17,9 +17,9 @@ const BlogCard = ({ blog }: { blog: any }) => {
           <span>By <strong>{blog.author}</strong></span>
         </div>
         <p className="text-gray-700 text-base">{blog.excerpt}</p>
-        <Link href={`/blog/${blog.slug}`}>
-          <span className="text-primary font-semibold mt-4 inline-block hover:text-blue-600 transition duration-300">Read More</span>
-        </Link>
+        {/* <Link href={`/blog/${blog.slug}`}> */}
+          <span className="text-primary font-semibold mt-4 inline-block hover:text-blue-600 transition duration-300 cursor-pointer">Read More</span>
+        {/* </Link> */}
       </div>
     </div>
   );
