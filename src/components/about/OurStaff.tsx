@@ -17,13 +17,13 @@ const staffMembers: StaffMember[] = [
   {
     id: 2,
     name: "Gifty Kobi Osei",
-    role: "Assistant Teacher",
+    role: "Assistant Head of Administration & HR",
     image: "/images/eno.jpg", // Replace with your image path
   },
   {
     id: 3,
-    name: "Gifty Kobi Osei",
-    role: "Assistant Head of Administration & HR",
+    name: "Jane Doe",
+    role: "Teacher",
     image: "/images/eno.jpg", // Replace with your image path
   },
   {
