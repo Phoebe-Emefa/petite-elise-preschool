@@ -7,6 +7,7 @@ import VisionAndMission from '@/components/about/VisionAndMission'
 import React from 'react'
 import {motion} from "framer-motion"
 import CTA from '@/components/programs/CTA'
+import OurStaff from '@/components/about/OurStaff'
 
 const About = () => {
   return (
@@ -25,6 +26,7 @@ const About = () => {
           </h3>
           <Gallery />
         </motion.section>
+        <OurStaff />
         <CTA />
     </div>
   )
