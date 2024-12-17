@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
@@ -56,6 +57,7 @@ const Allergies = ({ formData, setFormData, nextStep, prevStep }: AllergiesProps
               placeholder="Describe the allergy"
               className="mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none"
               value={formData.allergyDetails}
+              // @ts-ignore
               onChange={handleChange}
             ></textarea>
           </div>

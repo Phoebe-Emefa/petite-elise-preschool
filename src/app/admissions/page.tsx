@@ -1,4 +1,4 @@
-import EnrolChild from "@/components/admission/EnrolChild";
+// import EnrolChild from "@/components/admission/EnrolChild";
 
 import React from "react";
 
@@ -24,7 +24,7 @@ const AdmissionsPage = () => {
  
 
       {/* Enroll Your Child Section */}
-      <EnrolChild />
+      {/* <EnrolChild /> */}
     </div>
   );
 };
