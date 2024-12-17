@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "What is your approach to early childhood education?",
-    answer: "We follow a play-based learning approach that encourages curiosity, creativity, and social skills. Our curriculum includes activities that promote cognitive, physical, and emotional development, preparing children for future academic success."
+    answer: "We follow a play-based learning approach that encourages curiosity, creativity, and social skills. Our Early Years Foundation Stage ( EYFS) Framework includes  activities that promote cognitive, physical, and emotional development, preparing children for future academic success."
   }
 ]
 
