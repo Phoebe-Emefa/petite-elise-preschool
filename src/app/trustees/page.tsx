@@ -21,7 +21,7 @@ As a dedicated mother herself, Eno is passionate about creating environments whe
 
 
 `,
-    image: "/images/Eno-trustee.jpg",
+    image: "/images/eno-trustee.jpg",
   },
   {
     id: 2,
