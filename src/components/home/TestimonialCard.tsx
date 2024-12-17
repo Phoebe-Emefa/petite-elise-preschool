@@ -4,9 +4,9 @@ import { BsQuote } from "react-icons/bs";
 
 const TestimonialCard = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center">
-        <div className="relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none">
+    <section className="max-w-7xl mx-auto px-4 py-16 lg:px-8 ">
+      <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 items-center ">
+        <div className="relative aspect-[4/5] w-full ">
           <Image
             src="/images/eno.jpg"
             alt="Founder with child"
@@ -21,7 +21,7 @@ const TestimonialCard = () => {
             <BsQuote />
           </div>
           <blockquote>
-            <p className="text-[#2D3142] text-xl lg:text-2xl leading-relaxed mt-4">
+            <p className="text-[#2D3142] text-lg lg:text-2xl leading-relaxed mt-4">
             &quot;After 16 years of experience in childcare and witnessing how early
               childhood education can shape a child’s future, I decided to
               create a preschool that would provide not just quality education
