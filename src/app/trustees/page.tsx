@@ -1,5 +1,5 @@
 import CTA from "@/components/programs/CTA";
-import Image from "next/image";
+import TrusteeCard from "@/components/trustees/TrusteeCard";
 
 interface Trustee {
   id: number;
@@ -13,36 +13,45 @@ const trustees: Trustee[] = [
   {
     id: 1,
     name: "Eno Quagraine",
-    role: "School Head",
-    bio: `Eno Quagraine is a passionate educator with her first teaching experience 16 years ago at Ghana International School. She has also been deeply involved in advocacy for maternal health and empowering mothers through community-building platforms like Talkative Mom LLC.`,
-    image: "/images/eno.jpg",
+    role: "Board Memeber",
+    bio: `Eno Quagraine is a passionate educator with her first teaching experience 16 years ago at Ghana International School where she honed her skills in nurturing young minds. She also provided private tutoring for kids who struggled academically and volunteered at Alkot Child Development Centre as a caregiver for orphaned babies. 
+With a deep commitment to maternal health, she founded Talkative Mom LLC, a platform she created to empower and support mothers through advocacy and community building. 
+
+As a dedicated mother herself, Eno is passionate about creating environments where children can thrive. She is excited to bring her expertise, leadership, and care to the role of school head.
+`,
+    image: "/images/eno-trustee.jpg",
   },
   {
     id: 2,
     name: "Mrs Surama King",
-    role: "Head of CAS Coordinator",
-    bio: `With over 25 years in service-learning education, Surama has inspired students toward personal and academic growth. She champions creativity, resilience, and community engagement as means of building lifelong learners.`,
-    image: "/images/Mrs-king.jpg",
+    role: "Board Member",
+    bio: `With over 25 years as an experiential and service-learning educator, Surama’s career spans various educational settings, where she has championed holistic, co-curricular engagement as a means of inspiring lifelong learning. She is passionate about guiding students toward personal and academic growth by fostering creativity, resilience, and community engagement through experiential learning. As a strong advocate for service and real-world learning, Surama brings deep insight into the impact of co-curricular activities in shaping well-rounded, globally minded individuals. She is currently the head of CAS ( Creativity , Activity, Service) Coordinator at Tema International School and looks forward to replicating her work here and speaking creativity  in our young ones. 
+`,
+    image: "/images/King.jpg",
   },
   {
     id: 3,
     name: "Dr Genevieve Allotey-Papoe",
-    role: "Assistant Professor of Musicology",
-    bio: `Dr Genevieve Allotey-Papoe is an expert in Musicology and Ethnomusicology at Brown University. She focuses on bridging the gap between academia and the creative industry with a passion for music, technology, and social impact.`,
+    role: "Board Member",
+    bio: `Dr Genevieve Allotey- Papoe is an Assistant Professor of Musicology and Ethnomusicology at Brown University. She completed her PhD in the Department of Music at Princeton University with a focus on music of the Black diaspora, African creative economy, sound studies, media studies, and the music industry. She is passionate about bridging the gap between academia and the creative sector through collaborative projects that focus on music, technology, communities, and social impact and is excited to see the musical talents in our little ones and provide guidance on international opportunities. 
+`,
     image: "/images/Genevive.jpg",
   },
   {
     id: 4,
     name: "Adelaide Yirenkyi",
-    role: "Head of Programs, Audiologist",
-    bio: `Adelaide Yirenkyi is an audiologist and speech-language therapist with extensive experience in inclusive education. She has worked with children across Ghana, focusing on early intervention and special needs education.`,
+    role: "Board Member",
+    bio: `Adelaide Yirenkyi is a clinical educator at the Department of Audiology, Speech and Language Therapy at the University of Ghana. She has a bachelor's degree in Psychology and a master's in Speech and Language Therapy. Adelaide has always been interested in special needs and has been working in inclusive education since 2012. Adelaide is an Early Interventionist and currently serves children and their families across Ghana and West Africa through the Speech and Hearing Centre and looks forward to building a more inclusive environment while heading programs that focus on early intervention. 
+`,
     image: "/images/Adelaide.jpg",
   },
   {
     id: 5,
     name: "David Kobina Quagraine",
-    role: "Cloud Consultant, Group Head of Cloud",
-    bio: `David Quagraine has 12+ years of experience in Cloud Consulting and is currently leading the Cloud department at FCMB, Nigeria. He is dedicated to creating tech-friendly programs for young learners to bridge the gap between education and technology.`,
+    role: "Board Member",
+    bio: `David Quagraine is an experienced Cloud Consultant specializing in Solution Architecture, DevSecOps and FinOps with over 12 years of experience delivering secure, cost-effective solutions across finance, telecom, and tech sectors. David holds an MSc in Business Technology Consulting from Henley Business School.
+Having lectured technology students at MEST,David enjoys imparting knowledge and values education especially in the tech space. 
+He is currently the Group Head of Cloud at FCMB, Nigeria and looks forward to bringing his expertise on board in drawing up kid-friendly tech-based programs that allows our preschool children have options in today’s world .`,
     image: "/images/David.jpg",
   },
 ];
@@ -52,32 +61,15 @@ export default function BoardOfTrustees() {
   <>
     <section className="bg-white py-16">
       <div className="container mx-auto px-4 lg:px-20 text-center">
-        <h2 className="text-2xl lg:text-5xl font-bold text-gray-800 mb-12">Meet the Board of Trustees</h2>
+        <h2 className="text-2xl lg:text-5xl font-bold text-gray-800 mb-12">Meet the School Board.
+        </h2>
         <p className="text-lg lg:text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
           Our trustees are leaders who bring expertise from diverse fields, guiding us toward excellence and empowering future generations.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16">
           {trustees.map((trustee) => (
-            <div key={trustee.id} className="flex flex-col items-center gap-8">
-              {/* Image Section */}
-              <div className="relative w-full h-80 sm:w-[280px] sm:h-[240px] md:w-[350px] md:h-[270px] xl:w-[450px] xl:h-[350px] rounded-xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105">
-                <Image
-                  src={trustee.image}
-                  alt={trustee.name}
-                  layout="fill"
-                  objectFit="cover" 
-                  className="rounded-xl"
-                />
-              </div>
-
-              {/* Text Section */}
-              <div className="text-center w-full px-4">
-                <h3 className="text-2xl font-semibold text-gray-800">{trustee.name}</h3>
-                <p className="text-lg text-primary">{trustee.role}</p>
-                <p className="mt-4 text-md text-gray-700">{trustee.bio}</p>
-              </div>
-            </div>
+        <TrusteeCard key={trustee?.name} trustee={trustee} />
           ))}
         </div>
       </div>

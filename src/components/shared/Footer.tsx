@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import {  FaInstagram } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
@@ -13,24 +13,19 @@ const Footer: React.FC = () => {
               Nurturing young minds to become curious, resilient, and independent thinkers in a safe, loving environment
             </p>
             <div className="flex justify-start space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <FaFacebookF className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
+            
+              <a href="https://www.instagram.com/petite.elise.preschool"  target="_blank" className="text-muted-foreground hover:text-primary">
                 <FaInstagram className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <FaTwitter className="h-5 w-5" />
-              </Link>
+              </a>
+            
             </div>
           </div>
           <div className="text-left">
             <h3 className="mb-4 text-lg font-bold">Contact Us</h3>
             <ul className="space-y-2 text-sm">
-              <li className="text-muted-foreground">123 School Street</li>
-              <li className="text-muted-foreground">Anytown, ST 12345</li>
-              <li className="text-muted-foreground">Phone: (123) 456-7890</li>
-              <li className="text-muted-foreground">Email: info@petiteelisepreschool.com</li>
+              <li className="text-muted-foreground">1 Libreville Lake, East Legon </li>
+              <li className="text-muted-foreground">Phone: (233) 0593346332 </li>
+              <li className="text-muted-foreground">Email: info@petiteelise.com</li>
             </ul>
           </div>
           <div className="text-left">

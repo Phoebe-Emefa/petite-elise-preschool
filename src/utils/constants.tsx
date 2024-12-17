@@ -4,8 +4,8 @@ export const navigation: { title: string; href: string }[] = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
     { title: "Programs", href: "/programs" },
-    { title: "Contact", href: "/contact" },
     { title: "Trustees", href: "/trustees" },
+    { title: "Contact", href: "/contact" },
   ]
 
  export const values = [
@@ -56,68 +56,68 @@ export const navigation: { title: string; href: string }[] = [
     {
       icon: "/images/abc.png",
       title: "Daycare",
-      time: "8:30am - 10:00am",
+      time: "8am-3pm",
       price: "GHC 20,000",
       description:
-        "We offer two Extended Day classes. Our Kaleidoscope Class meets from 12:00pm-3:30pm.",
-      ageGroup: "All ages",
-      schedule: "Monday-Friday, 8:30 AM - 3:30 PM",
-      activities: ["Playtime", "Basic Learning", "Creative Arts", "Nap Time"],
+        "Here , we enroll babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.  In addition, our Baby & Me class meets once a month with Speechie Ad, our favorite Speechie and Language Therapist. ",
+      ageGroup: "3months-2years",
+      schedule: "Monday -Friday 8am -3pm",
+      activities: ["Develop Boosting Activities", "Rhyme Time", "Story Time", "Playtime", "Naptime "],
     },
     {
       icon: "/images/puzzle.png",
       title: "Preschool",
-      time: "8:30am - 10:00am",
+      time: "8am -3pm",
       price: "GHC 20,000",
       description:
-        "Our Summer Program is a 6-week learning adventure for children ages 3-4.",
-      ageGroup: "Ages 3-4",
-      schedule: "Monday-Friday, 8:30 AM - 12:00 PM",
-      activities: ["Early Literacy", "Math Foundations", "Social Skills"],
+        "Enrolling kids 3years -5years. There are 3 classes in our Preschool block. Nursery 2, Kindergarten 1& 2. Only Full Term registration is available for our Preschool Program. ",
+      ageGroup: "Ages 3-5 years",
+      schedule: "Monday -Friday 8am -3pm",
+      activities: ["Early Literacy", "Math Foundations", "Creative Arts", "Science", "Gardening & Outdoor Adventures"],
     },
     {
       icon: "/images/calendar.png",
-      title: "AfterSchool Care",
-      time: "8:30am - 10:00am",
+      title: "Afterschool Care",
+      time: "4pm-6pm",
       price: "GHC 20,000",
       description:
-        "The commitment of the school undertakes a viable, meaningful program for children.",
-      ageGroup: "K-5th grade",
-      schedule: "Monday-Friday, 3:00 PM - 6:00 PM",
-      activities: ["Homework Help", "Reading Club", "Outdoor Play"],
+        "Parents who will like to pick up their children after 4pm can register for Afterschool care. Children enrolled will be given an early dinner and engaged till they’re picked up at 6pm. ",
+      ageGroup: "Ages 3months- 5years ",
+      schedule: "Monday -Friday 4pm -6pm",
+      activities: ["Reading", "Homework Help", "Indoor Play"],
     },
-    {
-      icon: "/images/tent-house.png",
-      title: "Summer Camp",
-      time: "8:30am - 10:00am",
-      price: "GHC 20,000",
-      description:
-        "A meaningful program for children including outdoor activities and fun experiences.",
-      ageGroup: "All ages",
-      schedule: "Monday-Friday, 9:00 AM - 5:00 PM",
-      activities: ["Outdoor Exploration", "Sports", "Field Trips"],
-    },
-    {
-      icon: "/images/christmas.png",
-      title: "Christmas Camp",
-      time: "8:30am - 10:00am",
-      price: "GHC 20,000",
-      description:
-        "Celebrate the holidays with arts, crafts, and storytelling at Christmas Camp.",
-      ageGroup: "All ages",
-      schedule: "Monday-Friday, 9:00 AM - 5:00 PM",
-      activities: ["Holiday Crafts", "Games", "Storytelling"],
-    },
-    {
-      icon: "/images/logical-thinking.png",
-      title: "Childminding",
-      time: "8:30am - 10:00am",
-      price: "GHC 20,000",
-      description:
-        "Flexible hours for parents, offering creative and fun activities for children.",
-      ageGroup: "All ages",
-      schedule: "Flexible Hours",
-      activities: ["Playtime", "Storytelling", "Creative Activities"],
-    },
+    // {
+    //   icon: "/images/tent-house.png",
+    //   title: "Summer Camp",
+    //   time: "8:30am - 10:00am",
+    //   price: "GHC 20,000",
+    //   description:
+    //     "A meaningful program for children including outdoor activities and fun experiences.",
+    //   ageGroup: "All ages",
+    //   schedule: "Monday-Friday, 9:00 AM - 5:00 PM",
+    //   activities: ["Outdoor Exploration", "Sports", "Field Trips"],
+    // },
+    // {
+    //   icon: "/images/christmas.png",
+    //   title: "Christmas Camp",
+    //   time: "8:30am - 10:00am",
+    //   price: "GHC 20,000",
+    //   description:
+    //     "Celebrate the holidays with arts, crafts, and storytelling at Christmas Camp.",
+    //   ageGroup: "All ages",
+    //   schedule: "Monday-Friday, 9:00 AM - 5:00 PM",
+    //   activities: ["Holiday Crafts", "Games", "Storytelling"],
+    // },
+    // {
+    //   icon: "/images/logical-thinking.png",
+    //   title: "Childminding",
+    //   time: "8:30am - 10:00am",
+    //   price: "GHC 20,000",
+    //   description:
+    //     "Flexible hours for parents, offering creative and fun activities for children.",
+    //   ageGroup: "All ages",
+    //   schedule: "Flexible Hours",
+    //   activities: ["Playtime", "Storytelling", "Creative Activities"],
+    // },
   ];
   

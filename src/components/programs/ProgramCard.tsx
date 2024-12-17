@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Badge } from "../ui/badge";
 import { Card, CardDescription, CardTitle } from "../ui/card";

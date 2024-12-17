@@ -44,8 +44,8 @@ const NavBar: React.FC = () => {
               href={nav?.href}
               className={`${
                 pathname === nav?.href
-                  ? "text-secondary"
-                  : "hover:text-secondary"
+                  ? "text-secondary font-bold"
+                  : "hover:text-secondary "
               } transition-colors`}
             >
               {nav?.title}
@@ -58,7 +58,7 @@ const NavBar: React.FC = () => {
           {/* Admissions Button */}
           <a
             href="/admissions"
-            className="border border-secondary text-secondary px-4 py-2 rounded hover:bg-secondary hover:text-white transition"
+            className="bg-secondary font-bold   text-white px-4 py-2 rounded hover:bg-secondary transition-all duration-300 transform hover:scale-105 "
           >
             Admissions
           </a>
@@ -108,7 +108,7 @@ const NavBar: React.FC = () => {
               
               <button
                   onClick={closeMenu} 
-                  className="border border-secondary text-secondary px-8 py-4 w-full rounded-lg hover:bg-secondary hover:text-white transition"
+                  className="bg-secondary  text-white px-8 py-4 w-full rounded-lg  hover:text-white transition"
                 >
                   Admissions
                 </button></Link>

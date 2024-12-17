@@ -21,11 +21,23 @@ const TestimonialCard = () => {
             <BsQuote />
           </div>
           <blockquote>
-            <p className="text-[#2D3142] text-2xl lg:text-3xl leading-relaxed mt-4">
-              Tortor platea nunc lorem morbi pellentesque sed enim viverra
-              venenatis, sem pellentesque massa nunc quis lectus. Tortor platea
-              nunc lorem morbi pellentesque sed enim viverra venenatis, sem
-              pellentesque massa nunc quis lectus.
+            <p className="text-[#2D3142] text-xl lg:text-2xl leading-relaxed mt-4">
+            &quot;After 16 years of experience in childcare and witnessing how early
+              childhood education can shape a child’s future, I decided to
+              create a preschool that would provide not just quality education
+              but a warm, home-like environment where every child feels valued.
+              A space where creativity, emotional intelligence, and hands-on
+              learning are just as important as academic achievement. There was
+              a growing need in my community for a preschool that went beyond
+              traditional teaching methods—one that nurtures the whole child,
+              emotionally, socially, and intellectually.&quot; My vision for this
+              preschool is simple. To create an environment where children feel
+              safe, loved, and encouraged to be themselves. With a curriculum
+              that emphasizes play-based learning, we focus on helping children
+              develop critical thinking skills, emotional regulation, and a love
+              for learning that will stay with them throughout their lives. Our
+              staff is dedicated not only to academic excellence but also to
+              fostering an atmosphere of empathy, respect, and creativity.
             </p>
             <footer className="mt-8">
               <div className="flex flex-col items-start">

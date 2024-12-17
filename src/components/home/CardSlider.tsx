@@ -45,52 +45,31 @@ const CardSlider: React.FC = () => {
     {
       icon: "/images/abc.png",
       title: "Daycare",
-      time: "8:30am - 10:amm",
+      time: "8am-3pm",
       description:
-        "We offer two Extended Day classes. Our Kaleidoscope Class meets from 12:00pm-3:30pm.",
+        "Here , we enroll babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.",
     },
     {
       icon: "/images/puzzle.png",
       title: "Preschool",
-      time: "8:30am - 10:amm",
+      time: "8am -3pm",
       description:
-        "Our Summer Program is a 6-week learning adventure for children ages 3-4.",
+        "Enrolling kids 3years -5years. There are 3 classes in our Preschool block. Nursery 2, Kindergarten 1& 2. Only Full Term registration is available for our Preschool Program.",
     },
     {
       icon: "/images/calendar.png",
-      title: "AfterSchool Care",
-      time: "8:30am - 10:amm",
+      title: "Afterschool Care",
+      time: "4pm-6pm",
       description:
-        "The commitment of the school undertakes a viable, meaningful program for children is only.",
+        "Parents who will like to pick up their children after 4pm can register for Afterschool care. Children enrolled will be given an early dinner and engaged till they’re picked up at 6pm.",
     },
-    {
-      icon: "/images/tent-house.png",
-      title: "Summer Camp",
-      time: "8:30am - 10:amm",
-      description:
-        "The commitment of the school undertakes a viable, meaningful program for children is only.",
-    },
-    {
-      icon: "/images/christmas.png",
-      title: "Christmas Camp",
-      time: "8:30am - 10:amm",
-      description:
-        "The commitment of the school undertakes a viable, meaningful program for children is only.",
-    },
-    {
-        icon: "/images/logical-thinking.png",
-        title: "Childminding",
-        time: "8:30am - 10:amm",
-        description:
-          "The commitment of the school undertakes a viable, meaningful program for children is only.",
-      },
   ];
 
   return (
     <div className="bg-[#ffe9d0]">
       <div className="relative w-full max-w-7xl mx-auto px-4 lg:px-12 py-16 ">
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800">Our Program</h2>
+          <h2 className="text-3xl font-bold text-gray-800">Our Programs</h2>
           <div className="flex gap-4">
             <button
               onClick={scrollPrev}

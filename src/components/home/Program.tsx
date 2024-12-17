@@ -1,58 +1,49 @@
 import React from "react";
-import ProgramCard from "./ProgramCard";
-import Link from "next/link";
+import Card from "./Card";
 
+interface Program {
+  icon: string;
+  title: string;
+  description: string;
+  time: string;
+}
 const Program = () => {
+  const programs: Program[] = [
+    {
+      icon: "/images/abc.png",
+      title: "Daycare",
+      time: "8am-3pm",
+      description:
+        "Here , we enroll babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.",
+    },
+    {
+      icon: "/images/puzzle.png",
+      title: "Preschool",
+      time: "8am -3pm",
+      description:
+        "Enrolling kids 3years -5years. There are 3 classes in our Preschool block. Nursery 2, Kindergarten 1& 2. Only Full Term registration is available for our Preschool Program.",
+    },
+    {
+      icon: "/images/calendar.png",
+      title: "Afterschool Care",
+      time: "4pm-6pm",
+      description:
+        "Parents who will like to pick up their children after 4pm can register for Afterschool care. Children enrolled will be given an early dinner and engaged till they’re picked up at 6pm.",
+    },
+  ];
+
   return (
-   <div className="min-h-screen overflow-hidden bg-primary"  >
-     <section
-      className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8"
-   
-    >
-      <div className="text-center">
-        <h2 className="text-base font-medium text-white">Our Program</h2>
-        <h1 className="mt-3 text-4xl sm:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#f9f871] to-[#aee87d] animate-gradient-x">
-          Schedule and tuition
-        </h1>
-      </div>
+    <div className="bg-[#ffe9d0]">
+      <div className="relative w-full max-w-7xl mx-auto px-4 lg:px-12 py-16 ">
+        <h2 className="text-3xl font-bold text-gray-800">Our Programs</h2>
 
-      <div className="mt-16 grid gap-6 lg:grid-cols-3">
-        <ProgramCard
-          number="01"
-          title="Half Days"
-          description="Eu vestibulum praesent pretium platea fusce amet lobortis ut malesuada neque scelerisque pulvinar quisque turpis ut etiam sit volutpat."
-          time="8:30 - 12:00"
-          price="$1,800"
-        />
-        <ProgramCard
-          number="02"
-          title="Full Days"
-          description="Eu vestibulum praesent pretium platea fusce amet lobortis ut malesuada neque scelerisque pulvinar quisque turpis ut etiam sit volutpat."
-          time="8:30 - 3:30"
-          price="$2,300"
-        />
-        <ProgramCard
-          number="03"
-          title="Extended Day"
-          description="Eu vestibulum praesent pretium platea fusce amet lobortis ut malesuada neque scelerisque pulvinar quisque turpis ut etiam sit volutpat."
-          time="8:30 - 5:30"
-          price="$2,600"
-        />
+        <div className="grid grid-cols-3 gap-6">
+          {programs.map((program, index) => (
+              <Card key={index} {...program} />
+          ))}
+        </div>
       </div>
-
-      <div className="mt-16 text-center">
-        <p className="text-white mb-8">
-          We welcome kids into our  program based on their age.
-        </p>
-        <Link href="/admissions#enroll-child">
-        <button className="bg-[#2D3142] text-white px-8 py-3 rounded-full font-medium hover:bg-[#2D3142]/90 transition-colors">
-          Enroll your kid
-        </button>
-        </Link>
-      
-      </div>
-    </section>
-   </div>
+    </div>
   );
 };
 

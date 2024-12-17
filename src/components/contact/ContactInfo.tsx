@@ -9,7 +9,7 @@ const ContactInfo = () => {
         <LuMapPin className="text-white w-6 h-6 sm:w-8 sm:h-8" />
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-white">Our Address</h3>
-          <p className="text-sm sm:text-base text-white">123 Preschool Lane, Happy Town, USA</p>
+          <p className="text-sm sm:text-base text-white">1 Libreville Lake, East Legon</p>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@ const ContactInfo = () => {
         <LuPhone className="text-white w-6 h-6 sm:w-8 sm:h-8" />
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-white">Call Us</h3>
-          <p className="text-sm sm:text-base text-white">(123) 456-7890</p>
+          <p className="text-sm sm:text-base text-white">(233) 0593346332  </p>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@ const ContactInfo = () => {
         <LuMail className="text-white w-6 h-6 sm:w-8 sm:h-8" />
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-white">Email Us</h3>
-          <p className="text-sm sm:text-base text-white">contact@preschool.com</p>
+          <p className="text-sm sm:text-base text-white">info@petiteelise.com</p>
         </div>
       </div>
     </div>

@@ -3,19 +3,19 @@ import { FAQItem } from './FAQItem'
 const faqs = [
   {
     question: "What age groups do you cater to?",
-    answer: "We welcome children from 2 to 4 years old in our daycare program. Our activities and care are tailored to meet the developmental needs of each age group."
+    answer: "We welcome children from 3months -5 years old in our daycare and preschool program. Our activities and care are tailored to meet the developmental needs of each age group."
   },
   {
     question: "What are your operating hours?",
-    answer: "Our daycare is open from 7:30 AM to 6:00 PM, Monday through Friday. We offer flexible schedules including half-day, full-day, and extended day options to accommodate various family needs."
+    answer: "Our daycare and preschool is open from 8:00 AM -3:00 PM but drop off can start from 7:30 AM-  to as late as 6:00 PM if registered for our after school program Monday through Friday to accommodate various family needs"
   },
   {
     question: "What is your staff-to-child ratio?",
-    answer: "We maintain a low staff-to-child ratio to ensure each child receives individual attention. For 2-year-olds, we have a 1:4 ratio, and for 3-4 year-olds, we maintain a 1:6 ratio."
+    answer: "We maintain a low staff-to-child ratio to ensure each child receives enough attention. 3months-15 months 1:4 ratio, 16months- 3years 1:5 ratio, 3 -5 years 8:1 ratio"
   },
   {
     question: "Do you provide meals and snacks?",
-    answer: "Yes, we provide nutritious meals and snacks that are prepared fresh daily. We accommodate dietary restrictions and allergies. Our menu is designed by a certified nutritionist to ensure balanced and child-friendly options."
+    answer: "Yes, we provide nutritious meals- breakfast , lunch and a fruit snack that are prepared fresh daily by Aunty Naana’s kitchen. We accommodate dietary restrictions and allergies. Our menu is designed to ensure balanced and child-friendly options."
   },
   {
     question: "What is your approach to early childhood education?",

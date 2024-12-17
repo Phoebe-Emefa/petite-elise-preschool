@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const AboutUs = () => {
@@ -47,11 +48,11 @@ const AboutUs = () => {
           <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
             Committed to providing the best early years foundation through a safe, nurturing home-like environment
           </p>
-          <div>
-            <button className="w-full sm:w-auto px-6 py-2 md:px-8 md:py-3 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary/50">
+          <Link href="/about">
+            <button className="w-full sm:w-auto px-6 py-2 md:px-8 md:py-3 border-2 border-secondary text-secondary font-bold rounded-full hover:bg-secondary hover:text-white transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary/50">
               More About Us
             </button>
-          </div>
+          </Link>
         </div>
       </div>
     </section>

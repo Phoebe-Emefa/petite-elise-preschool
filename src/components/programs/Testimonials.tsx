@@ -3,20 +3,32 @@ import { Card, CardContent } from "../ui/card"
 
 const testimonials = [
   {
-    quote: "The preschool program has been amazing for our daughter. She's learned so much!",
-    author: "Sarah M.",
+    quote: "Your daycare has been amazing. You've created and provided a loving stimulating environment where Kuuku is thriving. Thank you",
+    author: "Ohui A. K.",
     role: "Parent",
     avatar: "/placeholder.svg?height=40&width=40",
   },
   {
-    quote: "The summer program kept my kids engaged and excited all season long.",
-    author: "Michael L.",
+    quote: "Love how the school is looking already! I see something new almost everyday during drop offs and pick ups and I always can’t help but to take photos. I’m already excited for my girl. You guys are really doing a great job",
+    author: "Naaku A. ",
     role: "Parent",
     avatar: "/placeholder.svg?height=40&width=40",
   },
   {
-    quote: "The after-school program provides the perfect balance of fun and learning.",
-    author: "Emily R.",
+    quote: "After bringing my girls here, I’m finally starting to feel like myself again.",
+    author: "Vida K.",
+    role: "Parent",
+    avatar: "/placeholder.svg?height=40&width=40",
+  },
+  {
+    quote: "I’m always excited to see what’s new during pick up! Love the new space",
+    author: "Emily F.",
+    role: "Parent",
+    avatar: "/placeholder.svg?height=40&width=40",
+  },
+  {
+    quote: "At church, I notice my son is meeting his milestones earlier than his age mates because he started Daycare",
+    author: "Joel B. A",
     role: "Parent",
     avatar: "/placeholder.svg?height=40&width=40",
   },

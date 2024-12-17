@@ -66,7 +66,7 @@ export default function OurStaff() {
         Our Dedicated Staff
       </h2>
       <p className="text-base lg:text-xl text-center text-gray-600 max-w-2xl mx-auto mb-12">
-        Meet the passionate individuals behind our mission, dedicated to the well-being and development of each child at our center.
+      Meet our well-trained, dedicated staff who are passionate about the well-being and development of each child here.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 lg:px-0">
         {staffMembers.map((staff) => (
