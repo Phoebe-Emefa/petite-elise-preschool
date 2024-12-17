@@ -7,7 +7,7 @@ const faqs = [
   },
   {
     question: "What are your operating hours?",
-    answer: "Our daycare and preschool is open from 8:00 AM -3:00 PM but drop off can start from 7:30 AM-  to as late as 6:00 PM if registered for our after school program Monday through Friday to accommodate various family needs"
+    answer: "Our daycare and preschool is open from 8:00 AM -3:00 PM but drop off can start from 7:30 AM-  to as late as 6:00 PM if registered for our after school program."
   },
   {
     question: "What is your staff-to-child ratio?",

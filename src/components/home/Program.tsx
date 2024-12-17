@@ -14,7 +14,7 @@ const Program = () => {
       title: "Daycare",
       time: "8am-3pm",
       description:
-        "Here , we enroll babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.",
+        "Enrolling babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.",
     },
     {
       icon: "/images/puzzle.png",

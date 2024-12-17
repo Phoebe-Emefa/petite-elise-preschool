@@ -11,13 +11,13 @@ const TrusteeCard = ({ trustee }: { trustee: ITrustee }) => {
   return (
     <div className="flex flex-col items-center gap-8">
       {/* Image Section */}
-      <div className="relative w-full h-80 sm:w-[280px] sm:h-[240px] md:w-[350px] md:h-[270px] xl:w-[450px] xl:h-[350px] rounded-xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105">
+      <div className="relative w-full h-80  sm:h-[240px]  md:h-[270px] xl:h-[350px] rounded-xl overflow-hidden shadow-xl transform transition-all duration-300 hover:scale-105">
         <Image
           src={trustee.image}
           alt={trustee.name}
           layout="fill"
           objectFit="cover"
-          className="rounded-xl"
+          className="rounded-xl object-top"
         />
       </div>
 

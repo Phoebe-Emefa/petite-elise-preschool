@@ -12,48 +12,56 @@ interface Trustee {
 const trustees: Trustee[] = [
   {
     id: 1,
-    name: "Eno Quagraine",
+    name: "Mrs. Eno Quagraine",
     role: "Board Memeber",
-    bio: `Eno Quagraine is a passionate educator with her first teaching experience 16 years ago at Ghana International School where she honed her skills in nurturing young minds. She also provided private tutoring for kids who struggled academically and volunteered at Alkot Child Development Centre as a caregiver for orphaned babies. 
+    bio: `Mrs. Eno Quagraine is a passionate educator with her first teaching experience 16 years ago at Ghana International School where she honed her skills in nurturing young minds. She also provided private tutoring for kids who struggled academically and volunteered at Alkot Child Development Centre as a caregiver for orphaned babies. 
 With a deep commitment to maternal health, she founded Talkative Mom LLC, a platform she created to empower and support mothers through advocacy and community building. 
 
 As a dedicated mother herself, Eno is passionate about creating environments where children can thrive. She is excited to bring her expertise, leadership, and care to the role of school head.
+
+
 `,
-    image: "/images/eno-trustee.jpg",
+    image: "/images/Eno-trustee.jpg",
   },
   {
     id: 2,
-    name: "Mrs Surama King",
+    name: "Mrs. Surama King",
     role: "Board Member",
     bio: `With over 25 years as an experiential and service-learning educator, Surama’s career spans various educational settings, where she has championed holistic, co-curricular engagement as a means of inspiring lifelong learning. She is passionate about guiding students toward personal and academic growth by fostering creativity, resilience, and community engagement through experiential learning. As a strong advocate for service and real-world learning, Surama brings deep insight into the impact of co-curricular activities in shaping well-rounded, globally minded individuals. She is currently the head of CAS ( Creativity , Activity, Service) Coordinator at Tema International School and looks forward to replicating her work here and speaking creativity  in our young ones. 
+
 `,
     image: "/images/King.jpg",
   },
   {
     id: 3,
-    name: "Dr Genevieve Allotey-Papoe",
+    name: "Dr Genevieve Allotey-Pappoe",
     role: "Board Member",
-    bio: `Dr Genevieve Allotey- Papoe is an Assistant Professor of Musicology and Ethnomusicology at Brown University. She completed her PhD in the Department of Music at Princeton University with a focus on music of the Black diaspora, African creative economy, sound studies, media studies, and the music industry. She is passionate about bridging the gap between academia and the creative sector through collaborative projects that focus on music, technology, communities, and social impact and is excited to see the musical talents in our little ones and provide guidance on international opportunities. 
+    bio: `Dr Genevieve Allotey- Pappoe is an Assistant Professor of Musicology and Ethnomusicology at Brown University. She completed her PhD in the Department of Music at Princeton University with a focus on music of the Black diaspora, African creative economy, sound studies, media studies, and the music industry. 
+Genevieve is a composer and her compositions have been performed in USA, Greece, Ghana, and Nigeria.
+She is passionate about bridging the gap between academia and the creative sector through collaborative projects that focus on music, technology, communities, and social impact and is excited to see the musical talents in our little ones and provide guidance on international opportunities. 
+ 
 `,
     image: "/images/Genevive.jpg",
   },
   {
     id: 4,
-    name: "Adelaide Yirenkyi",
+    name: "Mr. David Quagraine",
     role: "Board Member",
-    bio: `Adelaide Yirenkyi is a clinical educator at the Department of Audiology, Speech and Language Therapy at the University of Ghana. She has a bachelor's degree in Psychology and a master's in Speech and Language Therapy. Adelaide has always been interested in special needs and has been working in inclusive education since 2012. Adelaide is an Early Interventionist and currently serves children and their families across Ghana and West Africa through the Speech and Hearing Centre and looks forward to building a more inclusive environment while heading programs that focus on early intervention. 
-`,
-    image: "/images/Adelaide.jpg",
+    bio: `Mr. David Quagraine is an experienced Cloud Consultant specializing in Solution Architecture, DevSecOps and FinOps with over 12 years of experience delivering secure, cost-effective solutions across finance, telecom, and tech sectors. David holds an MSc in Business Technology Consulting from Henley Business School.
+Having lectured technology students in the past, David enjoys imparting knowledge and values education especially in the tech space. 
+He is currently the Group Head of Cloud at a financial institution and looks forward to bringing his expertise on board in drawing up kid-friendly tech-based programs that allows our preschool children have options in today’s world .`,
+    image: "/images/David.jpg",
   },
   {
     id: 5,
-    name: "David Kobina Quagraine",
+    name: "Mrs . Adelaide Yirenkyi",
     role: "Board Member",
-    bio: `David Quagraine is an experienced Cloud Consultant specializing in Solution Architecture, DevSecOps and FinOps with over 12 years of experience delivering secure, cost-effective solutions across finance, telecom, and tech sectors. David holds an MSc in Business Technology Consulting from Henley Business School.
-Having lectured technology students at MEST,David enjoys imparting knowledge and values education especially in the tech space. 
-He is currently the Group Head of Cloud at FCMB, Nigeria and looks forward to bringing his expertise on board in drawing up kid-friendly tech-based programs that allows our preschool children have options in today’s world .`,
-    image: "/images/David.jpg",
+    bio: `Mrs . Adelaide Yirenkyi is a clinical educator at the Department of Audiology, Speech and Language Therapy at the University of Ghana. She has a bachelor's degree in Psychology and a master's in Speech and Language Therapy. Adelaide has always been interested in special needs and has been working in inclusive education since 2012. Adelaide is an Early Interventionist and currently serves children and their families across Ghana and West Africa through the Speech and Hearing Centre and looks forward to building a more inclusive environment while heading programs that focus on early intervention. 
+ 
+`,
+    image: "/images/Adelaide.jpg",
   },
+
 ];
 
 export default function BoardOfTrustees() {

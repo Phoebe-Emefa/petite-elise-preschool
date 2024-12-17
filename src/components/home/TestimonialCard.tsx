@@ -30,19 +30,19 @@ const TestimonialCard = () => {
               learning are just as important as academic achievement. There was
               a growing need in my community for a preschool that went beyond
               traditional teaching methods—one that nurtures the whole child,
-              emotionally, socially, and intellectually.&quot; My vision for this
+              emotionally, socially, and intellectually. My vision for this
               preschool is simple. To create an environment where children feel
               safe, loved, and encouraged to be themselves. With a curriculum
               that emphasizes play-based learning, we focus on helping children
               develop critical thinking skills, emotional regulation, and a love
               for learning that will stay with them throughout their lives. Our
               staff is dedicated not only to academic excellence but also to
-              fostering an atmosphere of empathy, respect, and creativity.
+              fostering an atmosphere of empathy, respect, and creativity.&quot;
             </p>
             <footer className="mt-8">
               <div className="flex flex-col items-start">
                 <div className="text-[#2D3142] font-medium text-xl">
-                  Eno Quagraine - Talkative Mom
+                  Mrs. Eno Quagraine - Talkative Mom
                 </div>
                 <div className="text-gray-500 mt-1">
                   Founder & Head of School

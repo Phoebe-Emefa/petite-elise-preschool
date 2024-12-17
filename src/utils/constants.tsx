@@ -60,10 +60,10 @@ export const navigation: { title: string; href: string }[] = [
       time: "8am-3pm",
       price: "GHC 20,000",
       description:
-        "Here , we enroll babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.  In addition, our Baby & Me class meets once a month with Speechie Ad, our favorite Speechie and Language Therapist. ",
+        "Enrolling babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.  In addition, our Baby & Me class meets once a month with Speechie Ad, our favorite Speechie and Language Therapist. ",
       ageGroup: "3months-2years",
       schedule: "Monday -Friday 8am -3pm",
-      activities: ["Develop Boosting Activities", "Rhyme Time", "Story Time", "Playtime", "Naptime "],
+      activities: ["Development Boosting Activities", "Rhyme Time", "Story Time", "Playtime", "Naptime "],
     },
     {
       icon: "/images/puzzle.png",
