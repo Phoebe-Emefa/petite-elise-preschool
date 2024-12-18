@@ -87,6 +87,28 @@ export const navigation: { title: string; href: string }[] = [
       schedule: "Monday -Friday 4pm -6pm",
       activities: ["Reading", "Homework Help", "Indoor Play"],
     },
+    {
+      icon: "/images/feet.png",
+      title: "Baby Class",
+      time: "9am- 10am",
+      price: "GHC 20,000",
+      description:
+        "Babies are engaged in age appropriate activities that will help in promoting their cognitive, social, and motor skills development. This class is in collaboration with Speechie Ad, our favorite Speech and Language Therapist. We invite parents to join.",
+      ageGroup: "Ages 3 months - 15 months",
+      schedule: "Once a month - 9am- 10am",
+      activities: ["Sensory Activities", "Music & Dance", "Storytime"],
+    },
+    {
+      icon: "/images/playing.png",
+      title: "Developmental Playgroup",
+      time: "4pm-6pm",
+      price: "GHC 20,000",
+      description:
+        "A monthly program aimed at providing play-based early intervention activities with licensed experts to boost the communication, social interaction, physical and fine motor skills of young toddlers. We invite parents to join.",
+      ageGroup: "Ages 16months - 35months ",
+      schedule: "Once a month 9am - 10am",
+      activities: ["Social Interactions"],
+    },
     // {
     //   icon: "/images/tent-house.png",
     //   title: "Summer Camp",
