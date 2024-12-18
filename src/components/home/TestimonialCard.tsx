@@ -42,7 +42,7 @@ const TestimonialCard = () => {
             <footer className="mt-8">
               <div className="flex flex-col items-start">
                 <div className="text-[#2D3142] font-medium text-xl">
-                  Mrs. Eno Quagraine - Talkative Mom
+                  Mrs. Eno Quagraine
                 </div>
                 <div className="text-gray-500 mt-1">
                   Founder & Head of School

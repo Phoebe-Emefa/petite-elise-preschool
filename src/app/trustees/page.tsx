@@ -13,7 +13,7 @@ const trustees: Trustee[] = [
   {
     id: 1,
     name: "Mrs. Eno Quagraine",
-    role: "Board Memeber",
+    role: "Board Member",
     bio: `Mrs. Eno Quagraine is a passionate educator with her first teaching experience 16 years ago at Ghana International School where she honed her skills in nurturing young minds. She also provided private tutoring for kids who struggled academically and volunteered at Alkot Child Development Centre as a caregiver for orphaned babies. 
 With a deep commitment to maternal health, she founded Talkative Mom LLC, a platform she created to empower and support mothers through advocacy and community building. 
 

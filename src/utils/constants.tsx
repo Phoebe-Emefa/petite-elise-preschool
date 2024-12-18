@@ -89,7 +89,7 @@ export const navigation: { title: string; href: string }[] = [
     },
     {
       icon: "/images/feet.png",
-      title: "Baby Class",
+      title: " Baby & Me",
       time: "9am- 10am",
       price: "GHC 20,000",
       description:
