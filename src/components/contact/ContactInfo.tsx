@@ -18,7 +18,6 @@ const ContactInfo = () => {
         <LuPhone className="text-white w-6 h-6 sm:w-8 sm:h-8" />
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-white">Call Us</h3>
-          {/* <p className="text-sm sm:text-base text-white">(233) 0593346332  </p> */}
           <a href="tel:+233593346332" className="text-sm sm:text-base text-white">(+233) 0593346332</a>
         </div>
       </div>
@@ -29,7 +28,6 @@ const ContactInfo = () => {
         <div>
           <h3 className="text-base sm:text-lg font-semibold text-white">Email Us</h3>
           <a href="mailto:info@petiteelise.com" className="text-sm sm:text-base text-white">info@petiteelise.com</a>
-          {/* <p className="text-sm sm:text-base text-white">info@petiteelise.com</p> */}
         </div>
       </div>
     </div>
