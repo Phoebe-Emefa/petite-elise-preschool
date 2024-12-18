@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
-import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 import "./globals.css";
 import NavBar from "@/components/shared/NavBar";
