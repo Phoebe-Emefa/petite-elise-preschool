@@ -4,7 +4,7 @@ import { useField } from "formik";
 interface RadioButtonProps {
   label: string;
   name: string;
-  options: { label: string; value: string | boolean}[];
+  options: { label: string; value: string }[];
   required?: boolean;
 }
 
