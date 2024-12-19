@@ -1,4 +1,5 @@
-import { LuAward, LuCheckCircle, LuHeart, LuMessageSquare, LuShield, LuSparkles, LuTarget, LuUsers } from "react-icons/lu";
+import { FiCheckCircle } from "react-icons/fi";
+import { LuAward,  LuHeart, LuMessageSquare, LuShield, LuSparkles, LuTarget, LuUsers } from "react-icons/lu";
 
 export const navigation: { title: string; href: string }[] = [
     { title: "Home", href: "/" },
@@ -18,7 +19,7 @@ export const navigation: { title: string; href: string }[] = [
     { 
       name: "CLEANLINESS",
       description: "Maintaining a healthy, tidy, orderly, functional environment that enables learning and fosters good habits.",
-      icon: <LuCheckCircle className="w-8 h-8" />
+      icon: <FiCheckCircle  className="w-8 h-8" />
     },
     { 
       name: "COMMUNICATION",
@@ -58,7 +59,6 @@ export const navigation: { title: string; href: string }[] = [
       icon: "/images/abc.png",
       title: "Daycare",
       time: "8am-3pm",
-      price: "GHC 20,000",
       description:
         "Enrolling babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.  In addition, our Baby & Me class meets once a month with Speechie Ad, our favorite Speechie and Language Therapist. ",
       ageGroup: "3months-2years",
@@ -93,7 +93,7 @@ export const navigation: { title: string; href: string }[] = [
       time: "9am- 10am",
       price: "GHC 20,000",
       description:
-        "Babies are engaged in age appropriate activities that will help in promoting their cognitive, social, and motor skills development. This class is in collaboration with Speechie Ad, our favorite Speech and Language Therapist. We invite parents to join.",
+        "A monthly program where babies are  engaged in age appropriate activities that will help in promoting their cognitive, social, and motor skills development. This class is in collaboration with Speechie Ad, our favorite Speech and Language Therapist. We invite parents to join.",
       ageGroup: "Ages 3 months - 15 months",
       schedule: "Once a month - 9am- 10am",
       activities: ["Sensory Activities", "Music & Dance", "Storytime"],
@@ -102,45 +102,21 @@ export const navigation: { title: string; href: string }[] = [
       icon: "/images/playing.png",
       title: "Developmental Playgroup",
       time: "4pm-6pm",
-      price: "GHC 20,000",
       description:
         "A monthly program aimed at providing play-based early intervention activities with licensed experts to boost the communication, social interaction, physical and fine motor skills of young toddlers. We invite parents to join.",
       ageGroup: "Ages 16months - 35months ",
       schedule: "Once a month 9am - 10am",
-      activities: ["Social Interactions"],
+      activities: ["Spatial Concepts", "Gross Motor Skills Development", "Fine Motor Skills Activities", "Joint Attention", "Physical Exercises"],
     },
-    // {
-    //   icon: "/images/tent-house.png",
-    //   title: "Summer Camp",
-    //   time: "8:30am - 10:00am",
-    //   price: "GHC 20,000",
-    //   description:
-    //     "A meaningful program for children including outdoor activities and fun experiences.",
-    //   ageGroup: "All ages",
-    //   schedule: "Monday-Friday, 9:00 AM - 5:00 PM",
-    //   activities: ["Outdoor Exploration", "Sports", "Field Trips"],
-    // },
-    // {
-    //   icon: "/images/christmas.png",
-    //   title: "Christmas Camp",
-    //   time: "8:30am - 10:00am",
-    //   price: "GHC 20,000",
-    //   description:
-    //     "Celebrate the holidays with arts, crafts, and storytelling at Christmas Camp.",
-    //   ageGroup: "All ages",
-    //   schedule: "Monday-Friday, 9:00 AM - 5:00 PM",
-    //   activities: ["Holiday Crafts", "Games", "Storytelling"],
-    // },
-    // {
-    //   icon: "/images/logical-thinking.png",
-    //   title: "Childminding",
-    //   time: "8:30am - 10:00am",
-    //   price: "GHC 20,000",
-    //   description:
-    //     "Flexible hours for parents, offering creative and fun activities for children.",
-    //   ageGroup: "All ages",
-    //   schedule: "Flexible Hours",
-    //   activities: ["Playtime", "Storytelling", "Creative Activities"],
-    // },
+    {
+      icon: "/images/student.png",
+      title: "Extra- Curricular Activities",
+      time: "4pm-6pm",
+      description:
+        "We have collaborated with Vivie’s Dance Factory to have their Ballet and Taekwondo tutors , tutor our Preschoolers at our premises at a reduced cost than they would at their centre. Preschoolers may also choose Piano as well.",
+      ageGroup: "Ages 3- 5 years",
+      schedule: "Once a week 3pm - 4pm",
+      activities: ["Ballet", "Taekwondo", "Piano"],
+    },
   ];
   

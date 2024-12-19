@@ -1,79 +1,143 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
-import React, { useState } from 'react';
-import PersonalInfo from './PersonalInfo';
-import Allergies from './Allergies';
-import EmergencyContact from './EmergencyContact';
-import Documents from './Documents';
-import PhotographyAuthorization from './PhotographyAuthorization';
+"use client";
+import React, { useState } from "react";
 
+import { IEnrollChild } from "@/utils/interfaces";
+import { FormikProvider, useFormik } from "formik";
+import ChildAndGuardianInfo from "./ChildAndGuardianInfo";
+import ProgramSelection from "./ProgramSelection";
+import ChildHealthConditions from "./ChildHealthConditions";
+import Documents from "./Documents";
+import Authorization from "./Authorization";
+import RadioButton from "../shared/forms/RadioButton";
 
 const EnrolChild = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const [formData, setFormData] = useState<any>({
-    childName: '',
-    dob: '',
-    age: '',
-    parentName: '',
-    parentPhone: '',
-    parentEmail: '',
-    whatsappNumber: '',
-    houseAddress: '',
-    emergencyContactName: '',
-    emergencyContactPhone: '',
-    emergencyContactWhatsapp: '',
-    emergencyContactRelationship: '',
-    selectedPrograms: [],
-    dropOffPickUp: '',
-    alternativePickUpNames: '',
-    foodAllergies: '',
-    allergyDetails: '',
-    specialEdConsiderations: '',
-    passportPhotos: {
-      child: null,
-      parent: null,
-      emergencyContact: null,
-      pickupPerson1: null,
-      pickupPerson2: null,
-      g6pdReport: null,
-      vaccinations: null,
+
+  const totalSteps = 5;
+
+  const formik = useFormik<IEnrollChild>({
+    initialValues: {
+      isChildAlreadyEnrolled: "No",
+      childName: "",
+      childDOB: "",
+      childAge: "",
+      parentName: "",
+      parentEmail: "",
+      parentPhoneNumber: "",
+      parentWhatsappNumber: "",
+      address: "",
+      emergencyContactName: "",
+      emergencyContactPhoneNumber: "",
+      emergencyContactWhatsappNumber: "",
+      emergencyContactRelationshipToChild: "",
+      dropChildOffSelf: "Yes",
+      dropOffNames: [{ name: "", relationToChild: "" }],
+      hasAllergies: "No",
+      allergies: [],
+      hasSpecialHealthConditions: "No",
+      specialHealthConditions: [],
+      childPassport: "",
+      parentPassport: "",
+      emergencyContactPassport: "",
+      pickPersonOnePassport: "",
+      pickPersonTwoPassport: "",
+      G6pdReport: "",
+      vaccinations: "",
+      photographUsageConsent: "",
     },
-    photographyAuthorization: '',
+    onSubmit: async (_values, { setSubmitting, resetForm }) => {
+      setSubmitting(true);
+      resetForm();
+    },
+    enableReinitialize: true,
   });
+
+  const { values, setFieldValue,  handleSubmit } =
+    formik;
 
   const nextStep = () => setCurrentStep((prevStep) => prevStep + 1);
   const prevStep = () => setCurrentStep((prevStep) => prevStep - 1);
 
   return (
-    <section id="enroll-child" className="py-12 md:py-20 bg-gradient-to-r from-[#ffec89] to-[#a9e2a0] text-[#2d3d3d] animate-fadeIn">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+    <section
+      id="enroll-child"
+      className="py-12 md:py-20 bg-gradient-to-r from-[#ffec89] to-[#a9e2a0] text-[#2d3d3d] animate-fadeIn"
+    >
+      <div className="max-w-5xl mx-auto px-2 md:px-8">
         <div className="text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-extrabold">Enroll Your Child</h2>
-          <p className="mt-4 text-lg text-gray-600">
-            Fill out the form below to get started on your child’s amazing journey with us!
+          <h2 className="text-3xl md:text-4xl font-extrabold">
+            Enroll Your Child
+          </h2>
+          <p className="mt-4 text-md md:text-lg text-gray-600">
+            Fill out the form below to get started on your child’s amazing
+            journey with us!
           </p>
         </div>
+        {/* Check if child is already registered */}
+        <FormikProvider value={formik}>
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white p-4 md:p-10 rounded-3xl shadow-lg "
+          >
+            <div className="flex  justify-between w-full font-bold">
+              {{
+                1: "Child and Guardian Information",
+                2: "Program Selection and Schedule",
+                3: "Health Conditions and Allergies",
+                4: "Documents",
+              }[currentStep] || "Photograph Usage Authorization"}
+              <h5 className="text-xs md:text-base">{`Step ${currentStep} / ${totalSteps}`}</h5>
+            </div>
+            {currentStep === 1 && (
+              <>
+                <div className="mt-10">
+                  <RadioButton
+                    label="Has your child already registered for any program at Petite Elise?"
+                    name="isChildAlreadyEnrolled"
+                    options={[
+                      { label: "No, this is for a new child", value: "No" },
+                      {
+                        label: "Yes, enrolling for another program",
+                        value: "Yes",
+                      },
+                    ]}
+                    required
+                  />
+                </div>
+                <ChildAndGuardianInfo values={values} nextStep={nextStep} />
+              </>
+            )}
+            {currentStep === 2 && (
+              <ProgramSelection
+                values={values}
+                nextStep={nextStep}
+                prevStep={prevStep}
+              />
+            )}
+            {currentStep === 3 && (
+              <ChildHealthConditions
+                values={values}
+                nextStep={nextStep}
+                prevStep={prevStep}
+              />
+            )}
+            {currentStep === 4 && (
+              <Documents
+                values={values}
+                nextStep={nextStep}
+                prevStep={prevStep}
+                setFieldValue={setFieldValue}
+              />
+            )}
+            {currentStep === 5 && (
+              <Authorization values={values} prevStep={prevStep} />
+            )}
+          </form>
+        </FormikProvider>
 
-        <form className="bg-white p-6 md:p-10 rounded-3xl shadow-lg space-y-8">
-          {currentStep === 1 && (
-            <PersonalInfo formData={formData} setFormData={setFormData} nextStep={nextStep} />
-          )}
-          {currentStep === 2 && (
-            <Allergies formData={formData} setFormData={setFormData} nextStep={nextStep} prevStep={prevStep} />
-          )}
-          {currentStep === 3 && (
-            <EmergencyContact formData={formData} setFormData={setFormData} nextStep={nextStep} prevStep={prevStep} />
-          )}
-          {currentStep === 4 && (
-            // @ts-ignore
-            <Documents formData={formData} setFormData={setFormData} nextStep={nextStep} prevStep={prevStep} />
-          )}
-          {currentStep === 5 && (
-            // @ts-ignore
-            <PhotographyAuthorization formData={formData} setFormData={setFormData} prevStep={prevStep} />
-          )}
-        </form>
+     
       </div>
     </section>
   );
