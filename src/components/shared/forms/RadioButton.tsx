@@ -6,10 +6,24 @@ interface RadioButtonProps {
   name: string;
   options: { label: string; value: string }[];
   required?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void; // Added onChange prop
 }
 
-const RadioButton: React.FC<RadioButtonProps> = ({ label, name, options, required }) => {
+const RadioButton: React.FC<RadioButtonProps> = ({
+  label,
+  name,
+  options,
+  required,
+  onChange,
+}) => {
   const [field, meta] = useField(name);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    field.onChange(event); // Update Formik state
+    if (onChange) {
+      onChange(event); // Call the additional onChange handler
+    }
+  };
 
   return (
     <div className="mb-4">
@@ -29,6 +43,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({ label, name, options, require
               className={`form-radio text-green-400 border-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none ${
                 meta.touched && meta.error ? "border-red-500" : ""
               }`}
+              onChange={handleChange} // Use the custom onChange handler
             />
             <span className="ml-2 text-gray-700">{option.label}</span>
           </label>

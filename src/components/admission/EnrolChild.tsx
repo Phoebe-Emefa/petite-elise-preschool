@@ -2,75 +2,119 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
-import { FileOrUrlArray, IEnrollChild } from "@/utils/interfaces";
+import moment from "moment"
+import { IEnrollChild } from "@/utils/interfaces";
 import { FormikProvider, useFormik } from "formik";
 import ChildAndGuardianInfo from "./ChildAndGuardianInfo";
 import ProgramSelection from "./ProgramSelection";
 import ChildHealthConditions from "./ChildHealthConditions";
 import Documents from "./Documents";
 import Authorization from "./Authorization";
-import RadioButton from "../shared/forms/RadioButton";
 import { database, storage } from "@/app/appwrite"; // Import your Appwrite client
-import { ID } from "appwrite";
+import { ID, Query } from "appwrite";
+import ExistingInfoCheck from "./ExistingInfoCheck";
 
 const EnrolChild = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const totalSteps = 5;
+  const [isChildAlreadyEnrolled, setIsChildAlreadyEnrolled] = useState<string>("")
+  const [existingData, setExistingData] = useState<any>(null);
+  const [fetchingData, setFetchingData] = useState<boolean>(false);
+  const [fetchDataError, setfetchDataError] = useState<string | null>(null);
+  const [selectedChild, setSelectedChild] = useState<any>(null);
+
+  const totalSteps = 6;
+
+  console.log("selectedChild", selectedChild)
+
+  const fetchAllDocuments = async (
+    parentEmail: string,
+    parentPhoneNumber: string
+  ) => {
+    try {
+      setFetchingData(true);
+      setfetchDataError(null);
+      setSelectedChild(null)
+
+      // Query documents by parentEmail and parentPhoneNumber
+      const response = await database.listDocuments(
+        "6764ab1b00245cf492f1", // Replace with your Appwrite database ID
+        "6764ab390006a8717208", // Replace with your Appwrite collection ID
+        [
+          Query.equal("parentEmail", parentEmail),
+          Query.equal("parentPhoneNumber", parentPhoneNumber),
+        ]
+      );
+
+      setExistingData(response?.documents); // Store the fetched documents
+    } catch (err) {
+      console.error("Error fetching documents:", err);
+      setfetchDataError("Failed to fetch documents");
+    } finally {
+      setFetchingData(false);
+    }
+  };
+
+  console.log("existingData", existingData);
 
   // Function to upload a single file to Appwrite Storage
   const uploadFileToAppwrite = async (file: File) => {
     try {
       const response = await storage.createFile(
         "67649552001d1f5f31ad", // Replace with your Appwrite bucket ID
-        ID.unique(), // Generate a unique ID for the file
+        ID.unique(),
         file
       );
       // Get the file URL
-      const fileUrl = storage.getFileView("67649552001d1f5f31ad", response.$id);
-      return fileUrl;
+      return storage.getFileView("67649552001d1f5f31ad", response.$id);
     } catch (error) {
       console.error("Appwrite File Upload Error:", error);
       throw new Error("Failed to upload file to Appwrite");
     }
   };
 
-  // Function to handle uploading multiple files in an array
-  const uploadFileArrayToAppwrite = async (files: File[]) => {
-    const uploadPromises = files.map((file) => uploadFileToAppwrite(file));
-    return await Promise.all(uploadPromises);
-  };
-
   const formik = useFormik<IEnrollChild>({
     initialValues: {
-      isChildAlreadyEnrolled: "No",
-      childName: "",
-      childDOB: "",
-      childAge: "",
-      parentName: "",
-      parentEmail: "",
-      parentPhoneNumber: "",
-      parentWhatsappNumber: "",
-      address: "",
-      emergencyContactName: "",
-      emergencyContactPhoneNumber: "",
-      emergencyContactWhatsappNumber: "",
-      emergencyContactRelationshipToChild: "",
-      dropChildOffSelf: "Yes",
-      dropOffNames: [{ name: "", relationToChild: "" }],
-      hasAllergies: "No",
-      allergies: [],
-      hasSpecialHealthConditions: "No",
-      specialHealthConditions: [],
-      childPassport: [],
-      parentPassport: [],
-      emergencyContactPassport: [],
-      pickPersonOnePassport: [],
-      pickPersonTwoPassport: [],
-      G6pdReport: [],
-      vaccinations: [],
-      photographUsageConsent: "",
+      childName: selectedChild?.childName || "",
+      childDOB: selectedChild?.childDOB 
+    ? moment(selectedChild.childDOB).format("YYYY-MM-DD") 
+    : "",
+      childAge: selectedChild?.childAge ||  "",
+      parentName: selectedChild?.parentName || "",
+      parentEmail: selectedChild?.parentEmail || "",
+      parentPhoneNumber: selectedChild?.parentPhoneNumber || "",
+      parentWhatsappNumber: selectedChild?.parentWhatsappNumber || "",
+      address: selectedChild?.address || "",
+      emergencyContactName: selectedChild?.emergencyContactName || "",
+      emergencyContactPhoneNumber: selectedChild?.emergencyContactPhoneNumber || "",
+      emergencyContactWhatsappNumber: selectedChild?.emergencyContactWhatsappNumber || "",
+      emergencyContactRelationshipToChild: selectedChild?.emergencyContactRelationshipToChild || "",
+      dropChildOffSelf: selectedChild?.dropChildOffSelf || "",
+      dropOffNames: selectedChild?.dropOffPersonOneName
+      ? [
+          {
+            name: selectedChild.dropOffPersonOneName || "",
+            relationToChild: selectedChild.dropOffPersonOneRelationToChild || "",
+          },
+          {
+            name: selectedChild.dropOffPersonTwoName || "",
+            relationToChild: selectedChild.dropOffPersonTwoRelationToChild || "",
+          },
+        ]
+      : [{ name: "", relationToChild: "" }],
+      hasAllergies:  selectedChild?.hasAllergies || "",
+      allergies: selectedChild?.allergies || [],
+      hasSpecialHealthConditions: selectedChild?.hasSpecialHealthConditions || "",
+      specialHealthConditions: selectedChild?.specialHealthConditions || [],
+      childPassport: selectedChild?.childPassport || "",
+      parentPassport: selectedChild?.parentPassport || "",
+      emergencyContactPassport: selectedChild?.emergencyContactPassport ||  "",
+      pickPersonOnePassport: selectedChild?.pickPersonOnePassport ||  "",
+      pickPersonTwoPassport: selectedChild?.pickPersonTwoPassport ||  "",
+      G6pdReport: selectedChild?.G6pdReport || "",
+      vaccinations: selectedChild?.vaccinations || "",
+      photographUsageConsent: selectedChild?.photographUsageConsent || "",
     },
-    onSubmit: async (values, { setSubmitting, resetForm }) => {
+    onSubmit: async (values, { setSubmitting }) => {
       try {
         const fileFields: (keyof IEnrollChild)[] = [
           "childPassport",
@@ -82,40 +126,54 @@ const EnrolChild = () => {
           "vaccinations",
         ];
 
-        // Create a copy of the values to modify
         const updatedValues: IEnrollChild = { ...values };
 
+        // Process file fields
         for (const field of fileFields) {
-          const files = values[field];
-          // Check if files are File[]
-          if (Array.isArray(files) && files.every((file) => file instanceof File)) {
-            const uploadedUrls = await uploadFileArrayToAppwrite(files);
-            (updatedValues[field] as FileOrUrlArray) = uploadedUrls;
+          const file = values[field];
+          if (file instanceof File) {
+            const uploadedUrl = await uploadFileToAppwrite(file);
+            (updatedValues[field] as any) = uploadedUrl; // Ensure it's a string (URL)
           }
         }
 
-        console.log("before submission", updatedValues);
+        // Map `dropOffNames` to individual fields
+        if (values.dropOffNames && values.dropOffNames.length > 0) {
+          const [personOne, personTwo] = values.dropOffNames;
+          updatedValues.dropOffPersonOneName = personOne?.name || "";
+          updatedValues.dropOffPersonOneRelationToChild =
+            personOne?.relationToChild || "";
+          updatedValues.dropOffPersonTwoName = personTwo?.name || "";
+          updatedValues.dropOffPersonTwoRelationToChild =
+            personTwo?.relationToChild || "";
+        }
 
-        // Save the updated values to Appwrite
+        // Remove `dropOffNames` field before submission
+        delete updatedValues.dropOffNames;
+
+        console.log("Before Submission:", updatedValues);
+
+        // Submit the updated data to the database
         const response = await database.createDocument(
           "6764ab1b00245cf492f1", // Replace with your Appwrite database ID
           "6764ab390006a8717208", // Replace with your Appwrite collection ID
-          ID.unique(), // Generate a unique ID for the document
+          ID.unique(),
           updatedValues
         );
 
-        console.log("Document created with response: ", response);
+        console.log("Document created successfully:", response);
       } catch (error) {
-        console.error("Error adding document: ", error);
+        console.error("Error during submission:", error);
       } finally {
         setSubmitting(false);
-        // resetForm();
       }
     },
     enableReinitialize: true,
   });
 
   const { values, setFieldValue, handleSubmit, isSubmitting } = formik;
+
+  console.log("uivals", values);
 
   const nextStep = () => setCurrentStep((prevStep) => prevStep + 1);
   const prevStep = () => setCurrentStep((prevStep) => prevStep - 1);
@@ -141,45 +199,51 @@ const EnrolChild = () => {
             className="bg-white p-4 md:p-10 rounded-3xl shadow-lg"
           >
             <div className="flex justify-between w-full font-bold">
-              {{
-                1: "Child and Guardian Information",
-                2: "Program Selection and Schedule",
-                3: "Health Conditions and Allergies",
-                4: "Documents",
-              }[currentStep] || "Photograph Usage Authorization"}
+              {currentStep === 1
+                ? "Existing Child Check"
+                : currentStep === 2
+                  ? "Child and Guardian Information"
+                  : currentStep === 3
+                    ? "Program Selection and Schedule"
+                    : currentStep === 4
+                      ? "Health Conditions and Allergies"
+                      : currentStep === 5
+                        ? "Documents"
+                        : "Photograph Usage Authorization"}
               <h5 className="text-xs md:text-base">{`Step ${currentStep} / ${totalSteps}`}</h5>
             </div>
             {currentStep === 1 && (
-              <>
-                <div className="mt-10">
-                  <RadioButton
-                    label="Has your child already registered for any program at Petite Elise?"
-                    name="isChildAlreadyEnrolled"
-                    options={[
-                      { label: "No, this is for a new child", value: "No" },
-                      { label: "Yes, enrolling for another program", value: "Yes" },
-                    ]}
-                    required
-                  />
-                </div>
-                <ChildAndGuardianInfo values={values} nextStep={nextStep} />
-              </>
+              <ExistingInfoCheck
+              isChildAlreadyEnrolled={isChildAlreadyEnrolled}
+              setIsChildAlreadyEnrolled={setIsChildAlreadyEnrolled}
+                values={values}
+                fetchAllDocuments={fetchAllDocuments}
+                fetchingData={fetchingData}
+                existingData={existingData}
+                selectedChild={selectedChild}
+                setSelectedChild={setSelectedChild}
+                setExistingData={setExistingData}
+                nextStep={nextStep}
+              />
             )}
             {currentStep === 2 && (
+              <ChildAndGuardianInfo values={values} prevStep={prevStep} nextStep={nextStep} />
+            )}
+            {currentStep === 3 && (
               <ProgramSelection
                 values={values}
                 nextStep={nextStep}
                 prevStep={prevStep}
               />
             )}
-            {currentStep === 3 && (
+            {currentStep === 4 && (
               <ChildHealthConditions
                 values={values}
                 nextStep={nextStep}
                 prevStep={prevStep}
               />
             )}
-            {currentStep === 4 && (
+            {currentStep === 5 && (
               <Documents
                 values={values}
                 nextStep={nextStep}
@@ -187,8 +251,12 @@ const EnrolChild = () => {
                 setFieldValue={setFieldValue}
               />
             )}
-            {currentStep === 5 && (
-              <Authorization values={values} prevStep={prevStep} isSubmitting={isSubmitting} />
+            {currentStep === 6 && (
+              <Authorization
+                values={values}
+                prevStep={prevStep}
+                isSubmitting={isSubmitting}
+              />
             )}
           </form>
         </FormikProvider>

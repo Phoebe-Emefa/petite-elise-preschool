@@ -2,10 +2,8 @@ interface IDropOff {
     name: string;
     relationToChild: string
 }
-
-export type FileOrUrlArray = File[] | string[];
+export type FileOrUrl = File | string;
 export interface IEnrollChild {
-    isChildAlreadyEnrolled: string;
     childName: string;
     childDOB: string;
     childAge: string;
@@ -19,18 +17,22 @@ export interface IEnrollChild {
     emergencyContactWhatsappNumber: string;
     emergencyContactRelationshipToChild: string;
     dropChildOffSelf: string;
-    dropOffNames: IDropOff[];
+    dropOffPersonOneName?: string;
+    dropOffPersonOneRelationToChild?: string;
+    dropOffPersonTwoName?: string;
+    dropOffPersonTwoRelationToChild?: string;
+    dropOffNames?: IDropOff[];
     hasAllergies: string;
     allergies?: string[]
     hasSpecialHealthConditions: string;
     specialHealthConditions?: string[];
-    childPassport: FileOrUrlArray;
-    parentPassport: FileOrUrlArray;
-    emergencyContactPassport: FileOrUrlArray;
-    pickPersonOnePassport: FileOrUrlArray;
-    pickPersonTwoPassport: FileOrUrlArray;
-    G6pdReport: FileOrUrlArray;
-    vaccinations: FileOrUrlArray;
+    childPassport: FileOrUrl;
+    parentPassport: FileOrUrl;
+    emergencyContactPassport: FileOrUrl;
+    pickPersonOnePassport: FileOrUrl;
+    pickPersonTwoPassport: FileOrUrl;
+    G6pdReport: FileOrUrl;
+    vaccinations: FileOrUrl;
     
     photographUsageConsent: string
 

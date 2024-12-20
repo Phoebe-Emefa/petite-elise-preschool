@@ -19,24 +19,27 @@ const Documents = ({
   return (
     <div>
       <div className="mb-10 mt-5">
-        <FileUpload
-          label="Child’s Passport Photo"
-          name="childPassport"
-          required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files) {
-              setFieldValue("childPassport", Array.from(event.target.files));
-            }
-          }}
-        />
+      <FileUpload
+  label="Child’s Passport Photo"
+  name="childPassport"
+  required
+  initialValue={values.childPassport} 
+  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setFieldValue("childPassport", event.target.files[0]);
+    }
+  }}
+/>
+
 
         <FileUpload
           label="Parent’s Passport Photo"
           name="parentPassport"
           required
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files) {
-              setFieldValue("parentPassport", Array.from(event.target.files));
+            if (event.target.files && event.target.files[0]) {
+              // Set the field to the first file directly
+              setFieldValue("parentPassport", event.target.files[0]);
             }
           }}
         />
@@ -46,11 +49,9 @@ const Documents = ({
           name="emergencyContactPassport"
           required
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files) {
-              setFieldValue(
-                "emergencyContactPassport",
-                Array.from(event.target.files)
-              );
+            if (event.target.files && event.target.files[0]) {
+              // Set the field to the first file directly
+              setFieldValue("emergencyContactPassport", event.target.files[0]);
             }
           }}
         />
@@ -62,11 +63,9 @@ const Documents = ({
               name="pickPersonOnePassport"
               required
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                if (event.target.files) {
-                  setFieldValue(
-                    "pickPersonOnePassport",
-                    Array.from(event.target.files)
-                  );
+                if (event.target.files && event.target.files[0]) {
+                  // Set the field to the first file directly
+                  setFieldValue("pickPersonOnePassport", event.target.files[0]);
                 }
               }}
             />
@@ -75,11 +74,9 @@ const Documents = ({
               name="pickPersonTwoPassport"
               required
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                if (event.target.files) {
-                  setFieldValue(
-                    "pickPersonTwoPassport",
-                    Array.from(event.target.files)
-                  );
+                if (event.target.files && event.target.files[0]) {
+                  // Set the field to the first file directly
+                  setFieldValue("pickPersonTwoPassport", event.target.files[0]);
                 }
               }}
             />
@@ -90,18 +87,21 @@ const Documents = ({
           name="G6pdReport"
           required
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files) {
-              setFieldValue("G6pdReport", Array.from(event.target.files));
+            if (event.target.files && event.target.files[0]) {
+              // Set the field to the first file directly
+              setFieldValue("G6pdReport", event.target.files[0]);
             }
           }}
         />
+
         <FileUpload
           label="Copy of vaccinations"
           name="vaccinations"
           required
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files) {
-              setFieldValue("vaccinations", Array.from(event.target.files));
+            if (event.target.files && event.target.files[0]) {
+              // Set the field to the first file directly
+              setFieldValue("vaccinations", event.target.files[0]);
             }
           }}
         />

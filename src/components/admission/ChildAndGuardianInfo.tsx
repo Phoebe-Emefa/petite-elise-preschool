@@ -4,13 +4,15 @@ import Input from "../shared/forms/Input";
 import RadioButton from "../shared/forms/RadioButton";
 import { FieldArray } from "formik";
 import { MdAdd, MdClose } from "react-icons/md";
+import { IEnrollChild } from "@/utils/interfaces";
 
 type ChildAndGuardianInfoProps = {
-  values: any;
+  values: IEnrollChild;
+  prevStep: ()=> void;
   nextStep: () => void;
 };
 
-const ChildAndGuardianInfo = ({ values, nextStep }: ChildAndGuardianInfoProps) => {
+const ChildAndGuardianInfo = ({ values, prevStep, nextStep }: ChildAndGuardianInfoProps) => {
   return (
     <div>
       <div className="mb-10 mt-5">
@@ -140,15 +142,22 @@ const ChildAndGuardianInfo = ({ values, nextStep }: ChildAndGuardianInfoProps) =
         </div>
       </div>
 
-   <div className="w-full flex justify-end">
-   <button
-        type="button"
-        onClick={nextStep}
-        className="w-full lg:w-1/3 py-3 bg-gradient-to-r from-[#008C7E] to-[#00B597] text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
-      >
-        Next
-      </button>
-   </div>
+      <div className="w-full flex justify-between gap-4">
+        <button
+          type="button"
+          onClick={prevStep}
+          className="w-full lg:w-1/3 py-3 bg-gray-400 text-white font-bold rounded-lg hover:opacity-90 shadow-lg "
+        >
+          Back
+        </button>
+        <button
+          type="button"
+          onClick={nextStep}
+          className="w-full lg:w-1/3 py-3 bg-gradient-to-r from-[#008C7E] to-[#00B597] text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };
