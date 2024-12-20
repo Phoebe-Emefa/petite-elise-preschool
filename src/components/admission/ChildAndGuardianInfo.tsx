@@ -22,7 +22,7 @@ const ChildAndGuardianInfo = ({ values, nextStep }: ChildAndGuardianInfoProps) =
             type="date"
             required
           />
-          <Input label="Child’s Age " name="childAge" type="number" required />
+          <Input label="Child’s Age " name="childAge" placeholder="6 months" required />
           <Input label="⁠Parent’s Full Name" name="parentName" required />
           <Input
             label="⁠Parent’s  Email"

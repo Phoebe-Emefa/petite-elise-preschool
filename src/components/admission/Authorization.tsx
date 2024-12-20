@@ -5,9 +5,10 @@ import { Field } from "formik";
 type AuthorizationProps = {
   values: any;
   prevStep: () => void;
+  isSubmitting: boolean
 };
 
-const Authorization = ({ values, prevStep }: AuthorizationProps) => {
+const Authorization = ({ values, prevStep, isSubmitting }: AuthorizationProps) => {
     console.log("vals", values)
   return (
     <div>
@@ -71,7 +72,7 @@ const Authorization = ({ values, prevStep }: AuthorizationProps) => {
           type="submit"
           className="w-full lg:w-1/3 py-3 bg-gradient-to-r from-[#008C7E] to-[#00B597] text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
         >
-          Enroll Child
+        {isSubmitting ? "Loading" : "Enroll Child"}  
         </button>
       </div>
     </div>
