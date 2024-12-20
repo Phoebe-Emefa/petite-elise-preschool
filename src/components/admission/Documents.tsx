@@ -23,7 +23,7 @@ const Documents = ({
   label="Child’s Passport Photo"
   name="childPassport"
   required
-  initialValue={values.childPassport} 
+
   onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       setFieldValue("childPassport", event.target.files[0]);
@@ -97,6 +97,30 @@ const Documents = ({
         <FileUpload
           label="Copy of vaccinations"
           name="vaccinations"
+          required
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            if (event.target.files && event.target.files[0]) {
+              // Set the field to the first file directly
+              setFieldValue("vaccinations", event.target.files[0]);
+            }
+          }}
+        />
+
+<FileUpload
+          label="Child's Hearing Test"
+          name="childHearingTest"
+          required
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            if (event.target.files && event.target.files[0]) {
+              // Set the field to the first file directly
+              setFieldValue("childHearingTest", event.target.files[0]);
+            }
+          }}
+        />
+
+<FileUpload
+          label="Child's Eye Test"
+          name="childEyeTest"
           required
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
             if (event.target.files && event.target.files[0]) {

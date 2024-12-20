@@ -35,6 +35,8 @@ export interface IEnrollChild {
     pickPersonTwoPassport: FileOrUrl;
     G6pdReport: FileOrUrl;
     vaccinations: FileOrUrl;
+    childEyeTest: FileOrUrl;
+    childHearingTest: FileOrUrl
     
     photographUsageConsent: string
 

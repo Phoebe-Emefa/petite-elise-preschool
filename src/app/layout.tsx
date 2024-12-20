@@ -20,21 +20,20 @@ export const metadata: Metadata = {
     icon: "/icons/logo.petite-elise.ico",
   },
   openGraph: {
-    images: ["/images/logo.jpg"]
-  }
+    images: ["/images/logo.jpg"],
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <Theme>
-       <Provider>
-       <body className={`${quickSand.variable} antialiased`}>
-          <div className="flex flex-col min-h-screen font-quick-sand">
+    <html lang="en" className={`${quickSand.variable}`}>
+      <body className="antialiased flex flex-col min-h-screen font-quick-sand">
+        <Theme>
+          <Provider>
             {/* Sticky Navbar */}
             <NavBar />
 
@@ -43,10 +42,9 @@ export default function RootLayout({
 
             {/* Footer */}
             <Footer />
-          </div>
-        </body>
-       </Provider>
-      </Theme>
+          </Provider>
+        </Theme>
+      </body>
     </html>
   );
 }

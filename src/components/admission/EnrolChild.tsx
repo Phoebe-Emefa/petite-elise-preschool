@@ -115,6 +115,8 @@ const EnrolChild = () => {
       G6pdReport: selectedChild?.G6pdReport || "",
       vaccinations: selectedChild?.vaccinations || "",
       photographUsageConsent: selectedChild?.photographUsageConsent || "",
+      childEyeTest: selectedChild?.childEyeTest || "",
+      childHearingTest: selectedChild?.childHearingTest || "",
     },
     onSubmit: async (values, { setSubmitting }) => {
       try {
@@ -126,6 +128,8 @@ const EnrolChild = () => {
           "pickPersonTwoPassport",
           "G6pdReport",
           "vaccinations",
+          "childEyeTest",
+          "childHearingTest"
         ];
 
         const updatedValues: IEnrollChild = { ...values };
