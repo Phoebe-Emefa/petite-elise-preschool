@@ -22,6 +22,8 @@ export interface IEnrollChild {
     dropOffPersonTwoName?: string;
     dropOffPersonTwoRelationToChild?: string;
     dropOffNames?: IDropOff[];
+    programs: string[];
+    dayCareSchedule?: string;
     hasAllergies: string;
     allergies?: string[]
     hasSpecialHealthConditions: string;

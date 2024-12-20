@@ -101,6 +101,8 @@ const EnrolChild = () => {
           },
         ]
       : [{ name: "", relationToChild: "" }],
+      programs: selectedChild?.programs || [],
+      dayCareSchedule: selectedChild?.dayCareSchedule || "",
       hasAllergies:  selectedChild?.hasAllergies || "",
       allergies: selectedChild?.allergies || [],
       hasSpecialHealthConditions: selectedChild?.hasSpecialHealthConditions || "",
@@ -234,6 +236,7 @@ const EnrolChild = () => {
                 values={values}
                 nextStep={nextStep}
                 prevStep={prevStep}
+                setFieldValue={setFieldValue}
               />
             )}
             {currentStep === 4 && (
