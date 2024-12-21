@@ -13,13 +13,13 @@ import Authorization from "./Authorization";
 import { database, storage } from "@/app/appwrite"; // Import your Appwrite client
 import { ID, Query } from "appwrite";
 import ExistingInfoCheck from "./ExistingInfoCheck";
+import { toast } from "react-toastify";
 
 const EnrolChild = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [isChildAlreadyEnrolled, setIsChildAlreadyEnrolled] = useState<string>("")
   const [existingData, setExistingData] = useState<any>(null);
   const [fetchingData, setFetchingData] = useState<boolean>(false);
-  const [fetchDataError, setfetchDataError] = useState<string | null>(null);
   const [selectedChild, setSelectedChild] = useState<any>(null);
 
   const totalSteps = 6;
@@ -32,7 +32,6 @@ const EnrolChild = () => {
   ) => {
     try {
       setFetchingData(true);
-      setfetchDataError(null);
       setSelectedChild(null)
 
       // Query documents by parentEmail and parentPhoneNumber
@@ -48,7 +47,7 @@ const EnrolChild = () => {
       setExistingData(response?.documents); // Store the fetched documents
     } catch (err) {
       console.error("Error fetching documents:", err);
-      setfetchDataError("Failed to fetch documents");
+      toast.error("Failed to fetch documents");
     } finally {
       setFetchingData(false);
     }
@@ -67,8 +66,9 @@ const EnrolChild = () => {
       // Get the file URL
       return storage.getFileView("67649552001d1f5f31ad", response.$id);
     } catch (error) {
-      console.error("Appwrite File Upload Error:", error);
+      toast.error("Failed to upload file to Appwrite")
       throw new Error("Failed to upload file to Appwrite");
+     
     }
   };
 
@@ -157,7 +157,6 @@ const EnrolChild = () => {
         // Remove `dropOffNames` field before submission
         delete updatedValues.dropOffNames;
 
-        console.log("Before Submission:", updatedValues);
 
         // Submit the updated data to the database
         const response = await database.createDocument(
@@ -167,8 +166,11 @@ const EnrolChild = () => {
           updatedValues
         );
 
+        toast.success("Child Registered Successfully")
+
         console.log("Document created successfully:", response);
       } catch (error) {
+        toast.error("An error occurred during submission. Try again")
         console.error("Error during submission:", error);
       } finally {
         setSubmitting(false);

@@ -72,7 +72,7 @@ const Authorization = ({ values, prevStep, isSubmitting }: AuthorizationProps) =
           type="submit"
           className="w-full lg:w-1/3 py-3 bg-gradient-to-r from-[#008C7E] to-[#00B597] text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
         >
-        {isSubmitting ? "Loading" : "Register Your Child"}  
+        {isSubmitting ? "Registering..." : "Register Your Child"}  
         </button>
       </div>
     </div>
