@@ -17,6 +17,9 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldVal
     { label: "Baby & Me", value: "Baby & Me" },
     { label: "Developmental Playgroup", value: "Developmental Playgroup" },
     { label: "Extra-Curricular Activities", value: "Extra-Curricular Activities" },
+    { label: "Summer Camp", value: "Summer Camp" },
+    { label: "Christmas Camp", value: "Christmas Camp" },
+    { label: "Childminding", value: "Childminding" },
   ];
 
   const scheduleOptions = [

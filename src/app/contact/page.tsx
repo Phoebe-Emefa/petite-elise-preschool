@@ -24,9 +24,9 @@ const ContactUsPage = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 sm:px-10 grid gap-12 lg:grid-cols-2 relative mt-12">
+      <main className="max-w-6xl mx-auto flex justify-center items-center px-6 sm:px-10 w-full relative mt-12">
         {/* Send Us a Message */}
-        <SendMessage />
+        
 
         {/* Contact Info */}
         <ContactInfo />

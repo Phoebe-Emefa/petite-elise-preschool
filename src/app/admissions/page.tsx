@@ -1,4 +1,5 @@
 import EnrolChild from "@/components/admission/EnrolChild";
+import SendMessage from "@/components/contact/SendMessage";
 
 import React from "react";
 
@@ -20,9 +21,8 @@ const AdmissionsPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Enroll Your Child Section */}
-      <EnrolChild />
+      <SendMessage />
+     
     </div>
   );
 };

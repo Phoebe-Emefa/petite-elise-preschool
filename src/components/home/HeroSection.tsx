@@ -1,16 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import * as Dialog from "@radix-ui/react-dialog";
 import { FaPlay } from "react-icons/fa";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
     <div className="bg-primary min-h-screen lg:h-screen overflow-hidden relative">
-      {/* <div className="absolute inset-0"></div> */}
       <div className="max-w-7xl mx-auto px-4 py-16 lg:py-0 flex flex-col h-full justify-center">
         <div className="grid lg:grid-cols-2 gap-20 items-center h-full relative">
           {/* Left Column */}
-          <div className="space-y-8 text-center lg:text-left ">
+          <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4 flex flex-col items-center lg:items-start">
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
                 Welcome to
@@ -26,34 +24,37 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center gap-4 w-full lg:w-auto">
-              {/* <Link href="/admissions#enroll-child" className="w-full lg:w-auto ">
-                <button className="w-full sm:w-full lg:w-auto px-8 py-3 bg-secondary font-bold text-white rounded-full hover:from-[#fb9039] hover:to-[#eab308] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E17E7C] focus:ring-offset-[#4B456F]">
-                  Enroll your Child
+            <Dialog.Root>
+              <Dialog.Trigger asChild>
+                <button className="w-full lg:w-auto group lg:px-8 py-3 bg-white/10 backdrop-blur-sm text-secondary text-bold rounded-full hover:bg-white/20 transition-all duration-300 flex justify-center items-center gap-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#4B456F]">
+                  <div className="bg-white rounded-full p-1 group-hover:bg-secondary transition-colors duration-300">
+                    <FaPlay className="w-3 h-3 text-[#4B456F] group-hover:text-white transition-colors duration-300" />
+                  </div>
+                  School Tour
                 </button>
-              </Link> */}
-
-{/* <Link href="/admissions#enroll-child" className="w-full lg:w-auto ">
-                <button className="w-full sm:w-full lg:w-auto px-8 py-3 bg-secondary font-bold text-white rounded-full hover:from-[#fb9039] hover:to-[#eab308] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E17E7C] focus:ring-offset-[#4B456F]">
-                <div className="bg-white rounded-full p-1 group-hover:bg-secondary transition-colors duration-300">
-                  <FaPlay className="w-3 h-3 text-[#4B456F] group-hover:text-white transition-colors duration-300" />
-                </div>
-                School Tour
-                </button>
-              </Link> */}
-
-              <button className="w-full lg:w-auto  group lg:px-8 py-3  bg-white/10 backdrop-blur-sm text-secondary text-bold rounded-full hover:bg-white/20 transition-all duration-300 flex justify-center items-center gap-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#4B456F]">
-                <div className="bg-white rounded-full p-1  group-hover:bg-secondary transition-colors duration-300">
-                  <FaPlay className="w-3 h-3 text-[#4B456F] group-hover:text-white transition-colors duration-300" />
-                </div>
-                School Tour
-              </button>
-            </div>
+              </Dialog.Trigger>
+              <Dialog.Portal>
+                <Dialog.Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50" />
+                <Dialog.Content className="fixed z-50 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-xl overflow-hidden w-[95%] max-w-[1200px] max-h-[90%] h-[80vh] sm:h-[90vh]">
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <iframe
+                      src="https://www.youtube.com/embed/3zvuBSYiB54?si=io491Tr0QULV22p8"
+                      title="School Tour"
+                      className="w-full h-full border-none"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                  <Dialog.Close className="absolute top-3 right-3 bg-red-500 text-white rounded-full w-10 h-10 flex items-center justify-center text-lg hover:bg-red-600">
+                    &times;
+                  </Dialog.Close>
+                </Dialog.Content>
+              </Dialog.Portal>
+            </Dialog.Root>
           </div>
 
           {/* Right Column - Image */}
-          <div className="relative w-full h-full flex items-center justify-center">
-            {/* Yellow Blob (Background) */}
+          <div className="relative w-full h-full flex items-center justify-center z-30">
+            {/* Background Shapes */}
             <div className="absolute z-10">
               <svg
                 viewBox="0 0 900 600"
@@ -91,31 +92,25 @@ const HeroSection = () => {
               </svg>
             </div>
 
-        
-
             {/* Main Image */}
-          
-          <div className="relative  z-40">
-          <Image
+            <div className="relative z-20">
+              <Image
                 src="/images/hero.png"
-                // src="/images/child-2.png"
                 alt="Excited student"
                 width={380}
                 height={380}
-                className="object-contain  z-40 "
-              />
-                {/* Sun Icon */}
-                <div className="absolute z-30 -top-[10%] md:top[4%] lg:top-[6%] left-[1%] md:left-[15%] lg:left-[6%]">
-              <Image
-                src="/images/sun.png"
-                alt="Sun icon"
-                width={100}
-                height={100}
                 className="object-contain"
               />
+              <div className="absolute z-10 -top-[10%] md:top-[4%] lg:top-[6%] left-[1%] md:left-[15%] lg:left-[6%]">
+                <Image
+                  src="/images/sun.png"
+                  alt="Sun icon"
+                  width={100}
+                  height={100}
+                  className="object-contain"
+                />
+              </div>
             </div>
-         
-          </div>
           </div>
         </div>
       </div>

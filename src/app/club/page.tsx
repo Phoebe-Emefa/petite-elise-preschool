@@ -2,6 +2,7 @@
 
 import ClubGallery from "@/components/club/ClubGallery";
 import CTA from "@/components/programs/CTA";
+import Link from "next/link";
 
 const BuildingBlocksClub = () => {
   const programs = [
@@ -78,11 +79,13 @@ const BuildingBlocksClub = () => {
                   <p className="text-gray-700">{program.description}</p>
                 </div>
                 {/* Register Button */}
-                <button
+             <Link href="/admissions">
+             
+             <button
                   className="mt-6 w-full bg-primary hover:bg-opacity-90 text-white font-medium py-2 rounded-md transition-all duration-300"
                 >
                   Register Now
-                </button>
+                </button></Link>
               </div>
             ))}
           </div>
