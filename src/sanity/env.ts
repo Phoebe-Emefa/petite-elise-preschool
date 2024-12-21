@@ -10,6 +10,7 @@ export const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-07
 
 // FIREBASE
 
+export const appWriteProjectID = process.env.NEXT_PUBLIC_PROJECT_ID!
 export const appWriteDatabaseID = process.env.NEXT_PUBLIC_DATABASE_ID!
 export const appwriteCollectionID = process.env.NEXT_PUBLIC_COLLECTION_ID!
 export const appwriteBucketID = process.env.NEXT_PUBLIC_BUCKET_ID!
