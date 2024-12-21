@@ -110,12 +110,12 @@ export const navigation: { title: string; href: string }[] = [
     },
     {
       icon: "/images/student.png",
-      title: "Extra- Curricular Activities",
-      time: "4pm-6pm",
+      title: "Experiental Learning Activities",
+      // time: "4pm-6pm",
       description:
         "We have collaborated with Vivie’s Dance Factory to have their Ballet and Taekwondo tutors , tutor our Preschoolers at our premises at a reduced cost than they would at their centre. Preschoolers may also choose Piano as well.",
       ageGroup: "Ages 3- 5 years",
-      schedule: "Once a week 3pm - 4pm",
+      schedule: "Once a week",
       activities: ["Ballet", "Taekwondo", "Piano"],
     },
   ];

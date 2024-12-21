@@ -47,9 +47,9 @@ She is passionate about bridging the gap between academia and the creative secto
     id: 4,
     name: "Mr. David Quagraine",
     role: "Board Member",
-    bio: `Mr. David Quagraine is an experienced Cloud Consultant specializing in Solution Architecture, DevSecOps and FinOps with over 12 years of experience delivering secure, cost-effective solutions across finance, telecom, and tech sectors. David holds an MSc in Business Technology Consulting from Henley Business School.
-Having lectured technology students in the past, David enjoys imparting knowledge and values education especially in the tech space. 
-He is currently the Group Head of Cloud at a financial institution and looks forward to bringing his expertise on board in drawing up kid-friendly tech-based programs that allows our preschool children have options in today’s world .`,
+    bio: `Mr. David Quagraine is a seasoned Cloud Consultant and Solutions Architect with over 12 years of experience delivering secure, cost-effective solutions across finance, telecommunications, and technology sectors. He specializes in Solution Architecture, DevSecOps, and FinOps, with a proven track record of leading high-impact projects that drive innovation and efficiency. David holds an MSc in Business Technology Consulting from Henley Business School.  A passionate educator, David has previously lectured technology students and values the power of education in shaping future leaders in the tech space. Currently, as the Head of Cloud Architecture at a prominent financial institution, David leads teams in designing cutting-edge cloud strategies and solutions. Beyond his technical career, David is committed to empowering the next generation by developing tech-based programs that introduce young children to the possibilities of emerging technologies, ensuring they are prepared for tomorrow's digital world.
+
+`,
     image: "/images/David.jpg",
   },
   {
