@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
-import moment from "moment"
+import moment from "moment";
 import { IEnrollChild } from "@/utils/interfaces";
 import { FormikProvider, useFormik } from "formik";
 import ChildAndGuardianInfo from "./ChildAndGuardianInfo";
@@ -17,14 +17,10 @@ import { toast } from "react-toastify";
 
 const EnrolChild = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const [isChildAlreadyEnrolled, setIsChildAlreadyEnrolled] = useState<string>("")
+  const [isChildAlreadyEnrolled, setIsChildAlreadyEnrolled] = useState<string>("");
   const [existingData, setExistingData] = useState<any>(null);
   const [fetchingData, setFetchingData] = useState<boolean>(false);
   const [selectedChild, setSelectedChild] = useState<any>(null);
-
-  const totalSteps = 6;
-
-  console.log("selectedChild", selectedChild)
 
   const fetchAllDocuments = async (
     parentEmail: string,
@@ -32,7 +28,7 @@ const EnrolChild = () => {
   ) => {
     try {
       setFetchingData(true);
-      setSelectedChild(null)
+      setSelectedChild(null);
 
       // Query documents by parentEmail and parentPhoneNumber
       const response = await database.listDocuments(
@@ -53,8 +49,6 @@ const EnrolChild = () => {
     }
   };
 
-  console.log("existingData", existingData);
-
   // Function to upload a single file to Appwrite Storage
   const uploadFileToAppwrite = async (file: File) => {
     try {
@@ -66,52 +60,57 @@ const EnrolChild = () => {
       // Get the file URL
       return storage.getFileView("67649552001d1f5f31ad", response.$id);
     } catch (error) {
-      toast.error("Failed to upload file to Appwrite")
+      toast.error("Failed to upload file to Appwrite");
       throw new Error("Failed to upload file to Appwrite");
-     
     }
   };
 
   const formik = useFormik<IEnrollChild>({
     initialValues: {
       childName: selectedChild?.childName || "",
-      childDOB: selectedChild?.childDOB 
-    ? moment(selectedChild.childDOB).format("YYYY-MM-DD") 
-    : "",
-      childAge: selectedChild?.childAge ||  "",
+      childDOB: selectedChild?.childDOB
+        ? moment(selectedChild.childDOB).format("YYYY-MM-DD")
+        : "",
+      childAge: selectedChild?.childAge || "",
       parentName: selectedChild?.parentName || "",
       parentEmail: selectedChild?.parentEmail || "",
       parentPhoneNumber: selectedChild?.parentPhoneNumber || "",
       parentWhatsappNumber: selectedChild?.parentWhatsappNumber || "",
       address: selectedChild?.address || "",
       emergencyContactName: selectedChild?.emergencyContactName || "",
-      emergencyContactPhoneNumber: selectedChild?.emergencyContactPhoneNumber || "",
-      emergencyContactWhatsappNumber: selectedChild?.emergencyContactWhatsappNumber || "",
-      emergencyContactRelationshipToChild: selectedChild?.emergencyContactRelationshipToChild || "",
+      emergencyContactPhoneNumber:
+        selectedChild?.emergencyContactPhoneNumber || "",
+      emergencyContactWhatsappNumber:
+        selectedChild?.emergencyContactWhatsappNumber || "",
+      emergencyContactRelationshipToChild:
+        selectedChild?.emergencyContactRelationshipToChild || "",
       dropChildOffSelf: selectedChild?.dropChildOffSelf || "",
       dropOffNames: selectedChild?.dropOffPersonOneName
-      ? [
-          {
-            name: selectedChild.dropOffPersonOneName || "",
-            relationToChild: selectedChild.dropOffPersonOneRelationToChild || "",
-          },
-          {
-            name: selectedChild.dropOffPersonTwoName || "",
-            relationToChild: selectedChild.dropOffPersonTwoRelationToChild || "",
-          },
-        ]
-      : [{ name: "", relationToChild: "" }],
+        ? [
+            {
+              name: selectedChild.dropOffPersonOneName || "",
+              relationToChild:
+                selectedChild.dropOffPersonOneRelationToChild || "",
+            },
+            {
+              name: selectedChild.dropOffPersonTwoName || "",
+              relationToChild:
+                selectedChild.dropOffPersonTwoRelationToChild || "",
+            },
+          ]
+        : [{ name: "", relationToChild: "" }],
       programs: selectedChild?.programs || [],
       dayCareSchedule: selectedChild?.dayCareSchedule || "",
-      hasAllergies:  selectedChild?.hasAllergies || "",
+      hasAllergies: selectedChild?.hasAllergies || "",
       allergies: selectedChild?.allergies || [],
-      hasSpecialHealthConditions: selectedChild?.hasSpecialHealthConditions || "",
+      hasSpecialHealthConditions:
+        selectedChild?.hasSpecialHealthConditions || "",
       specialHealthConditions: selectedChild?.specialHealthConditions || [],
       childPassport: selectedChild?.childPassport || "",
       parentPassport: selectedChild?.parentPassport || "",
-      emergencyContactPassport: selectedChild?.emergencyContactPassport ||  "",
-      pickPersonOnePassport: selectedChild?.pickPersonOnePassport ||  "",
-      pickPersonTwoPassport: selectedChild?.pickPersonTwoPassport ||  "",
+      emergencyContactPassport: selectedChild?.emergencyContactPassport || "",
+      pickPersonOnePassport: selectedChild?.pickPersonOnePassport || "",
+      pickPersonTwoPassport: selectedChild?.pickPersonTwoPassport || "",
       G6pdReport: selectedChild?.G6pdReport || "",
       vaccinations: selectedChild?.vaccinations || "",
       photographUsageConsent: selectedChild?.photographUsageConsent || "",
@@ -129,7 +128,7 @@ const EnrolChild = () => {
           "G6pdReport",
           "vaccinations",
           "childEyeTest",
-          "childHearingTest"
+          "childHearingTest",
         ];
 
         const updatedValues: IEnrollChild = { ...values };
@@ -157,7 +156,6 @@ const EnrolChild = () => {
         // Remove `dropOffNames` field before submission
         delete updatedValues.dropOffNames;
 
-
         // Submit the updated data to the database
         const response = await database.createDocument(
           "6764ab1b00245cf492f1", // Replace with your Appwrite database ID
@@ -166,11 +164,11 @@ const EnrolChild = () => {
           updatedValues
         );
 
-        toast.success("Child Registered Successfully")
+        toast.success("Child Registered Successfully");
 
         console.log("Document created successfully:", response);
       } catch (error) {
-        toast.error("An error occurred during submission. Try again")
+        toast.error("An error occurred during submission. Try again");
         console.error("Error during submission:", error);
       } finally {
         setSubmitting(false);
@@ -181,7 +179,12 @@ const EnrolChild = () => {
 
   const { values, setFieldValue, handleSubmit, isSubmitting } = formik;
 
-  console.log("uivals", values);
+  // Dynamic logic to skip the Documents page
+  const shouldSkipDocumentsPage = values?.programs.every((program: string) =>
+    ["Summer Camp", "Christmas Camp", "Childminding"].includes(program)
+  );
+
+  const totalSteps = shouldSkipDocumentsPage ? 5 : 6;
 
   const nextStep = () => setCurrentStep((prevStep) => prevStep + 1);
   const prevStep = () => setCurrentStep((prevStep) => prevStep - 1);
@@ -210,20 +213,20 @@ const EnrolChild = () => {
               {currentStep === 1
                 ? "Existing Child Check"
                 : currentStep === 2
-                  ? "Child and Guardian Information"
-                  : currentStep === 3
-                    ? "Program Selection and Schedule"
-                    : currentStep === 4
-                      ? "Health Conditions and Allergies"
-                      : currentStep === 5
-                        ? "Documents"
-                        : "Photograph Usage Authorization"}
+                ? "Child and Guardian Information"
+                : currentStep === 3
+                ? "Program Selection and Schedule"
+                : currentStep === 4
+                ? "Health Conditions and Allergies"
+                : currentStep === 5 && !shouldSkipDocumentsPage
+                ? "Documents"
+                : "Photograph Usage Authorization"}
               <h5 className="text-xs md:text-base">{`Step ${currentStep} / ${totalSteps}`}</h5>
             </div>
             {currentStep === 1 && (
               <ExistingInfoCheck
-              isChildAlreadyEnrolled={isChildAlreadyEnrolled}
-              setIsChildAlreadyEnrolled={setIsChildAlreadyEnrolled}
+                isChildAlreadyEnrolled={isChildAlreadyEnrolled}
+                setIsChildAlreadyEnrolled={setIsChildAlreadyEnrolled}
                 values={values}
                 fetchAllDocuments={fetchAllDocuments}
                 fetchingData={fetchingData}
@@ -235,7 +238,11 @@ const EnrolChild = () => {
               />
             )}
             {currentStep === 2 && (
-              <ChildAndGuardianInfo values={values} prevStep={prevStep} nextStep={nextStep} />
+              <ChildAndGuardianInfo
+                values={values}
+                prevStep={prevStep}
+                nextStep={nextStep}
+              />
             )}
             {currentStep === 3 && (
               <ProgramSelection
@@ -252,7 +259,7 @@ const EnrolChild = () => {
                 prevStep={prevStep}
               />
             )}
-            {currentStep === 5 && (
+            {!shouldSkipDocumentsPage && currentStep === 5 && (
               <Documents
                 values={values}
                 nextStep={nextStep}
@@ -260,7 +267,9 @@ const EnrolChild = () => {
                 setFieldValue={setFieldValue}
               />
             )}
-            {currentStep === 6 && (
+            {(shouldSkipDocumentsPage
+              ? currentStep === 5
+              : currentStep === 6) && (
               <Authorization
                 values={values}
                 prevStep={prevStep}
