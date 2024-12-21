@@ -15,6 +15,7 @@ import { ID, Query } from "appwrite";
 import ExistingInfoCheck from "./ExistingInfoCheck";
 import { toast } from "react-toastify";
 import { enrollChildSchema } from "@/utils/validations";
+import { appwriteBucketID, appwriteCollectionID, appWriteDatabaseID } from "@/sanity/env";
 
 const EnrolChild = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -35,8 +36,8 @@ const EnrolChild = () => {
 
       // Query documents by parentEmail and parentPhoneNumber
       const response = await database.listDocuments(
-        "6764ab1b00245cf492f1", // Replace with your Appwrite database ID
-        "6764ab390006a8717208", // Replace with your Appwrite collection ID
+        appWriteDatabaseID, // Replace with your Appwrite database ID
+        appwriteCollectionID, // Replace with your Appwrite collection ID
         [
           Query.equal("parentEmail", parentEmail),
           Query.equal("parentPhoneNumber", parentPhoneNumber),
@@ -56,12 +57,12 @@ const EnrolChild = () => {
   const uploadFileToAppwrite = async (file: File) => {
     try {
       const response = await storage.createFile(
-        "67649552001d1f5f31ad", // Replace with your Appwrite bucket ID
+        appwriteBucketID, // Replace with your Appwrite bucket ID
         ID.unique(),
         file
       );
       // Get the file URL
-      return storage.getFileView("67649552001d1f5f31ad", response.$id);
+      return storage.getFileView(appwriteBucketID, response.$id);
     } catch (error) {
       console.log(error)
       toast.error(`Failed to upload file to Appwrite`);
@@ -163,8 +164,8 @@ const EnrolChild = () => {
         if (selectedChild) {
           // Update the existing document
           const response = await database.updateDocument(
-            "6764ab1b00245cf492f1", // Your database ID
-            "6764ab390006a8717208", // Your collection ID
+            appWriteDatabaseID, // Your database ID
+            appwriteCollectionID, // Your collection ID
             selectedChild.$id, // ID of the document to update
             updatedValues
           );
@@ -173,8 +174,8 @@ const EnrolChild = () => {
         } else {
           // Create a new document
           const response = await database.createDocument(
-            "6764ab1b00245cf492f1", // Your database ID
-            "6764ab390006a8717208", // Your collection ID
+            appWriteDatabaseID, // Your database ID
+            appwriteCollectionID, // Your collection ID
             ID.unique(),
             updatedValues
           );
