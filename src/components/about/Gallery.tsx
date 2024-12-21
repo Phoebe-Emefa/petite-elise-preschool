@@ -9,12 +9,22 @@ import { Dialog, DialogContent } from '../ui/modal'
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 const photos = [
-  { src: "https://media.istockphoto.com/id/476141431/photo/preschool.jpg?s=612x612&w=0&k=20&c=c7W3xJ_nJTxr8TVypX4rb1g-Ss16eOc67QnoTolq-OU=", alt: "Children playing" },
-  { src: "https://www.earlyyearsnc.org/wp-content/uploads/three-diverse-prek-children.jpg", alt: "Art class" },
-  { src: "https://media.istockphoto.com/id/476141431/photo/preschool.jpg?s=612x612&w=0&k=20&c=c7W3xJ_nJTxr8TVypX4rb1g-Ss16eOc67QnoTolq-OU=", alt: "Outdoor activities" },
-  { src: "https://www.earlyyearsnc.org/wp-content/uploads/three-diverse-prek-children.jpg", alt: "Story time" },
-  { src: "https://media.istockphoto.com/id/476141431/photo/preschool.jpg?s=612x612&w=0&k=20&c=c7W3xJ_nJTxr8TVypX4rb1g-Ss16eOc67QnoTolq-OU=", alt: "Music lesson" },
-  { src: "https://www.earlyyearsnc.org/wp-content/uploads/three-diverse-prek-children.jpg", alt: "Nap time" },
+  { src: "/images/seven.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/eight.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/nine.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/ten.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/eleven.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/twelve.jpg", alt: "Petie Elise Tour" },
+ 
+  { src: "/images/two.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/three.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/four.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/one.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/five.jpg", alt: "Petie Elise Tour" },
+  { src: "/images/six.jpg", alt: "Petie Elise Tour" },
+
+  { src: "/images/thirteen.jpg", alt: "Petie Elise Tour" },
+
 ]
 
 const Gallery = () => {
