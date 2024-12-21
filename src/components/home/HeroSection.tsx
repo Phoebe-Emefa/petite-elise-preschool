@@ -27,14 +27,23 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col md:flex-row items-center gap-4 w-full lg:w-auto">
-              <Link href="/admissions#enroll-child" className="w-full lg:w-auto ">
+              {/* <Link href="/admissions#enroll-child" className="w-full lg:w-auto ">
                 <button className="w-full sm:w-full lg:w-auto px-8 py-3 bg-secondary font-bold text-white rounded-full hover:from-[#fb9039] hover:to-[#eab308] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E17E7C] focus:ring-offset-[#4B456F]">
                   Enroll your Child
                 </button>
-              </Link>
+              </Link> */}
 
-              <button className="w-full lg:w-auto  group lg:px-8 py-3  bg-white/10 backdrop-blur-sm text-white rounded-full hover:bg-white/20 transition-all duration-300 flex justify-center items-center gap-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#4B456F]">
+{/* <Link href="/admissions#enroll-child" className="w-full lg:w-auto ">
+                <button className="w-full sm:w-full lg:w-auto px-8 py-3 bg-secondary font-bold text-white rounded-full hover:from-[#fb9039] hover:to-[#eab308] transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#E17E7C] focus:ring-offset-[#4B456F]">
                 <div className="bg-white rounded-full p-1 group-hover:bg-secondary transition-colors duration-300">
+                  <FaPlay className="w-3 h-3 text-[#4B456F] group-hover:text-white transition-colors duration-300" />
+                </div>
+                School Tour
+                </button>
+              </Link> */}
+
+              <button className="w-full lg:w-auto  group lg:px-8 py-3  bg-white/10 backdrop-blur-sm text-secondary text-bold rounded-full hover:bg-white/20 transition-all duration-300 flex justify-center items-center gap-2 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white focus:ring-offset-[#4B456F]">
+                <div className="bg-white rounded-full p-1  group-hover:bg-secondary transition-colors duration-300">
                   <FaPlay className="w-3 h-3 text-[#4B456F] group-hover:text-white transition-colors duration-300" />
                 </div>
                 School Tour
@@ -88,10 +97,11 @@ const HeroSection = () => {
           
           <div className="relative  z-40">
           <Image
-                src="/images/child-2.png"
+                src="/images/hero.png"
+                // src="/images/child-2.png"
                 alt="Excited student"
-                width={500}
-                height={200}
+                width={380}
+                height={380}
                 className="object-contain  z-40 "
               />
                 {/* Sun Icon */}

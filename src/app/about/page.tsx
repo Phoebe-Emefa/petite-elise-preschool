@@ -8,6 +8,7 @@ import React from 'react'
 import {motion} from "framer-motion"
 import CTA from '@/components/programs/CTA'
 import OurStaff from '@/components/about/OurStaff'
+import Curriculum from '@/components/about/Curriculum'
 
 const About = () => {
   return (
@@ -15,6 +16,7 @@ const About = () => {
       <HeroSection />
       <VisionAndMission />
       <OurValues />
+      <Curriculum />
       <motion.section 
           className="max-w-7xl mx-auto px-4 py-16"
           initial={{ opacity: 0, y: 20 }}

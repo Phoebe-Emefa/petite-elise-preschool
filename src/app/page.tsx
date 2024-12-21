@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <HeroSection />
       <AboutUs />
-      {/* <CardSlider /> */}
+     
       <Program />
       <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <TestimonialCard />
