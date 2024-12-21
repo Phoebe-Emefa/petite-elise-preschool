@@ -2,12 +2,15 @@
 import React from "react";
 import FileUpload from "../shared/forms/FileUpload";
 import { IEnrollChild } from "@/utils/interfaces";
+import { Button } from "../ui/button";
 
 type DocumentsProps = {
   values: IEnrollChild;
   nextStep: () => void;
   prevStep: () => void;
   setFieldValue: (name: string, val: any) => void;
+  errors: Record<string, any>;
+  dirty: boolean;
 };
 
 const Documents = ({
@@ -15,45 +18,55 @@ const Documents = ({
   setFieldValue,
   nextStep,
   prevStep,
+  errors,
+  dirty,
 }: DocumentsProps) => {
+  const relevantFields = [
+    "childPassport",
+    "parentPassport",
+    "emergencyContactPassport",
+    "pickPersonOnePassport",
+    "pickPersonTwoPassport",
+    "G6pdReport",
+    "vaccinations",
+    "childHearingTest",
+    "childEyeTest"
+  
+  ];
+
+  // Filter errors to include only relevant fields
+  const componentErrors = Object.keys(errors).filter((field) =>
+    relevantFields.includes(field)
+  );
+
+  const hasErrors = componentErrors.length > 0;
+
+
   return (
     <div>
       <div className="mb-10 mt-5">
-      <FileUpload
-  label="Child’s Passport Photo"
-  name="childPassport"
-  required
-
-  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      setFieldValue("childPassport", event.target.files[0]);
-    }
-  }}
-/>
-
+        <FileUpload
+          label="Child’s Passport Photo"
+          name="childPassport"
+          required
+          initialValue={values?.childPassport as string}
+        
+        />
 
         <FileUpload
           label="Parent’s Passport Photo"
           name="parentPassport"
           required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files && event.target.files[0]) {
-              // Set the field to the first file directly
-              setFieldValue("parentPassport", event.target.files[0]);
-            }
-          }}
+          initialValue={values?.parentPassport as string}
+      
         />
 
         <FileUpload
           label="Emergency Contact’s Passport Photo"
           name="emergencyContactPassport"
           required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files && event.target.files[0]) {
-              // Set the field to the first file directly
-              setFieldValue("emergencyContactPassport", event.target.files[0]);
-            }
-          }}
+          initialValue={values?.emergencyContactPassport as string}
+        
         />
 
         {values?.dropChildOffSelf === "No" && (
@@ -62,90 +75,71 @@ const Documents = ({
               label="1st Pickup Person’s Passport Photo"
               name="pickPersonOnePassport"
               required
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                if (event.target.files && event.target.files[0]) {
-                  // Set the field to the first file directly
-                  setFieldValue("pickPersonOnePassport", event.target.files[0]);
-                }
-              }}
+              initialValue={values?.pickPersonOnePassport as string}
+         
             />
             <FileUpload
               label="2nd Pickup Person’s Person’s Passport"
               name="pickPersonTwoPassport"
               required
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                if (event.target.files && event.target.files[0]) {
-                  // Set the field to the first file directly
-                  setFieldValue("pickPersonTwoPassport", event.target.files[0]);
-                }
-              }}
+              initialValue={values?.pickPersonTwoPassport as string}
+            
             />
           </>
         )}
         <FileUpload
           label="G6pd report"
           name="G6pdReport"
+          initialValue={values?.G6pdReport as string}
           required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files && event.target.files[0]) {
-              // Set the field to the first file directly
-              setFieldValue("G6pdReport", event.target.files[0]);
-            }
-          }}
+      
         />
 
         <FileUpload
           label="Copy of vaccinations"
           name="vaccinations"
+          initialValue={values?.vaccinations as string}
           required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files && event.target.files[0]) {
-              // Set the field to the first file directly
-              setFieldValue("vaccinations", event.target.files[0]);
-            }
-          }}
+      
         />
 
-<FileUpload
+        <FileUpload
           label="Child's Hearing Test"
           name="childHearingTest"
           required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files && event.target.files[0]) {
-              // Set the field to the first file directly
-              setFieldValue("childHearingTest", event.target.files[0]);
-            }
-          }}
+          initialValue={values?.childHearingTest as string}
+      
         />
 
-<FileUpload
+        <FileUpload
           label="Child's Eye Test"
           name="childEyeTest"
+          initialValue={values?.childEyeTest as string}
           required
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            if (event.target.files && event.target.files[0]) {
-              // Set the field to the first file directly
-              setFieldValue("vaccinations", event.target.files[0]);
-            }
-          }}
+        
         />
       </div>
 
       <div className="w-full flex justify-between gap-4">
-        <button
+        <Button
           type="button"
+          variant="outline"
           onClick={prevStep}
-          className="w-full lg:w-1/3 py-3 bg-gray-400 text-white font-bold rounded-lg hover:opacity-90 shadow-lg "
+          className="w-full lg:w-1/3 py-3 "
         >
           Back
-        </button>
-        <button
+        </Button>
+
+        {/* Next Button */}
+        <Button
           type="button"
           onClick={nextStep}
-          className="w-full lg:w-1/3 py-3 bg-gradient-to-r from-[#008C7E] to-[#00B597] text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
+          disabled={hasErrors ||  !dirty }
+
+          className={`w-full lg:w-1/3 py-3 font-bold rounded-lg shadow-lg border-2 text-white bg-gradient-to-r from-[#008C7E] to-[#00B597] border-[#00B597] hover:opacity-90 `}
         >
           Next
-        </button>
+        </Button>
       </div>
     </div>
   );

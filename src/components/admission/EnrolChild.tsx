@@ -23,6 +23,8 @@ const EnrolChild = () => {
   const [fetchingData, setFetchingData] = useState<boolean>(false);
   const [selectedChild, setSelectedChild] = useState<any>(null);
 
+
+  console.log("selectedChild", selectedChild)
   const fetchAllDocuments = async (
     parentEmail: string,
     parentPhoneNumber: string
@@ -118,7 +120,7 @@ const EnrolChild = () => {
       childEyeTest: selectedChild?.childEyeTest || "",
       childHearingTest: selectedChild?.childHearingTest || "",
     },
-    onSubmit: async (values, { setSubmitting }) => {
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
         const fileFields: (keyof IEnrollChild)[] = [
           "childPassport",
@@ -131,9 +133,9 @@ const EnrolChild = () => {
           "childEyeTest",
           "childHearingTest",
         ];
-
+    
         const updatedValues: IEnrollChild = { ...values };
-
+    
         // Process file fields
         for (const field of fileFields) {
           const file = values[field];
@@ -142,7 +144,7 @@ const EnrolChild = () => {
             (updatedValues[field] as any) = uploadedUrl; // Ensure it's a string (URL)
           }
         }
-
+    
         // Map `dropOffNames` to individual fields
         if (values.dropOffNames && values.dropOffNames.length > 0) {
           const [personOne, personTwo] = values.dropOffNames;
@@ -153,33 +155,47 @@ const EnrolChild = () => {
           updatedValues.dropOffPersonTwoRelationToChild =
             personTwo?.relationToChild || "";
         }
-
+    
         // Remove `dropOffNames` field before submission
         delete updatedValues.dropOffNames;
-
-        // Submit the updated data to the database
-        const response = await database.createDocument(
-          "6764ab1b00245cf492f1", // Replace with your Appwrite database ID
-          "6764ab390006a8717208", // Replace with your Appwrite collection ID
-          ID.unique(),
-          updatedValues
-        );
-
-        toast.success("Child Registered Successfully");
-
-        console.log("Document created successfully:", response);
+    
+        if (selectedChild) {
+          // Update the existing document
+          const response = await database.updateDocument(
+            "6764ab1b00245cf492f1", // Your database ID
+            "6764ab390006a8717208", // Your collection ID
+            selectedChild.$id, // ID of the document to update
+            updatedValues
+          );
+          toast.success("Child Information Updated Successfully");
+          console.log("Document updated successfully:", response);
+        } else {
+          // Create a new document
+          const response = await database.createDocument(
+            "6764ab1b00245cf492f1", // Your database ID
+            "6764ab390006a8717208", // Your collection ID
+            ID.unique(),
+            updatedValues
+          );
+          toast.success("Child Registered Successfully");
+          console.log("Document created successfully:", response);
+        }
+    
+        resetForm();
+        setCurrentStep(1)
       } catch (error) {
-        toast.error("An error occurred during submission. Try again");
+        toast.error(`An error occurred during submission.`);
         console.error("Error during submission:", error);
       } finally {
         setSubmitting(false);
       }
     },
+    
     enableReinitialize: true,
     validationSchema: enrollChildSchema
   });
 
-  const { values,errors, setFieldValue, handleSubmit, isSubmitting } = formik;
+  const { values,errors, setFieldValue, handleSubmit, isSubmitting, isValid, dirty } = formik;
 
   // Dynamic logic to skip the Documents page
   const shouldSkipDocumentsPage = values?.programs.every((program: string) =>
@@ -248,6 +264,8 @@ const EnrolChild = () => {
                 values={values}
                 prevStep={prevStep}
                 nextStep={nextStep}
+                errors={errors}
+                dirty={dirty}
               />
             )}
             {currentStep === 3 && (
@@ -256,6 +274,8 @@ const EnrolChild = () => {
                 nextStep={nextStep}
                 prevStep={prevStep}
                 setFieldValue={setFieldValue}
+                errors={errors}
+                dirty={dirty}
               />
             )}
             {currentStep === 4 && (
@@ -263,6 +283,8 @@ const EnrolChild = () => {
                 values={values}
                 nextStep={nextStep}
                 prevStep={prevStep}
+                errors={errors}
+                dirty={dirty}
               />
             )}
             {!shouldSkipDocumentsPage && currentStep === 5 && (
@@ -271,6 +293,8 @@ const EnrolChild = () => {
                 nextStep={nextStep}
                 prevStep={prevStep}
                 setFieldValue={setFieldValue}
+                errors={errors}
+                dirty={dirty}
               />
             )}
             {(shouldSkipDocumentsPage
@@ -280,6 +304,8 @@ const EnrolChild = () => {
                 values={values}
                 prevStep={prevStep}
                 isSubmitting={isSubmitting}
+                errors={errors}
+                dirty={dirty}
               />
             )}
           </form>

@@ -4,17 +4,20 @@ import CustomSelect from "../shared/forms/CustomSelect";
 import RadioButton from "../shared/forms/RadioButton";
 import CustomInputList from "../shared/forms/CustomInputList";
 import { IEnrollChild } from "@/utils/interfaces";
+import { Button } from "../ui/button";
 
 type ChildHealthConditionsProps = {
   values: IEnrollChild;
   nextStep: () => void;
   prevStep: () => void;
+  errors: Record<string, any>;
+  dirty: boolean;
 };
 
 const ChildHealthConditions = ({
   values,
   nextStep,
-  prevStep,
+  prevStep,errors,dirty,
 }: ChildHealthConditionsProps) => {
   const options = [
     { label: "ADHD", value: "ADHD" },
@@ -23,6 +26,21 @@ const ChildHealthConditions = ({
     { label: "None", value: "None" },
     { label: "Other", value: "Other" },
   ];
+
+  const relevantFields = [
+    "hasAllergies",
+    "allergies",
+    "hasSpecialHealthConditions",
+    "specialHealthConditions",
+  
+  ];
+
+  // Filter errors to include only relevant fields
+  const componentErrors = Object.keys(errors).filter((field) =>
+    relevantFields.includes(field)
+  );
+
+  const hasErrors = componentErrors.length > 0;
 
   return (
     <div>
@@ -71,20 +89,25 @@ const ChildHealthConditions = ({
       </div>
 
       <div className="w-full flex justify-between gap-4">
-        <button
+        <Button
           type="button"
+          variant="outline"
           onClick={prevStep}
-          className="w-full lg:w-1/3 py-3 bg-gray-400 text-white font-bold rounded-lg hover:opacity-90 shadow-lg "
+          className="w-full lg:w-1/3 py-3 "
         >
           Back
-        </button>
-        <button
+        </Button>
+
+        {/* Next Button */}
+        <Button
           type="button"
           onClick={nextStep}
-          className="w-full lg:w-1/3 py-3 bg-gradient-to-r from-[#008C7E] to-[#00B597] text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
+          disabled={hasErrors }
+
+          className={`w-full lg:w-1/3 py-3 font-bold rounded-lg shadow-lg border-2 text-white bg-gradient-to-r from-[#008C7E] to-[#00B597] border-[#00B597] hover:opacity-90 `}
         >
           Next
-        </button>
+        </Button>
       </div>
     </div>
   );

@@ -1,15 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect } from "react";
 import CustomSelect from "../shared/forms/CustomSelect";
+import { Button } from "../ui/button";
 
 type ProgramSelectionProps = {
   values: any;
   setFieldValue: (field: string, value: any, shouldValidate?: boolean) => void;
   nextStep: () => void;
   prevStep: () => void;
+  errors: Record<string, any>;
+  dirty: boolean;
 };
 
-const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldValue, nextStep, prevStep }) => {
+const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldValue,   errors,
+  dirty, nextStep, prevStep }) => {
   const programOptions = [
     { label: "Daycare", value: "Daycare" },
     { label: "Preschool", value: "Preschool" },
@@ -38,6 +42,20 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldVal
     }
   }, [isDaycareSelected, values, setFieldValue]);
 
+  const relevantFields = [
+    "programs",
+    "dayCareSchedule",
+  
+  ];
+
+  // Filter errors to include only relevant fields
+  const componentErrors = Object.keys(errors).filter((field) =>
+    relevantFields.includes(field)
+  );
+
+  const hasErrors = componentErrors.length > 0;
+
+
   return (
     <div>
       <div className="mb-10 mt-5">
@@ -53,7 +71,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldVal
         {isDaycareSelected && (
           <CustomSelect
             label="Select Schedule"
-            name="schedule"
+            name="dayCareSchedule"
             options={scheduleOptions}
             required
             placeholder="Select a schedule for Daycare"
@@ -62,20 +80,25 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldVal
       </div>
 
       <div className="w-full flex justify-between gap-4">
-        <button
+        <Button
           type="button"
+          variant="outline"
           onClick={prevStep}
-          className="w-full lg:w-1/3 py-3 bg-gray-400 text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
+          className="w-full lg:w-1/3 py-3 "
         >
           Back
-        </button>
-        <button
+        </Button>
+
+        {/* Next Button */}
+        <Button
           type="button"
           onClick={nextStep}
-          className="w-full lg:w-1/3 py-3 bg-gradient-to-r from-[#008C7E] to-[#00B597] text-white font-bold rounded-lg hover:opacity-90 shadow-lg"
+          disabled={hasErrors ||  !dirty }
+
+          className={`w-full lg:w-1/3 py-3 font-bold rounded-lg shadow-lg border-2 text-white bg-gradient-to-r from-[#008C7E] to-[#00B597] border-[#00B597] hover:opacity-90 `}
         >
           Next
-        </button>
+        </Button>
       </div>
     </div>
   );
