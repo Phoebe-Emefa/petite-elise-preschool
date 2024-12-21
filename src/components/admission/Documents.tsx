@@ -8,14 +8,12 @@ type DocumentsProps = {
   values: IEnrollChild;
   nextStep: () => void;
   prevStep: () => void;
-  setFieldValue: (name: string, val: any) => void;
   errors: Record<string, any>;
   dirty: boolean;
 };
 
 const Documents = ({
   values,
-  setFieldValue,
   nextStep,
   prevStep,
   errors,

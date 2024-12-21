@@ -284,7 +284,6 @@ const EnrolChild = () => {
                 nextStep={nextStep}
                 prevStep={prevStep}
                 errors={errors}
-                dirty={dirty}
               />
             )}
             {!shouldSkipDocumentsPage && currentStep === 5 && (
@@ -292,7 +291,6 @@ const EnrolChild = () => {
                 values={values}
                 nextStep={nextStep}
                 prevStep={prevStep}
-                setFieldValue={setFieldValue}
                 errors={errors}
                 dirty={dirty}
               />

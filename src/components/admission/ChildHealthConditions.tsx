@@ -11,13 +11,12 @@ type ChildHealthConditionsProps = {
   nextStep: () => void;
   prevStep: () => void;
   errors: Record<string, any>;
-  dirty: boolean;
 };
 
 const ChildHealthConditions = ({
   values,
   nextStep,
-  prevStep,errors,dirty,
+  prevStep,errors,
 }: ChildHealthConditionsProps) => {
   const options = [
     { label: "ADHD", value: "ADHD" },

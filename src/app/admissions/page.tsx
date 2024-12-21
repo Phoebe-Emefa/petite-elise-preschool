@@ -1,4 +1,3 @@
-import EnrolChild from "@/components/admission/EnrolChild";
 import SendMessage from "@/components/contact/SendMessage";
 
 import React from "react";

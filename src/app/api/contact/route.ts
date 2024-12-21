@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import { mailOptions, transporter } from "../../../../config/nodemailer";
 import { emailHtmlTemplate } from "@/utils/template";

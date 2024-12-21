@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Input from "../shared/forms/Input";
 import { Button } from "../ui/button";
+import moment from "moment";
 
 type ExistingInfoCheckProps = {
   isChildAlreadyEnrolled: string;
@@ -131,7 +132,7 @@ useEffect(() => {
                 {child.childName}
               </h3>
               <p className="text-sm text-gray-500">
-                Date of Birth: {child.childDOB}
+                Date of Birth: {moment(child.childDOB).format("YYYY-MM-DD")}
               </p>
             </div>
           );

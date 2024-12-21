@@ -1,5 +1,4 @@
 import ContactInfo from "@/components/contact/ContactInfo";
-import SendMessage from "@/components/contact/SendMessage";
 import CTA from "@/components/programs/CTA";
 import React from "react";
 

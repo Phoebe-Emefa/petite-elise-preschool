@@ -21,7 +21,7 @@ const Curriculum = () => {
               <h4 className="text-2xl font-bold mb-4 text-cyan-600">EYFS Curriculum</h4>
               <p className="text-gray-700 leading-relaxed">
                 At Petite Elise Preschool, we follow the British Early Years Foundation Stage (EYFS) curriculum, a
-                globally recognized framework that supports children's development through play-based learning. EYFS
+                globally recognized framework that supports children&apos;s development through play-based learning. EYFS
                 focuses on nurturing the whole child, promoting skills in communication, physical development, literacy,
                 numeracy, and personal, social, and emotional growth.
               </p>

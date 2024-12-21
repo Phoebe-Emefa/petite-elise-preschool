@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export function emailHtmlTemplate(htmlData: any) {
     return `
       <!DOCTYPE html>
