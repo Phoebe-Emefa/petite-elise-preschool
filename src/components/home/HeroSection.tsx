@@ -97,8 +97,8 @@ const HeroSection = () => {
               <Image
                 src="/images/hero.png"
                 alt="Excited student"
-                width={380}
-                height={380}
+                width={420}
+                height={420}
                 className="object-contain"
               />
               <div className="absolute z-10 -top-[10%] md:top-[4%] lg:top-[6%] left-[1%] md:left-[15%] lg:left-[6%]">
