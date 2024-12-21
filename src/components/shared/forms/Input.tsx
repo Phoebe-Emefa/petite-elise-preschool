@@ -23,6 +23,9 @@ const Input: React.FC<InputProps> = ({ label, name, type = "text", placeholder, 
         id={name}
         type={type}
         placeholder={placeholder}
+        onBlur={field.onBlur}
+        value={field.value}
+        onChange={field.onChange}
         required={required}
         className={`mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none ${
           meta.touched && meta.error ? "border-red-500" : "border-gray-300"

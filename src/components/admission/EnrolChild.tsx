@@ -14,6 +14,7 @@ import { database, storage } from "@/app/appwrite"; // Import your Appwrite clie
 import { ID, Query } from "appwrite";
 import ExistingInfoCheck from "./ExistingInfoCheck";
 import { toast } from "react-toastify";
+import { enrollChildSchema } from "@/utils/validations";
 
 const EnrolChild = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -175,9 +176,10 @@ const EnrolChild = () => {
       }
     },
     enableReinitialize: true,
+    validationSchema: enrollChildSchema
   });
 
-  const { values, setFieldValue, handleSubmit, isSubmitting } = formik;
+  const { values,errors, setFieldValue, handleSubmit, isSubmitting } = formik;
 
   // Dynamic logic to skip the Documents page
   const shouldSkipDocumentsPage = values?.programs.every((program: string) =>
@@ -188,6 +190,10 @@ const EnrolChild = () => {
 
   const nextStep = () => setCurrentStep((prevStep) => prevStep + 1);
   const prevStep = () => setCurrentStep((prevStep) => prevStep - 1);
+
+
+  console.log("values", values)
+  console.log("errors", errors)
 
   return (
     <section

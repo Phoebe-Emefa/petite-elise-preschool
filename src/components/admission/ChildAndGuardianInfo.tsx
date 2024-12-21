@@ -101,7 +101,7 @@ const ChildAndGuardianInfo = ({ values, prevStep, nextStep }: ChildAndGuardianIn
                 push: (val: string) => void;
               }) => (
                 <div className="grid gap-2">
-                  {values?.dropOffNames?.length > 0 &&
+                  {values?.dropOffNames && values?.dropOffNames?.length > 0 &&
                     values?.dropOffNames?.map((val: any, index: any) => (
                       <div className="flex gap-5 items-center " key={index}>
                       <div className="w-full">
