@@ -2,7 +2,7 @@
 import { contactSchema } from "@/utils/validations";
 import { useFormik } from "formik";
 import React from "react";
-import { LuMail, LuMessageCircle, LuPhone, LuUser } from "react-icons/lu";
+import { LuMail,  LuPhone, LuUser } from "react-icons/lu";
 import { toast } from "react-toastify";
 
 const SendMessage = () => {
@@ -43,6 +43,7 @@ const SendMessage = () => {
           throw new Error("HTTP error! status: " + response.status);
         }
       } catch (error) {
+        console.log(error)
         toast.error("An error occurred. Try again");
       } finally {
         setSubmitting(false);

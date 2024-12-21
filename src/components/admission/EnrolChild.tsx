@@ -63,7 +63,8 @@ const EnrolChild = () => {
       // Get the file URL
       return storage.getFileView("67649552001d1f5f31ad", response.$id);
     } catch (error) {
-      toast.error("Failed to upload file to Appwrite");
+      console.log(error)
+      toast.error(`Failed to upload file to Appwrite`);
       throw new Error("Failed to upload file to Appwrite");
     }
   };
@@ -195,7 +196,7 @@ const EnrolChild = () => {
     validationSchema: enrollChildSchema
   });
 
-  const { values,errors, setFieldValue, handleSubmit, isSubmitting, isValid, dirty } = formik;
+  const { values,errors, setFieldValue, handleSubmit, isSubmitting,  dirty } = formik;
 
   // Dynamic logic to skip the Documents page
   const shouldSkipDocumentsPage = values?.programs.every((program: string) =>
@@ -299,7 +300,6 @@ const EnrolChild = () => {
               ? currentStep === 5
               : currentStep === 6) && (
               <Authorization
-                values={values}
                 prevStep={prevStep}
                 isSubmitting={isSubmitting}
                 errors={errors}

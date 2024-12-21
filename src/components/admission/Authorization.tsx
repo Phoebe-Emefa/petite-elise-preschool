@@ -4,7 +4,6 @@ import { Field } from "formik";
 import { Button } from "../ui/button";
 
 type AuthorizationProps = {
-  values: any;
   prevStep: () => void;
   isSubmitting: boolean;
   errors: Record<string, any>;
@@ -12,7 +11,6 @@ type AuthorizationProps = {
 };
 
 const Authorization = ({
-  values,
   prevStep,
   isSubmitting,
   errors,

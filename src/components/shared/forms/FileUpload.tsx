@@ -21,7 +21,6 @@ const FileUpload: React.FC<FileUploadProps> = ({
   const [file, setFile] = useState<File | null>(null);
   const [originalValueIsString, setOriginalValueIsString] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  // @ts-ignore
   const [field, meta, helpers] = useField(name);
 
   useEffect(() => {
