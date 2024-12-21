@@ -1,6 +1,6 @@
 // pages/building-blocks-club.tsx
 
-import ClubGallery from "@/components/club/ClubGallery";
+// import ClubGallery from "@/components/club/ClubGallery";
 import CTA from "@/components/programs/CTA";
 import Link from "next/link";
 
@@ -92,7 +92,7 @@ const BuildingBlocksClub = () => {
         </div>
       </section>
 
-      <ClubGallery />
+      {/* <ClubGallery /> */}
       <CTA />
     </div>
   );
