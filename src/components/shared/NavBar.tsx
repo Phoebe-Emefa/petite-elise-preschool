@@ -37,7 +37,7 @@ const NavBar: React.FC = () => {
         </Link>
 
         {/* Navigation Links on Larger Screens */}
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden lg:flex space-x-6">
           {navigation?.map((nav) => (
             <Link
               key={nav?.title}
@@ -54,7 +54,7 @@ const NavBar: React.FC = () => {
         </ul>
 
         {/* Right Section on Larger Screens */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-4">
           {/* Admissions Button */}
           <a
             href="/admissions"
@@ -65,7 +65,7 @@ const NavBar: React.FC = () => {
         </div>
 
         {/* Mobile Menu Icon */}
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <FiMenu
             onClick={toggleMenu}
             size={30}

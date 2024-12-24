@@ -7,6 +7,12 @@ import Link from "next/link";
 const BuildingBlocksClub = () => {
   const programs = [
     {
+      title: "Saturday Kids Club",
+      period: "January to December",
+      description:
+        "Kids are dropped off on Saturdays for either half day or full day",
+    },
+    {
       title: "Summer Camp",
       period: "July to September",
       description:
@@ -43,7 +49,7 @@ const BuildingBlocksClub = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-12">
           <div className="text-center space-y-8">
             <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight ">
-              Welcome to our Kids Club!
+            Welcome to Building Blocks Club!
             </h1>
             <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
               Building Blocks Club was set up to engage kids in experiential

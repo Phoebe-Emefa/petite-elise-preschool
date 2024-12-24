@@ -6,7 +6,7 @@ export const navigation: { title: string; href: string }[] = [
     { title: "About", href: "/about" },
     { title: "Programs", href: "/programs" },
     { title: "Trustees", href: "/trustees" },
-    { title: "Club", href: "/club" },
+    { title: "Building Blocks Club", href: "/club" },
     { title: "Contact", href: "/contact" },
   ]
 
@@ -60,8 +60,8 @@ export const navigation: { title: string; href: string }[] = [
       title: "Daycare",
       time: "8am-3pm",
       description:
-        "Enrolling babies from 3 months-2years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.  In addition, our Baby & Me class meets once a month with Speechie Ad, our favorite Speechie and Language Therapist. ",
-      ageGroup: "3months-2years",
+        "Enrolling babies from 3months-3years. We have 3 classes and age groups in our Daycare Block . Prewalkers, Walkers and Nursery 1. We have flexible options available as we understand babies take time to adjust. Daily, Weekly, Monthly and Termly Registration available.  In addition, our Baby & Me class meets once a month with Speechie Ad, our favorite Speechie and Language Therapist. ",
+      ageGroup: "3months-3years",
       schedule: "Monday -Friday 8am -3pm",
       activities: ["Development Boosting Activities", "Rhyme Time", "Story Time", "Playtime", "Naptime "],
     },
