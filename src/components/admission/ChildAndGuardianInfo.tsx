@@ -46,10 +46,7 @@ const ChildAndGuardianInfo = ({
 
   const hasErrors = componentErrors.length > 0;
 
-  console.log("componentErrors", componentErrors)
-  console.log("dirty:", dirty);
-  console.log("errors:", errors);
-  console.log("hasErrors:", hasErrors);
+
   
   return (
     <div>
@@ -197,7 +194,7 @@ const ChildAndGuardianInfo = ({
         <Button
           type="button"
           onClick={nextStep}
-          disabled={hasErrors ||  !dirty }
+          // disabled={hasErrors ||  !dirty }
 
           className={`w-full lg:w-1/3 py-3 font-bold rounded-lg shadow-lg border-2 text-white bg-gradient-to-r from-[#008C7E] to-[#00B597] border-[#00B597] hover:opacity-90 `}
         >
