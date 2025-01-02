@@ -108,7 +108,6 @@ const ChildAndGuardianInfo = ({
           />
           <Input
             label="⁠Emergency Contact’s Relationship with Child"
-            type="tel"
             name="emergencyContactRelationshipToChild"
             required
           />
