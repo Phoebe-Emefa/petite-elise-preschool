@@ -36,7 +36,6 @@ const ChildAndGuardianInfo = ({
       (today.getFullYear() - selectedDate.getFullYear()) * 12 +
       (today.getMonth() - selectedDate.getMonth());
 
-    // Update the Formik state
     setFieldValue("childDOB", dateValue);
     setFieldValue("childAge", ageInMonths > 0 ? ageInMonths : "");
   };

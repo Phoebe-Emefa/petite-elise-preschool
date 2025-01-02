@@ -102,7 +102,7 @@ const ChildHealthConditions = ({
             required
           />
           {values?.hasSibling === true && (
-            <Input label="Sibling’s Full Name" name="sibling" required />
+            <Input label="Existing Sibling’s Full Name" name="sibling" required />
           )}
         </div>
       </div>
