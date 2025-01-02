@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { FormikProvider, useFormik } from "formik";
 import { toast } from "react-toastify";
@@ -23,6 +23,10 @@ const EnrolChild = () => {
   const [selectedChild, setSelectedChild] = useState<any>(null);
   const [isEnrollmentSuccessful, setIsEnrollmentSuccessful] =
     useState<boolean>(false);
+
+    useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [currentStep]);
 
   const fetchAllDocuments = async (
     parentEmail: string,
