@@ -13,9 +13,6 @@ const Students = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
 
-  console.log("supabase", supabase);
-  console.log("students", students);
-  console.log("fetchError", fetchError);
 
   const fetchStudents = async () => {
     setIsLoading(true);

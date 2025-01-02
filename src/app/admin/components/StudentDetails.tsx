@@ -18,7 +18,6 @@ const StudentDetails = ({
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   data: any;
 }) => {
-  console.log("selected", data);
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent
