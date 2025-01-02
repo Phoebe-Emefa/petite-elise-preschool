@@ -28,17 +28,20 @@ const ChildAndGuardianInfo = ({
     setFieldValue: (field: string, value: any) => void
   ) => {
     const dateValue = event.target.value;
-
+  
     // Calculate age in months
     const today = new Date();
     const selectedDate = new Date(dateValue);
     const ageInMonths =
       (today.getFullYear() - selectedDate.getFullYear()) * 12 +
       (today.getMonth() - selectedDate.getMonth());
-
+  
+    const ageDisplay = ageInMonths > 0 ? `${ageInMonths} months` : "";
+  
     setFieldValue("childDOB", dateValue);
-    setFieldValue("childAge", ageInMonths > 0 ? ageInMonths : "");
+    setFieldValue("childAge", ageDisplay);
   };
+  
 
   return (
     <div>
