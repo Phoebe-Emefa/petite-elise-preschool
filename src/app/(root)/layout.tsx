@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 
-import "./globals.css";
+import "../globals.css";
 import NavBar from "@/components/shared/NavBar";
 import Footer from "@/components/shared/Footer";
-import Provider from "./provider";
+import Provider from "../provider";
 
 const quickSand = Quicksand({
   subsets: ["latin"],

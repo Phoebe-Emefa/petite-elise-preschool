@@ -7,41 +7,54 @@ import supabase from "@/utils/supabaseClient";
 import StudentDetails from "../components/StudentDetails";
 
 const Students = () => {
-  const [fetchError, setfetchError] = useState<any>(null);
+  const [fetchError, setFetchError] = useState<any>(null);
   const [students, setStudents] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
 
+  console.log("supabase", supabase);
   console.log("students", students);
   console.log("fetchError", fetchError);
 
-  useEffect(() => {
-    const fetchStudents = async () => {
+  const fetchStudents = async () => {
+    setIsLoading(true);
+    setFetchError(null); 
+    try {
       const { data, error } = await supabase.from("children").select();
       if (error) {
         console.error("Supabase error details:", error);
-        setfetchError(error?.message || "An unexpected error occurred");
+        setFetchError(error?.message || "An unexpected error occurred");
         setStudents(null);
-      }
-
-      if (data) {
+      } else {
         setStudents(data);
-        setfetchError(null);
       }
-    };
+    } catch (error) {
+      setFetchError("Failed to fetch data. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchStudents();
   }, []);
 
   return (
     <div>
-      {fetchError && <div>Sorry, an error occured while fetching data </div>}
-      {students && (
+      {isLoading && <div>Loading data, please wait...</div>}
+      {fetchError && (
+        <div>
+          <div>Sorry, an error occurred while fetching data: {fetchError}</div>
+          <button onClick={fetchStudents}>Retry</button>
+        </div>
+      )}
+      {!isLoading && !fetchError && students && (
         <CustomTable
           data={students}
           columns={userColumns(setSelectedData, setIsOpen)}
         />
       )}
-      {/* <CustomTable data={students} columns={userColumns} /> */}
       {isOpen && (
         <StudentDetails
           isOpen={isOpen}
