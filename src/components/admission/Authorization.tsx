@@ -6,24 +6,9 @@ import { Button } from "../ui/button";
 type AuthorizationProps = {
   prevStep: () => void;
   isSubmitting: boolean;
-  errors: Record<string, any>;
-  dirty: boolean;
 };
 
-const Authorization = ({
-  prevStep,
-  isSubmitting,
-  errors,
-  dirty,
-}: AuthorizationProps) => {
-  const relevantFields = ["photographUsageConsent"];
-
-  // Filter errors to include only relevant fields
-  const componentErrors = Object.keys(errors).filter((field) =>
-    relevantFields.includes(field)
-  );
-
-  const hasErrors = componentErrors.length > 0;
+const Authorization = ({ prevStep, isSubmitting }: AuthorizationProps) => {
   return (
     <div className="my-10">
       <div>
@@ -94,7 +79,7 @@ const Authorization = ({
         </div>
       </div>
 
-      <div className="w-full flex justify-between gap-4 mt-8">
+      <div className="w-full flex flex-col lg:flex-row justify-between gap-4 mt-8">
         <Button
           type="button"
           variant="outline"
@@ -110,8 +95,6 @@ const Authorization = ({
         >
           {isSubmitting ? "Registering..." : "Register Your Child"}
         </Button>
-
-     
       </div>
     </div>
   );

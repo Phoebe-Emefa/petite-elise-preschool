@@ -11,14 +11,12 @@ type ChildHealthConditionsProps = {
   values: IEnrollChild;
   nextStep: () => void;
   prevStep: () => void;
-  errors: Record<string, any>;
 };
 
 const ChildHealthConditions = ({
   values,
   nextStep,
   prevStep,
-  errors,
 }: ChildHealthConditionsProps) => {
   const options = [
     { label: "ADHD", value: "ADHD" },
@@ -27,20 +25,6 @@ const ChildHealthConditions = ({
     { label: "None", value: "None" },
     { label: "Other", value: "Other" },
   ];
-
-  const relevantFields = [
-    "hasAllergies",
-    "allergies",
-    "hasSpecialHealthConditions",
-    "specialHealthConditions",
-  ];
-
-  // Filter errors to include only relevant fields
-  const componentErrors = Object.keys(errors).filter((field) =>
-    relevantFields.includes(field)
-  );
-
-  const hasErrors = componentErrors.length > 0;
 
   const foodOptions = [
     {
@@ -137,8 +121,6 @@ const ChildHealthConditions = ({
         <Button
           type="button"
           onClick={nextStep}
-          // disabled={hasErrors }
-
           className={`w-full lg:w-1/3 py-3 font-bold rounded-lg shadow-lg border-2 text-white bg-gradient-to-r from-[#008C7E] to-[#00B597] border-[#00B597] hover:opacity-90 `}
         >
           Next

@@ -8,19 +8,24 @@ type ProgramSelectionProps = {
   setFieldValue: (field: string, value: any, shouldValidate?: boolean) => void;
   nextStep: () => void;
   prevStep: () => void;
-  errors: Record<string, any>;
-  dirty: boolean;
 };
 
-const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldValue,   errors,
-  dirty, nextStep, prevStep }) => {
+const ProgramSelection: React.FC<ProgramSelectionProps> = ({
+  values,
+  setFieldValue,
+  nextStep,
+  prevStep,
+}) => {
   const programOptions = [
     { label: "Daycare", value: "Daycare" },
     { label: "Preschool", value: "Preschool" },
     { label: "Afterschool Care", value: "Afterschool Care" },
     { label: "Baby & Me", value: "Baby & Me" },
     { label: "Developmental Playgroup", value: "Developmental Playgroup" },
-    { label: "Experiental Learning Activities", value: "“Experiental Learning Activities" },
+    {
+      label: "Experiental Learning Activities",
+      value: "“Experiental Learning Activities",
+    },
     { label: "Summer Camp", value: "Summer Camp" },
     { label: "Christmas Camp", value: "Christmas Camp" },
     { label: "Childminding", value: "Childminding" },
@@ -41,20 +46,6 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = ({ values, setFieldVal
       setFieldValue("schedule", "", false);
     }
   }, [isDaycareSelected, values, setFieldValue]);
-
-  const relevantFields = [
-    "programs",
-    "dayCareSchedule",
-  
-  ];
-
-  // Filter errors to include only relevant fields
-  const componentErrors = Object.keys(errors).filter((field) =>
-    relevantFields.includes(field)
-  );
-
-  const hasErrors = componentErrors.length > 0;
-
 
   return (
     <div>

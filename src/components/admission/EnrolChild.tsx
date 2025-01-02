@@ -16,13 +16,18 @@ import Link from "next/link";
 
 const EnrolChild = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
-  const [isChildAlreadyEnrolled, setIsChildAlreadyEnrolled] = useState<string>("");
+  const [isChildAlreadyEnrolled, setIsChildAlreadyEnrolled] =
+    useState<string>("");
   const [existingData, setExistingData] = useState<any>(null);
   const [fetchingData, setFetchingData] = useState<boolean>(false);
   const [selectedChild, setSelectedChild] = useState<any>(null);
-  const [isEnrollmentSuccessful, setIsEnrollmentSuccessful] = useState<boolean>(false);
+  const [isEnrollmentSuccessful, setIsEnrollmentSuccessful] =
+    useState<boolean>(false);
 
-  const fetchAllDocuments = async (parentEmail: string, parentPhoneNumber: string) => {
+  const fetchAllDocuments = async (
+    parentEmail: string,
+    parentPhoneNumber: string
+  ) => {
     try {
       setFetchingData(true);
       setSelectedChild(null);
@@ -59,11 +64,16 @@ const EnrolChild = () => {
       parentWhatsappNumber: selectedChild?.parentWhatsappNumber || "",
       address: selectedChild?.address || "",
       emergencyContactName: selectedChild?.emergencyContactName || "",
-      emergencyContactPhoneNumber: selectedChild?.emergencyContactPhoneNumber || "",
-      emergencyContactWhatsappNumber: selectedChild?.emergencyContactWhatsappNumber || "",
-      emergencyContactRelationshipToChild: selectedChild?.emergencyContactRelationshipToChild || "",
+      emergencyContactPhoneNumber:
+        selectedChild?.emergencyContactPhoneNumber || "",
+      emergencyContactWhatsappNumber:
+        selectedChild?.emergencyContactWhatsappNumber || "",
+      emergencyContactRelationshipToChild:
+        selectedChild?.emergencyContactRelationshipToChild || "",
       dropChildOffSelf: selectedChild?.dropChildOffSelf || "",
-      dropOffNames: selectedChild?.dropOffNames || [{ name: "", relationToChild: "" }],
+      dropOffNames: selectedChild?.dropOffNames || [
+        { name: "", relationToChild: "" },
+      ],
       programs: selectedChild?.programs || [],
       dayCareSchedule: selectedChild?.dayCareSchedule || "",
       feeding: selectedChild?.feeding || "",
@@ -71,7 +81,8 @@ const EnrolChild = () => {
       sibling: selectedChild?.sibling || "",
       hasAllergies: selectedChild?.hasAllergies || "",
       allergies: selectedChild?.allergies || [],
-      hasSpecialHealthConditions: selectedChild?.hasSpecialHealthConditions || "",
+      hasSpecialHealthConditions:
+        selectedChild?.hasSpecialHealthConditions || "",
       specialHealthConditions: selectedChild?.specialHealthConditions || [],
       photographUsageConsent: selectedChild?.photographUsageConsent || "",
     },
@@ -110,15 +121,18 @@ const EnrolChild = () => {
         className="py-12 md:py-20 bg-gradient-to-r from-[#ffec89] to-[#a9e2a0] text-[#2d3d3d] animate-fadeIn"
       >
         <div className="max-w-5xl mx-auto px-2 md:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-green-600">Enrollment Successful!</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-green-600">
+            Enrollment Successful!
+          </h2>
           <p className="mt-4 text-lg md:text-xl text-gray-700">
-            Your child has been enrolled successfully. Thank you for choosing us!
+            Your child has been enrolled successfully. Thank you for choosing
+            us!
           </p>
           <div className="flex flex-col lg:flex-row justify-center items-center gap-6 mt-8 ">
             <button
               onClick={() => {
-                setIsEnrollmentSuccessful(false)
-                setCurrentStep(1)
+                setIsEnrollmentSuccessful(false);
+                setCurrentStep(1);
               }}
               className="bg-green-500 hover:bg-green-600 text-white py-2 px-6 rounded-md w-full lg:w-fit"
             >
@@ -136,7 +150,7 @@ const EnrolChild = () => {
     );
   }
 
-  const { values, errors, setFieldValue, handleSubmit, isSubmitting, dirty } = formik;
+  const { values, setFieldValue, handleSubmit, isSubmitting } = formik;
 
   const totalSteps = 5;
 
@@ -150,23 +164,29 @@ const EnrolChild = () => {
     >
       <div className="max-w-5xl mx-auto px-2 md:px-8">
         <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold">Enroll Your Child</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold">
+            Enroll Your Child
+          </h2>
           <p className="mt-4 text-md md:text-lg text-gray-600">
-            Fill out the form below to get started on your child’s amazing journey with us!
+            Fill out the form below to get started on your child’s amazing
+            journey with us!
           </p>
         </div>
         <FormikProvider value={formik}>
-          <form onSubmit={handleSubmit} className="bg-white p-4 md:p-10 rounded-3xl shadow-lg">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white p-4 md:p-10 rounded-3xl shadow-lg"
+          >
             <div className="flex justify-between w-full font-bold">
               {currentStep === 1
                 ? "Existing Child Check"
                 : currentStep === 2
-                ? "Child and Guardian Information"
-                : currentStep === 3
-                ? "Program Selection and Schedule"
-                : currentStep === 4
-                ? "Feeding, Health Conditions and Allergies"
-                : "Required Documents and Photograph Usage Authorization"}
+                  ? "Child and Guardian Information"
+                  : currentStep === 3
+                    ? "Program Selection and Schedule"
+                    : currentStep === 4
+                      ? "Feeding, Health Conditions and Allergies"
+                      : "Required Documents and Photograph Usage Authorization"}
               <h5 className="text-xs md:text-base">{`Step ${currentStep} / ${totalSteps}`}</h5>
             </div>
             {currentStep === 1 && (
@@ -186,10 +206,9 @@ const EnrolChild = () => {
             {currentStep === 2 && (
               <ChildAndGuardianInfo
                 values={values}
+                setFieldValue={setFieldValue}
                 prevStep={prevStep}
                 nextStep={nextStep}
-                errors={errors}
-                dirty={dirty}
               />
             )}
             {currentStep === 3 && (
@@ -198,8 +217,6 @@ const EnrolChild = () => {
                 nextStep={nextStep}
                 prevStep={prevStep}
                 setFieldValue={setFieldValue}
-                errors={errors}
-                dirty={dirty}
               />
             )}
             {currentStep === 4 && (
@@ -207,16 +224,10 @@ const EnrolChild = () => {
                 values={values}
                 nextStep={nextStep}
                 prevStep={prevStep}
-                errors={errors}
               />
             )}
             {currentStep === 5 && (
-              <Authorization
-                prevStep={prevStep}
-                isSubmitting={isSubmitting}
-                errors={errors}
-                dirty={dirty}
-              />
+              <Authorization prevStep={prevStep} isSubmitting={isSubmitting} />
             )}
           </form>
         </FormikProvider>

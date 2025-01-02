@@ -9,45 +9,38 @@ import { Button } from "../ui/button";
 
 type ChildAndGuardianInfoProps = {
   values: IEnrollChild;
+  setFieldValue: (field: string, val: string) => void;
   prevStep: () => void;
   nextStep: () => void;
-  errors: Record<string, any>;
-  dirty: boolean;
 };
 
 const ChildAndGuardianInfo = ({
   values,
+  setFieldValue,
   prevStep,
   nextStep,
-  errors,
-  dirty,
 }: ChildAndGuardianInfoProps) => {
-  const relevantFields = [
-    "childName",
-    "childDOB",
-    "childAge",
-    "parentName",
-    "parentEmail",
-    "parentPhoneNumber",
-    "parentWhatsappNumber",
-    "address",
-    "emergencyContactName",
-    "emergencyContactPhoneNumber",
-    "emergencyContactWhatsappNumber",
-    "emergencyContactRelationshipToChild",
-    "dropChildOffSelf",
-    "dropOffNames",
-  ];
-
-  // Filter errors to include only relevant fields
-  const componentErrors = Object.keys(errors).filter((field) =>
-    relevantFields.includes(field)
-  );
-
-  const hasErrors = componentErrors.length > 0;
 
 
-  
+
+  const handleDateChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    setFieldValue: (field: string, value: any) => void
+  ) => {
+    const dateValue = event.target.value;
+
+    // Calculate age in months
+    const today = new Date();
+    const selectedDate = new Date(dateValue);
+    const ageInMonths =
+      (today.getFullYear() - selectedDate.getFullYear()) * 12 +
+      (today.getMonth() - selectedDate.getMonth());
+
+    // Update the Formik state
+    setFieldValue("childDOB", dateValue);
+    setFieldValue("childAge", ageInMonths > 0 ? ageInMonths : "");
+  };
+
   return (
     <div>
       <div className="mb-10 mt-5">
@@ -58,11 +51,13 @@ const ChildAndGuardianInfo = ({
             name="childDOB"
             type="date"
             required
+            max={new Date().toISOString().split("T")[0]} 
+            onChange={(e) => handleDateChange(e, setFieldValue)}
           />
           <Input
-            label="Child’s Age "
+            label="Child’s Age (in months)"
             name="childAge"
-            placeholder="6 months"
+            value={values.childAge || ""}
             required
           />
           <Input label="⁠Parent’s Full Name" name="parentName" required />

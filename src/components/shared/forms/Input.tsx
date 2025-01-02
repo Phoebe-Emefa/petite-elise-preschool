@@ -1,31 +1,25 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import { useField } from "formik";
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   name: string;
-  type?: string;
-  placeholder?: string;
   required?: boolean;
 }
 
-const Input: React.FC<InputProps> = ({ label, name, type = "text", placeholder, required }) => {
+const Input: React.FC<InputProps> = ({ label, name, required, ...props }) => {
   const [field, meta] = useField(name);
 
   return (
     <div className="mb-4">
       <label htmlFor={name} className="block text-gray-700">
-        {label} 
+        {label}
         {required && <span className="text-red-500"> *</span>}
       </label>
       <input
-        {...field}
+        {...field} 
         id={name}
-        type={type}
-        placeholder={placeholder}
-        onBlur={field.onBlur}
-        value={field.value}
-        onChange={field.onChange}
+        {...props} 
         required={required}
         className={`mt-2 p-3 w-full border rounded-lg focus:ring-2 focus:ring-green-400 focus:outline-none ${
           meta.touched && meta.error ? "border-red-500" : "border-gray-300"
