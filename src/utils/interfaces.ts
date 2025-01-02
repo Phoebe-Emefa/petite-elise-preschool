@@ -16,27 +16,26 @@ export interface IEnrollChild {
     emergencyContactPhoneNumber: string;
     emergencyContactWhatsappNumber: string;
     emergencyContactRelationshipToChild: string;
-    dropChildOffSelf: string;
-    dropOffPersonOneName?: string;
-    dropOffPersonOneRelationToChild?: string;
-    dropOffPersonTwoName?: string;
-    dropOffPersonTwoRelationToChild?: string;
+    dropChildOffSelf: boolean;
     dropOffNames?: IDropOff[];
     programs: string[];
     dayCareSchedule?: string;
-    hasAllergies: string;
+    hasSibling: boolean;
+    sibling?: string;
+    feeding?: string;
+    hasAllergies: boolean;
     allergies?: string[]
-    hasSpecialHealthConditions: string;
+    hasSpecialHealthConditions: boolean;
     specialHealthConditions?: string[];
-    childPassport: FileOrUrl;
-    parentPassport: FileOrUrl;
-    emergencyContactPassport: FileOrUrl;
-    pickPersonOnePassport: FileOrUrl;
-    pickPersonTwoPassport: FileOrUrl;
-    G6pdReport: FileOrUrl;
-    vaccinations: FileOrUrl;
-    childEyeTest: FileOrUrl;
-    childHearingTest: FileOrUrl
+    // childPassport: FileOrUrl;
+    // parentPassport: FileOrUrl;
+    // emergencyContactPassport: FileOrUrl;
+    // pickPersonOnePassport: FileOrUrl;
+    // pickPersonTwoPassport: FileOrUrl;
+    // G6pdReport: FileOrUrl;
+    // vaccinations: FileOrUrl;
+    // childEyeTest: FileOrUrl;
+    // childHearingTest: FileOrUrl
     
     photographUsageConsent: string
 

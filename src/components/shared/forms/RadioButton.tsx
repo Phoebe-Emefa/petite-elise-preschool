@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { useField } from "formik";
 
 interface RadioButtonProps {
   label: string;
   name: string;
-  options: { label: string; value: string }[];
+  options: { label: string; value: boolean }[]; // Ensure values are boolean
   required?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void; // Added onChange prop
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const RadioButton: React.FC<RadioButtonProps> = ({
@@ -16,10 +17,11 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   required,
   onChange,
 }) => {
-  const [field, meta] = useField(name);
+  const [field, meta, helpers] = useField(name); // Access Formik helpers for explicit updates
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    field.onChange(event); // Update Formik state
+    const value = event.target.value === "true"; // Convert string to boolean
+    helpers.setValue(value); // Set the value explicitly in Formik
     if (onChange) {
       onChange(event); // Call the additional onChange handler
     }
@@ -33,17 +35,16 @@ const RadioButton: React.FC<RadioButtonProps> = ({
       </label>
       <div className="mt-2">
         {options.map((option) => (
-          <label key={option.value} className="inline-flex items-center mr-4">
+          <label key={String(option.value)} className="inline-flex items-center mr-4">
             <input
-              {...field}
               type="radio"
-              id={`${name}-${option.value}`}
-              value={option.value}
-              checked={field.value === option.value}
+              name={name}
+              value={String(option.value)} // Ensure value is a string for the input
+              checked={field.value === option.value} // Compare explicitly with boolean
               className={`form-radio text-green-400 border-gray-300 focus:ring-2 focus:ring-green-400 focus:outline-none ${
                 meta.touched && meta.error ? "border-red-500" : ""
               }`}
-              onChange={handleChange} // Use the custom onChange handler
+              onChange={handleChange}
             />
             <span className="ml-2 text-gray-700">{option.label}</span>
           </label>

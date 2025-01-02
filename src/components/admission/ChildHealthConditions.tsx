@@ -5,6 +5,7 @@ import RadioButton from "../shared/forms/RadioButton";
 import CustomInputList from "../shared/forms/CustomInputList";
 import { IEnrollChild } from "@/utils/interfaces";
 import { Button } from "../ui/button";
+import Input from "../shared/forms/Input";
 
 type ChildHealthConditionsProps = {
   values: IEnrollChild;
@@ -16,7 +17,8 @@ type ChildHealthConditionsProps = {
 const ChildHealthConditions = ({
   values,
   nextStep,
-  prevStep,errors,
+  prevStep,
+  errors,
 }: ChildHealthConditionsProps) => {
   const options = [
     { label: "ADHD", value: "ADHD" },
@@ -31,7 +33,6 @@ const ChildHealthConditions = ({
     "allergies",
     "hasSpecialHealthConditions",
     "specialHealthConditions",
-  
   ];
 
   // Filter errors to include only relevant fields
@@ -41,21 +42,40 @@ const ChildHealthConditions = ({
 
   const hasErrors = componentErrors.length > 0;
 
+  const foodOptions = [
+    {
+      label: "Feeding Full Package (breakfast , lunch, fruit snack) ",
+      value: "Full Package",
+    },
+    { label: "Feeding ( lunch)", value: "Lunch" },
+  ];
+
   return (
-    <div>
-      <div className="flex flex-col gap-6 mb-10 mt-5">
+    <div className="mb-10 mt-5">
+      <CustomSelect
+        label="Add Ons (optional)"
+        name="feeding"
+        options={foodOptions}
+        placeholder="Select an option"
+      />
+
+      <div className="flex flex-col gap-6 mt-8 ">
         <div>
           <RadioButton
             label="Does the child have any allergies? "
             name="hasAllergies"
             options={[
-              { label: "Yes", value: "Yes" },
-              { label: "No", value: "No" },
+              { label: "Yes", value: true },
+              { label: "No", value: false },
             ]}
             required
           />
-          {values?.hasAllergies === "Yes" && (
-            <CustomInputList label="Enter Allergies" name="allergies" required={values?.hasAllergies === "Yes" ? true : false} />
+          {values?.hasAllergies === true && (
+            <CustomInputList
+              label="Enter Allergies"
+              name="allergies"
+              required={values?.hasAllergies}
+            />
           )}
         </div>
 
@@ -64,27 +84,43 @@ const ChildHealthConditions = ({
             label="Does the child have any special health education considerations? "
             name="hasSpecialHealthConditions"
             options={[
-              { label: "Yes", value: "Yes" },
-              { label: "No", value: "No" },
+              { label: "Yes", value: true },
+              { label: "No", value: false },
             ]}
             required
           />
-          {values?.hasSpecialHealthConditions === "Yes" && (
-           <>
-             <CustomSelect
-             label="Special Health Consideration"
-             name="specialHealthConditions"
-             options={options}
-             required={values?.hasSpecialHealthConditions === "Yes" ? true : false}
-             isMulti
-             placeholder="Select special health consideration"
-           />
-             <p>Kindly see front desk for additional information regarding Special Education needs</p>
-           </>
+          {values?.hasSpecialHealthConditions === true && (
+            <>
+              <CustomSelect
+                label="Special Health Consideration"
+                name="specialHealthConditions"
+                options={options}
+                required={values?.hasSpecialHealthConditions}
+                isMulti
+                placeholder="Select special health consideration"
+              />
+              <p>
+                Kindly see front desk for additional information regarding
+                Special Education needs
+              </p>
+            </>
           )}
-        
         </div>
-      
+
+        <div>
+          <RadioButton
+            label="Are you enrolling a sibling?"
+            name="hasSibling"
+            options={[
+              { label: "Yes", value: true },
+              { label: "No", value: false },
+            ]}
+            required
+          />
+          {values?.hasSibling === true && (
+            <Input label="Sibling’s Full Name" name="sibling" required />
+          )}
+        </div>
       </div>
 
       <div className="w-full flex justify-between gap-4">

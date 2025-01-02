@@ -35,7 +35,7 @@ export const enrollChildSchema = Yup.object().shape({
   emergencyContactRelationshipToChild: Yup.string().required(
     "Relation to child is required"
   ),
-  dropChildOffSelf: Yup.string().required("This field is required"),
+  dropChildOffSelf: Yup.boolean().required("This field is required"),
   dropOffNames: Yup.array().when("dropChildOffSelf", {
     is: (val: string) => val === "No",
     then: (schema) =>
@@ -45,19 +45,29 @@ export const enrollChildSchema = Yup.object().shape({
         .max(2, "Exactly two drop-off names are required"),
     otherwise: (schema) => schema.notRequired(),
   }),
-  programs: Yup.array().required("Programs is required"),
+  programs: Yup.array()
+  .min(1, "At least one program must be selected")
+  .required("Programs is required"),
   dayCareSchedule: Yup.string().when("programs", {
     is: (programs: string[]) => programs.includes("Daycare"),
     then: (schema) => schema.required("Daycare schedule is required"),
     otherwise: (schema) => schema.notRequired(),
   }),
-  hasAllergies: Yup.string().required("This field is required"),
+  hasSibling: Yup.boolean().required("This field is required"),
+  sibling: Yup.string().when("hasSibling", {
+    is: (val: boolean) => val === true,
+    then: (schema) =>
+      schema
+        .required("This field is required"),
+    otherwise: (schema) => schema.notRequired(),
+  }),
+  hasAllergies: Yup.boolean().required("This field is required"),
   allergies: Yup.array().when("hasAllergies", {
     is: (val: string) => val === "Yes",
     then: (schema) => schema.required("Please provide allergy details"),
     otherwise: (schema) => schema.notRequired(),
   }),
-  hasSpecialHealthConditions: Yup.string().required("This field is required"),
+  hasSpecialHealthConditions: Yup.boolean().required("This field is required"),
   specialHealthConditions: Yup.array().when("hasSpecialHealthConditions", {
     is: (val: string) => val === "Yes",
     then: (schema) =>
@@ -67,142 +77,142 @@ export const enrollChildSchema = Yup.object().shape({
   photographUsageConsent: Yup.string().required("This field is required"),
 
   // File upload fields with conditional validation
-  childPassport: Yup.mixed().when("programs", (programs: string[], schema) => {
-    const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
-    return programs.every((program) => optionalPrograms.includes(program))
-      ? schema.notRequired()
-      : schema
-          .required("Child Passport is required.")
-          .test(
-            "fileSize",
-            "File size is too large. Maximum size is 5MB.",
-            (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-          );
-  }),
-  parentPassport: Yup.mixed().when("programs", (programs: string[], schema) => {
-    const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
-    return programs.every((program) => optionalPrograms.includes(program))
-      ? schema.notRequired()
-      : schema
-          .required("Parent Passport is required.")
-          .test(
-            "fileSize",
-            "File size is too large. Maximum size is 5MB.",
-            (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-          );
-  }),
-  emergencyContactPassport: Yup.mixed().when(
-    "programs",
-    (programs: string[], schema) => {
-      const optionalPrograms = [
-        "Summer Camp",
-        "Christmas Camp",
-        "Childminding",
-      ];
-      return programs.every((program) => optionalPrograms.includes(program))
-        ? schema.notRequired()
-        : schema
-            .required("Emergency Contact Passport is required.")
-            .test(
-              "fileSize",
-              "File size is too large. Maximum size is 5MB.",
-              (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-            );
-    }
-  ),
-  pickPersonOnePassport: Yup.mixed().when(
-    "programs",
-    (programs: string[], schema) => {
-      const optionalPrograms = [
-        "Summer Camp",
-        "Christmas Camp",
-        "Childminding",
-      ];
-      return programs.every((program) => optionalPrograms.includes(program))
-        ? schema.notRequired()
-        : schema
-            .required("Pick Person One Passport is required.")
-            .test(
-              "fileSize",
-              "File size is too large. Maximum size is 5MB.",
-              (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-            );
-    }
-  ),
-  pickPersonTwoPassport: Yup.mixed().when(
-    "programs",
-    (programs: string[], schema) => {
-      const optionalPrograms = [
-        "Summer Camp",
-        "Christmas Camp",
-        "Childminding",
-      ];
-      return programs.every((program) => optionalPrograms.includes(program))
-        ? schema.notRequired()
-        : schema
-            .required("Pick Person Two Passport is required.")
-            .test(
-              "fileSize",
-              "File size is too large. Maximum size is 5MB.",
-              (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-            );
-    }
-  ),
+  // childPassport: Yup.mixed().when("programs", (programs: string[], schema) => {
+  //   const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
+  //   return programs.every((program) => optionalPrograms.includes(program))
+  //     ? schema.notRequired()
+  //     : schema
+  //         .required("Child Passport is required.")
+  //         .test(
+  //           "fileSize",
+  //           "File size is too large. Maximum size is 5MB.",
+  //           (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //         );
+  // }),
+  // parentPassport: Yup.mixed().when("programs", (programs: string[], schema) => {
+  //   const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
+  //   return programs.every((program) => optionalPrograms.includes(program))
+  //     ? schema.notRequired()
+  //     : schema
+  //         .required("Parent Passport is required.")
+  //         .test(
+  //           "fileSize",
+  //           "File size is too large. Maximum size is 5MB.",
+  //           (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //         );
+  // }),
+  // emergencyContactPassport: Yup.mixed().when(
+  //   "programs",
+  //   (programs: string[], schema) => {
+  //     const optionalPrograms = [
+  //       "Summer Camp",
+  //       "Christmas Camp",
+  //       "Childminding",
+  //     ];
+  //     return programs.every((program) => optionalPrograms.includes(program))
+  //       ? schema.notRequired()
+  //       : schema
+  //           .required("Emergency Contact Passport is required.")
+  //           .test(
+  //             "fileSize",
+  //             "File size is too large. Maximum size is 5MB.",
+  //             (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //           );
+  //   }
+  // ),
+  // pickPersonOnePassport: Yup.mixed().when(
+  //   "programs",
+  //   (programs: string[], schema) => {
+  //     const optionalPrograms = [
+  //       "Summer Camp",
+  //       "Christmas Camp",
+  //       "Childminding",
+  //     ];
+  //     return programs.every((program) => optionalPrograms.includes(program))
+  //       ? schema.notRequired()
+  //       : schema
+  //           .required("Pick Person One Passport is required.")
+  //           .test(
+  //             "fileSize",
+  //             "File size is too large. Maximum size is 5MB.",
+  //             (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //           );
+  //   }
+  // ),
+  // pickPersonTwoPassport: Yup.mixed().when(
+  //   "programs",
+  //   (programs: string[], schema) => {
+  //     const optionalPrograms = [
+  //       "Summer Camp",
+  //       "Christmas Camp",
+  //       "Childminding",
+  //     ];
+  //     return programs.every((program) => optionalPrograms.includes(program))
+  //       ? schema.notRequired()
+  //       : schema
+  //           .required("Pick Person Two Passport is required.")
+  //           .test(
+  //             "fileSize",
+  //             "File size is too large. Maximum size is 5MB.",
+  //             (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //           );
+  //   }
+  // ),
 
-  G6pdReport: Yup.mixed().when("programs", (programs: string[], schema) => {
-    const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
-    return programs.every((program) => optionalPrograms.includes(program))
-      ? schema.notRequired()
-      : schema
-          .required("G6PD Report is required.")
-          .test(
-            "fileSize",
-            "File size is too large. Maximum size is 5MB.",
-            (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-          );
-  }),
+  // G6pdReport: Yup.mixed().when("programs", (programs: string[], schema) => {
+  //   const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
+  //   return programs.every((program) => optionalPrograms.includes(program))
+  //     ? schema.notRequired()
+  //     : schema
+  //         .required("G6PD Report is required.")
+  //         .test(
+  //           "fileSize",
+  //           "File size is too large. Maximum size is 5MB.",
+  //           (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //         );
+  // }),
 
-  vaccinations: Yup.mixed().when("programs", (programs: string[], schema) => {
-    const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
-    return programs.every((program) => optionalPrograms.includes(program))
-      ? schema.notRequired()
-      : schema
-          .required("Vaccination is required.")
-          .test(
-            "fileSize",
-            "File size is too large. Maximum size is 5MB.",
-            (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-          );
-  }),
-  childHearingTest: Yup.mixed().when(
-    "programs",
-    (programs: string[], schema) => {
-      const optionalPrograms = [
-        "Summer Camp",
-        "Christmas Camp",
-        "Childminding",
-      ];
-      return programs.every((program) => optionalPrograms.includes(program))
-        ? schema.notRequired()
-        : schema
-            .required("Hearing Test is required.")
-            .test(
-              "fileSize",
-              "File size is too large. Maximum size is 5MB.",
-              (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-            );
-    }
-  ),
-  childEyeTest: Yup.mixed().when("programs", (programs: string[], schema) => {
-    const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
-    return programs.every((program) => optionalPrograms.includes(program))
-      ? schema.notRequired()
-      : schema
-          .required("Eye Test is required.")
-          .test(
-            "fileSize",
-            "File size is too large. Maximum size is 5MB.",
-            (value) => value instanceof File && value.size <= MAX_FILE_SIZE
-          );
-  }),
+  // vaccinations: Yup.mixed().when("programs", (programs: string[], schema) => {
+  //   const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
+  //   return programs.every((program) => optionalPrograms.includes(program))
+  //     ? schema.notRequired()
+  //     : schema
+  //         .required("Vaccination is required.")
+  //         .test(
+  //           "fileSize",
+  //           "File size is too large. Maximum size is 5MB.",
+  //           (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //         );
+  // }),
+  // childHearingTest: Yup.mixed().when(
+  //   "programs",
+  //   (programs: string[], schema) => {
+  //     const optionalPrograms = [
+  //       "Summer Camp",
+  //       "Christmas Camp",
+  //       "Childminding",
+  //     ];
+  //     return programs.every((program) => optionalPrograms.includes(program))
+  //       ? schema.notRequired()
+  //       : schema
+  //           .required("Hearing Test is required.")
+  //           .test(
+  //             "fileSize",
+  //             "File size is too large. Maximum size is 5MB.",
+  //             (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //           );
+  //   }
+  // ),
+  // childEyeTest: Yup.mixed().when("programs", (programs: string[], schema) => {
+  //   const optionalPrograms = ["Summer Camp", "Christmas Camp", "Childminding"];
+  //   return programs.every((program) => optionalPrograms.includes(program))
+  //     ? schema.notRequired()
+  //     : schema
+  //         .required("Eye Test is required.")
+  //         .test(
+  //           "fileSize",
+  //           "File size is too large. Maximum size is 5MB.",
+  //           (value) => value instanceof File && value.size <= MAX_FILE_SIZE
+  //         );
+  // }),
 });

@@ -45,7 +45,8 @@ const CustomSelect: React.FC<CustomSelectProps> = ({ label, name, options, requi
         classNamePrefix="react-select"
         {...props}
       />
-      {meta.touched && meta.error && (
+ 
+         {meta.touched && meta.error && (
         <p className="mt-1 text-sm text-red-500">{meta.error}</p>
       )}
     </div>

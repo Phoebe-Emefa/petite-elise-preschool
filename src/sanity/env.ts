@@ -8,14 +8,7 @@ export const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-07
 
 
 
-// FIREBASE
+// SUPABASE
+export const supabaseProjectUrl = process.env.NEXT_PUBLIC_SUBABSE_PROJECT_URL!
+export const supabaseAPIKey = process.env.NEXT_PUBLIC_SUPABASE_API_KEY!
 
-export const appWriteProjectID = process.env.NEXT_PUBLIC_PROJECT_ID!
-export const appWriteDatabaseID = process.env.NEXT_PUBLIC_DATABASE_ID!
-export const appwriteCollectionID = process.env.NEXT_PUBLIC_COLLECTION_ID!
-export const appwriteBucketID = process.env.NEXT_PUBLIC_BUCKET_ID!
-
-
-
-// APP
-export const appURL = process.env.NEXT_PUBLIC_API_KEY!

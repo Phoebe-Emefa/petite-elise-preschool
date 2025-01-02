@@ -116,19 +116,19 @@ const ChildAndGuardianInfo = ({
 
         <div className="border-b pt-8" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 pt-8">
+        <div className="grid grid-cols-1  gap-x-6 pt-8">
           <div className="col-span-1">
             <RadioButton
               label="Will you do the drop off & pick up of your child daily? (If no, please state two alternative names that may do the drop off and pick up) "
               name="dropChildOffSelf"
               options={[
-                { label: "Yes", value: "Yes" },
-                { label: "No", value: "No" },
+                { label: "Yes", value: true },
+                { label: "No", value: false },
               ]}
               required
             />
           </div>
-          {values?.dropChildOffSelf === "No" && (
+          {values?.dropChildOffSelf === false && (
             <div className="col-span-2">
               <FieldArray name="dropOffNames">
                 {({
