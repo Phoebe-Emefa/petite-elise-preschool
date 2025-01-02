@@ -24,7 +24,7 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = ({
     { label: "Developmental Playgroup", value: "Developmental Playgroup" },
     {
       label: "Experiental Learning Activities",
-      value: "“Experiental Learning Activities",
+      value: "Experiental Learning Activities",
     },
     { label: "Summer Camp", value: "Summer Camp" },
     { label: "Christmas Camp", value: "Christmas Camp" },
